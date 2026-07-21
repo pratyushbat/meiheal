@@ -1,0 +1,234 @@
+/* Variables */
+$primary-color: #2e7d32;
+$text-main: #1f2937;
+$text-muted: #6b7280;
+$bg-color: #f3f4f6;
+$card-bg: #ffffff;
+$border-radius: 12px;
+
+/* Container Layout */
+.success-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: $text-main;
+}
+
+/* Success Header Animation & Styling */
+.success-header {
+  text-align: center;
+  margin-bottom: 30px;
+
+  .icon-circle {
+    width: 64px;
+    height: 64px;
+    background: #def7ec;
+    color: #046c4e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #111827;
+  }
+  
+  p {
+    color: $text-muted;
+    font-size: 16px;
+  }
+}
+
+/* Receipt Card */
+.receipt-card {
+  background: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #e5e7eb;
+
+  .receipt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #d1d5db;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .status-badge {
+      background: #def7ec;
+      color: #046c4e;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  .receipt-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 24px;
+
+    .detail-group {
+      flex: 1 1 45%;
+      
+      label {
+        display: block;
+        font-size: 12px;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+      }
+      
+      p {
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .receipt-total {
+    background: #f9fafb;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+
+    .amount {
+      font-size: 20px;
+      color: $primary-color;
+    }
+  }
+}
+
+/* Next Steps Card */
+.next-steps-card {
+  background: #f8fafc;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+
+  h3 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #475569;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+
+  button {
+    flex: 1;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 15px;
+  }
+
+  .btn-primary {
+    background: $primary-color;
+    color: white;
+    border: none;
+    // &:hover { background: darken($primary-color, 5%); }
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: $text-main;
+    border: 1px solid #d1d5db;
+    &:hover { background: #f3f4f6; }
+  }
+}
+
+/* Loading Spinner */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid $primary-color;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Print Styles - Hides everything except the receipt when printing! */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .receipt-card, .receipt-card * {
+    visibility: visible;
+  }
+  .receipt-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+  }
+  .action-buttons, .next-steps-card, .success-header {
+    display: none;
+  }
+}
+
+
+
+.ref-id {
+  text-transform: uppercase;
+}

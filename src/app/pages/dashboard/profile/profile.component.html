@@ -1,0 +1,80 @@
+<div class="max-w-4xl mx-auto ">
+
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">My Profile</h1>
+    <p class="text-gray-500 mt-1">Manage your personal information and health preferences.</p>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+    
+    <div class="h-32 bg-gradient-to-r from-emerald-500 to-teal-500 w-full"></div>
+
+    <div class="px-6 md:px-10 pb-8 relative">
+      
+      <div class="flex justify-between items-end -mt-12 mb-8">
+        
+        <div class="relative">
+          <div class="w-24 h-24 bg-white rounded-full p-1 shadow-md">
+            <div class="w-full h-full bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-4xl font-bold">
+              {{ _authService.currentUser()?.firstName?.charAt(0) | uppercase }}
+            </div>
+          </div>
+        </div>
+
+        <button 
+          (click)="toggleEdit()" 
+          class="px-5 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm text-gray-700">
+          @if(isEditing()) { 
+            Cancel Edit 
+          } @else { 
+            Edit Profile 
+          }
+        </button>
+      </div>
+
+      <h3 class="text-lg font-semibold text-gray-800 border-b border-gray-100 pb-2 mb-6">Personal Details</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-500 mb-1">Full Name</label>
+          @if(isEditing()) {
+            <input type="text" [value]="_authService.currentUser()?.firstName" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all">
+          } @else {
+            <p class="text-gray-900 font-medium text-lg">{{ _authService.currentUser()?.firstName }}</p>
+          }
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-500 mb-1">Email Address</label>
+          @if(isEditing()) {
+            <input type="email" [value]="_authService.currentUser()?.email" disabled class="w-full px-4 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-500 cursor-not-allowed">
+          } @else {
+            <p class="text-gray-900 font-medium text-lg">{{ _authService.currentUser()?.email }}</p>
+          }
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-500 mb-1">Phone Number</label>
+          @if(isEditing()) {
+            <input type="tel" placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all">
+          } @else {
+            <p class="text-gray-900 font-medium text-lg">+91 98765 43210</p>
+          }
+        </div>
+
+      </div>
+
+      @if(isEditing()) {
+        <div class="flex justify-end pt-4 border-t border-gray-100">
+          <button 
+            (click)="saveProfile()" 
+            class="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors shadow-md">
+            Save Changes
+          </button>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+:root {
+  --clr-gray-100: hsl(0, 0%, 98%);
+  --clr-gray-600: hsl(0, 0%, 41%);
+  --clr-gray-900: hsl(0, 0%, 8%);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Components */
+button,
+.btn {
+  appearance: button;
+  // background: none;  /* changed this by me */
+  background: linear-gradient(135deg, #4338ca, #7e22ce);
+  color: white;
+  border: none;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-full-img {
+  display: block;
+  width: 100%;
+  height: 56vh;
+  // min-height: 450px;
+}
+
+.carousel {
+  display: inline-flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.carousel-item {
+  box-sizing: content-box;
+  display: flex;
+  flex: none;
+  scroll-snap-align: start;
+}
+
+/* CSS End  */
+/* --------------------------------------- */
+
+@reference "tailwindcss";
+.error {
+  @apply text-red-500 text-xs;
+}
+
+.py-20 {
+  padding-block: calc(var(--spacing) * 10);
+}
+
+.clw {
+  color: white;
+}
+
+.top-custom {
+  top: 15rem;
+}
+
+/* =========================================
+   6. Mobile Adjustments
+   ========================================= */
+@media (max-width: 768px) {
+  .top-custom {
+    top: 10rem;
+  }
+  .w-full-img {
+    height: auto;
+    min-height: 35vh;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

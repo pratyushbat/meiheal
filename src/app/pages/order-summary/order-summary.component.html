@@ -1,0 +1,214 @@
+@if (!orderData()) {
+  <div class="loading-state">
+    <div class="spinner"></div>
+    <p>Generating your receipt...</p>
+  </div>
+} @else {
+  @if (!_authService.isLoggedIn()) {
+    <section class="bg-gradient-to-br from-emerald-50 via-white to-green-50 py-12 pt-16 xs:pt-16">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <!-- Left Side -->
+          <div class="rounded-3xl bg-white p-8 shadow-lg border border-green-100">
+            <div
+              class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-green-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+
+            <h2 class="text-3xl font-bold text-gray-900">Create Your Account</h2>
+
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Your payment was successful! Create a password to securely access your dashboard,
+              consultation history,  Health Store plans, invoices, and future bookings.
+            </p>
+
+            <form [formGroup]="createPasswordForm" (ngSubmit)="createPassword()">
+              <div class="mt-8 space-y-5">
+                <div>
+                  <label for="password" class="mb-2 block font-medium text-gray-700">
+                    Password
+                  </label>
+
+                  <input
+                    formControlName="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-4 focus:ring-green-100"
+                  />
+                </div>
+
+                <div>
+                  <label for="confirm_password" class="mb-2 block font-medium text-gray-700">
+                    Confirm Password
+                  </label>
+
+                  <input
+                    type="password"
+                    placeholder="Confirm password"
+                    formControlName="confirm_password"
+                    class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-4 focus:ring-green-100"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  [disabled]="!createPasswordForm.valid"
+                  [ngClass]="
+                    !createPasswordForm.valid
+                      ? 'cursor-default bg-gray-100 '
+                      : 'cursor-pointer text-gray-900'
+                  "
+                  class="w-full rounded-xl bg-green-600 py-3 font-semibold text-white transition hover:bg-green-700"
+                >
+                  Create Account
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Side -->
+          <div class="rounded-3xl bg-green-600 p-8 text-white shadow-lg">
+            <h3 class="text-2xl font-bold">What's Next?</h3>
+
+            <p class="mt-4 text-green-100">
+              Once your account is created, you'll instantly get access to your personalized
+              nutrition dashboard.
+            </p>
+
+            <div class="mt-8 space-y-5">
+              <div class="flex gap-4">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-green-600 font-bold"
+                >
+                  ✓
+                </div>
+
+                <div>
+                  <h4 class="font-semibold">View  Health Store Plans</h4>
+
+                  <p class="text-green-100 text-sm">Access your customized meal plans anytime.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-green-600 font-bold"
+                >
+                  ✓
+                </div>
+
+                <div>
+                  <h4 class="font-semibold">Track Your Progress</h4>
+
+                  <p class="text-green-100 text-sm">
+                    Monitor your weight, goals, and consultation updates.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-green-600 font-bold"
+                >
+                  ✓
+                </div>
+
+                <div>
+                  <h4 class="font-semibold">Download Invoices</h4>
+
+                  <p class="text-green-100 text-sm">Keep all your payment receipts in one place.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-green-600 font-bold"
+                >
+                  ✓
+                </div>
+
+                <div>
+                  <h4 class="font-semibold">Book Future Consultations</h4>
+
+                  <p class="text-green-100 text-sm">
+                    Schedule follow-up appointments with one click.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10 rounded-2xl bg-white/10 p-5">
+              <p class="text-sm text-green-50">
+                🔒 Your password is securely encrypted and never stored in plain text.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+  <div class="success-container">
+    <div class="success-header">
+      <p>Thank you for your order, {{ orderData()?.userSnapshot?.firstName }}.</p>
+    </div>
+
+    <div class="receipt-card" id="printable-receipt">
+      <div class="receipt-header">
+        <h2>Order Summary</h2>
+        <span class="status-badge">Paid</span>
+      </div>
+
+      <div class="receipt-details">
+        <div class="detail-group">
+          <label>Order Reference</label>
+          <p class="ref-id">#{{ orderData()?._id | slice: -8 }}</p>
+        </div>
+        <div class="detail-group">
+          <label>Date</label>
+          <p>{{ orderData()?.createdAt | date: 'mediumDate' }}</p>
+        </div>
+        <div class="detail-group">
+          <label>Access your account</label>
+          <p>
+            We've sent a secure link to <strong>{{ orderData()?.userSnapshot?.email }}</strong
+            >. Please check your inbox to set your password and unlock full access to your account.
+          </p>
+        </div>
+      </div>
+
+      <div class="receipt-total">
+        <span>Total Amount Paid</span>
+        <span class="amount">₹{{ orderData()?.totalAmount }}</span>
+      </div>
+    </div>
+
+    <div class="next-steps-card">
+      <h3>What happens next?</h3>
+      <ul>
+        <li>📧 A copy of this receipt has been sent to your email.</li>
+        <li>🥗 Our team is reviewing your profile and preparing your  Health Store plan.</li>
+        <li>📱 You will receive your plan via WhatsApp/Email within 24 hours.</li>
+      </ul>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn-outline">🖨️ Print Receipt</button>
+      <button class="btn-primary" routerLink="/">Return to Home</button>
+    </div>
+  </div>
+  <app-payment-success></app-payment-success>
+}

@@ -1,0 +1,73 @@
+<div class=" lg:grid lg:place-content-center lg:bg-slate-800">
+
+  <div id="subscribe-form-container"
+    class="bg-white max-w-md mx-auto pb-6 lg:max-w-3xl lg:flex lg:flex-row-reverse lg:items-center lg:gap-4 lg:pb-4 lg:p-4 lg:rounded-2xl">
+    <div>
+      <picture class="block w-full">
+        <source srcset="/images/illustration-sign-up-desktop.svg" media="(min-width: 1024px)" />
+        <source srcset="/images/illustration-sign-up-mobile.svg" media="(max-width: 1024px)" />
+        <img src="/images/illustration-sign-up-mobile.svg" alt="Illustration Sign-up" class="w-full" />
+      </picture>
+    </div>
+    <div class="pt-8 px-4 lg:pt-0 lg:px-7">
+      <h1 class="text-3xl text-slate-900 font-bold lg:text-4xl">Stay updated!</h1>
+      <p class="text-slate-700 my-custom-class mt-4 ">Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul role="list" class="benefit-list">
+        <li>
+          <p>Product discovery and building what matters</p>
+        </li>
+        <li>
+          <p>Measuring to ensure updates are a success</p>
+        </li>
+        <li>
+          <p>And much more!</p>
+        </li>
+      </ul>
+      <form class="mt-8" name="subscribe">
+        <fieldset class="space-y-2">
+          <label for="email" class="inline-block text-slate-800 text-sm">Email address</label>
+          <input type="email" id="email" name="email" placeholder="email@company.com"
+            class="inline-flex w-full h-11 px-3 py-2 border border-slate-300 rounded-md text-base text-slate-700 placeholder:text-sm focus:outline-none focus:border-slate-700" />
+        </fieldset>
+        <button class="mt-4 btn btn-primary disabled:cursor-not-allowed disabled:opacity-50" id="subscribeBtn"
+          type="submit">Subscribe        
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="bg-white max-w-md mx-auto pb-6 lg:max-w-3xl lg:flex lg:flex-row-reverse lg:items-center lg:gap-4 lg:pb-4 lg:p-4 lg:rounded-2xl">
+  <picture class="block w-full">
+    <source srcset="/images/illustration-sign-up-desktop.svg" media="(min-width: 1024px)" />
+    <source srcset="/images/illustration-sign-up-mobile.svg" media="(max-width: 1024px)" />
+    <img src="/images/illustration-sign-up-mobile.svg" alt="Illustration Sign-up" class="w-full" />
+  </picture>
+</div>
+<div class="pt-8 px-4 lg:pt-0 lg:px-7">
+  <h1 class="text-3xl text-slate-900 font-bold lg:text-4xl">Stay updated!</h1>
+  <p class="text-slate-700 my-custom-class mt-4 ">Join 60,000+ product managers receiving monthly updates on:</p>
+  <ul role="list" class="benefit-list">
+    <li>
+      <p>Product discovery and building what matters</p>
+    </li>
+    <li>
+      <p>Measuring to ensure updates are a success</p>
+    </li>
+    <li>
+      <p>And much more!</p>
+    </li>
+  </ul>
+  <form class="mt-8" id="subscribe-form">
+    <fieldset class="space-y-2">
+      <label for="email" class="inline-block text-slate-800 text-sm">Email address</label>
+      <input type="email" id="email" name="email" placeholder="email@company.com"
+        class="inline-flex w-full h-11 px-3 py-2 border border-slate-300 rounded-md text-base text-slate-700 placeholder:text-sm focus:outline-none focus:border-slate-700" />
+    </fieldset>
+    <button class="btn-primary" type="submit">Subscribe</button>
+  </form>
+</div> -->

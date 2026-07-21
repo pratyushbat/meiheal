@@ -1,0 +1,61 @@
+<div class="blog-detail-container" *ngIf="!!currentblogDetail()">
+  <a [routerLink]="['/blogs', currentblogDetail()?.category?.slug]" class="back-link">
+    &larr; Back to all articles
+  </a>
+  <div class="blog-hero">
+    <img
+      loading="eager"
+      fetchpriority="high"
+      [src]="currentblogDetail()?.featuredImage"
+      [alt]="currentblogDetail()?.slug"
+      class="hero-image"
+    />
+  </div>
+
+  <article class="blog-content">
+    <div class="blog-header">
+      <h1>{{ currentblogDetail()?.title }}</h1>
+      <div class="blog-meta">
+        <span class="author">By {{ currentblogDetail()?.author }}</span>
+        <span class="dot">&bull;</span>
+        <span class="date">{{ currentblogDetail()?.createdAt | date: 'fullDate' }}</span>
+      </div>
+    </div>
+
+    <div class="blog-body" [innerHTML]="currentblogDetail()?.content"></div>
+  </article>
+</div>
+
+<div class="comments-section" *ngIf="false">
+  <h3>Comments</h3>
+
+  <div class="add-comment-box">
+    <input type="text" [(ngModel)]="authorName" placeholder="Your Name" />
+    <textarea [(ngModel)]="mainCommentText" placeholder="Leave a comment..."></textarea>
+    <button (click)="submitMainComment()" [disabled]="isSubmitting">Post Comment</button>
+  </div>
+
+  <hr />
+
+  <div class="comment-thread" *ngFor="let comment of comments">
+    <div class="comment main-comment">
+      <strong>{{ comment.authorName }}</strong>
+      <p>{{ comment.content }}</p>
+      <button (click)="openReplyForm(comment._id)">Reply</button>
+    </div>
+
+    <div class="reply-form-container" *ngIf="activeReplyId === comment._id">
+      <input type="text" [(ngModel)]="authorName" placeholder="Your Name" />
+      <textarea [(ngModel)]="replyText" placeholder="Write a reply..."></textarea>
+      <button (click)="submitReply(comment._id)" [disabled]="isSubmitting">Submit Reply</button>
+      <button (click)="cancelReply()">Cancel</button>
+    </div>
+
+    <div class="replies" *ngIf="comment.replies && comment.replies.length > 0">
+      <div class="comment reply-comment" *ngFor="let reply of comment.replies">
+        <strong>{{ reply.authorName }}</strong>
+        <p>{{ reply.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>

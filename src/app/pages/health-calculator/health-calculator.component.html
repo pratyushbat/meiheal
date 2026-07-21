@@ -1,0 +1,111 @@
+<div class="pt-16 xs:pt-16">
+  <h1 class="mb-8 text-4xl font-bold text-slate-800">BMI Calculator</h1>
+
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-[2fr_350px]">
+    <!-- BMI RESULT CARD -->
+    <div class="rounded-3xl bg-white p-8 shadow-sm">
+      <!-- Recalculate -->
+      <button
+        class="rounded-full border border-slate-400 px-8 py-3 text-slate-700 transition hover:bg-slate-50"
+      >
+        Recalculate BMI
+      </button>
+
+      <!-- BMI Icon -->
+      <div class="mt-10 flex justify-center">
+        <div
+          class="flex h-20 w-20 items-center justify-center rounded-full border border-slate-500"
+        >
+          <span class="text-4xl font-bold text-orange-500">−</span>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <h2 class="mt-8 text-center text-4xl font-semibold">
+        Your BMI is
+        <span class="text-orange-500">28.6</span>
+      </h2>
+
+      <p class="mt-3 text-center text-2xl text-orange-500 font-medium">Overweight</p>
+
+      <hr class="my-10 border-slate-200" />
+
+      <!-- BMI Scale -->
+      <div class="relative mx-auto max-w-3xl">
+        <!-- Indicator -->
+        <div class="absolute left-[62%] top-[-18px] h-24 w-1 bg-slate-700">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-lg">▼</div>
+        </div>
+
+        <!-- Scale -->
+        <div class="grid grid-cols-4 overflow-hidden rounded-full">
+          <div class="bg-[#f3d5c2] py-5 text-center">
+            <p class="text-sm">Underweight</p>
+            <p class="font-semibold">Below 18.5</p>
+          </div>
+
+          <div class="bg-[#f7c89f] py-5 text-center">
+            <p class="text-sm">Healthy</p>
+            <p class="font-semibold">18.5 – 24.9</p>
+          </div>
+
+          <div class="bg-[#f99a58] py-5 text-center">
+            <p class="text-sm">Overweight</p>
+            <p class="font-semibold">25.0 – 29.9</p>
+          </div>
+
+          <div class="bg-[#f78639] py-5 text-center">
+            <p class="text-sm">Obese</p>
+            <p class="font-semibold">30 & above</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <p class="mx-auto mt-10 max-w-xl text-center text-slate-600">
+        Based on your BMI of 28.6, you fall into the Overweight category. A structured nutrition
+        plan and regular physical activity can help you reach a healthier BMI range.
+      </p>
+
+      <!-- CTA -->
+      <div class="mt-10 flex justify-center">
+        <button
+          class="rounded-full bg-teal-300 px-10 py-4 font-semibold text-slate-900 transition hover:bg-teal-400"
+        >
+          Book Your Consultation
+        </button>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="space-y-8">
+      <!-- Lifestyle Quiz -->
+      <div class="rounded-3xl bg-white p-8 shadow-sm">
+        <div class="flex h-16 w-16 items-center justify-center rounded-full border">🔥</div>
+
+        <h3 class="mt-6 text-3xl font-semibold text-slate-800">
+          Looking forward to build a healthy lifestyle?
+        </h3>
+
+        <p class="mt-4 text-slate-600">Take our lifestyle quiz to have deeper insights!</p>
+
+        <button class="mt-8 w-full rounded-full border border-slate-400 py-3">
+          Lifestyle Quiz
+        </button>
+      </div>
+
+      <!-- PCOS Quiz -->
+      <div class="rounded-3xl bg-white p-8 shadow-sm">
+        <div class="flex h-16 w-16 items-center justify-center rounded-full border">🔥</div>
+
+        <h3 class="mt-6 text-3xl font-semibold text-slate-800">
+          Looking forward to build a healthy lifestyle?
+        </h3>
+
+        <p class="mt-4 text-slate-600">Take our PCOS quiz to have deeper insights!</p>
+
+        <button class="mt-8 w-full rounded-full border border-slate-400 py-3">PCOS Quiz</button>
+      </div>
+    </div>
+  </div>
+</div>

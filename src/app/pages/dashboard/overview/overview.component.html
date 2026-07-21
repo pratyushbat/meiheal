@@ -1,0 +1,177 @@
+<div class="core-page @container/page bg-white">
+  <div class="mx-auto px-8">
+    <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold text-emerald-600 tracking-wider uppercase mb-1">
+          {{ today | date: 'EEEE, MMMM d' }}
+        </p>
+        <h1 class="text-3xl font-bold text-gray-900">
+          Welcome back, {{ _authService.currentUser()?.firstName || 'Client' }}!
+        </h1>
+        <p class="text-gray-500 mt-1">Here is a quick overview of your health journey today.</p>
+      </div>
+
+      <button
+        class="btn-primary bg-gray-900 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors shadow-sm w-fit"
+      >
+        Log Today's Weight
+      </button>
+    </div>
+
+    @if (activePlan()) {
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div
+          class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <span
+              class="text-xs font-medium px-2.5 py-1 bg-green-50 text-green-700 rounded-full border border-green-100"
+              >Active</span
+            >
+          </div>
+          <div>
+            <p class="text-gray-500 text-sm font-medium mb-1">Current  Health Store Plan</p>
+            <h3 class="text-lg font-bold text-gray-900">
+              {{ activePlan()?.productSnapshot?.name }}
+            </h3>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <p class="text-gray-500 text-sm font-medium mb-1">Days Remaining</p>
+            <div class="flex items-end gap-2">
+              <h3 class="text-3xl font-bold text-gray-900">
+                {{ activePlanTwo().daysRemaining }}
+              </h3>
+              <p class="text-sm font-medium text-gray-400 mb-1">days left</p>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-1.5 mt-4">
+              <div
+                class="bg-emerald-500 h-1.5 rounded-full"
+                [style.width.%]="activePlanTwo().progress"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <p class="text-gray-500 text-sm font-medium mb-1">Next Video Consult</p>
+            <h3 class="text-lg font-bold text-gray-900">
+              {{ upcomingConsultation().date }}
+            </h3>
+            <p class="text-sm font-medium text-emerald-600 mt-1">
+              at {{ upcomingConsultation().time }}
+            </p>
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div
+        class="bg-gray-50 border border-dashed border-gray-300 rounded-2xl p-8 md:p-12 text-center mb-8 flex flex-col items-center"
+      >
+        <div
+          class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 mb-4"
+        >
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Ready to Start Your Journey?</h2>
+        <p class="text-gray-500 max-w-md mx-auto mb-6">
+          You don't have an active plan. Browse our specialized health and nutrition protocols to
+          get started today.
+        </p>
+        <button
+          routerLink="/diet-plans"
+          class="bg-emerald-600 hover:bg-emerald-800 font-bold text-white font-medium px-6 py-3 rounded-xl transition-colors shadow-sm"
+        >
+          Browse Plans
+        </button>
+      </div>
+    }
+
+    <div>
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold text-gray-900">Latest Nutrition Articles</h2>
+        <button
+          routerLink="/blogs"
+          class="text-sm font-medium text-emerald-600 hover:text-emerald-700"
+        >
+          View All &rarr;
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        @for (article of recentArticles(); track article.title) {
+          <div
+            class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
+          >
+            <div class="flex-1">
+              <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                {{ article.title }}
+              </h3>
+              <p class="text-gray-500 text-sm mb-6">{{ article.excerpt }}</p>
+            </div>
+            <button
+              [routerLink]="['/blogs', article.catid, article.id]"
+              class="w-full py-2.5 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+            >
+              Read Article
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

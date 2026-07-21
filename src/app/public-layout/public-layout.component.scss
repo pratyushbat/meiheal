@@ -1,0 +1,15 @@
+.public-lay {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header,
+app-header {
+  flex-shrink: 0;
+}
+.main {
+  flex: 1 0 auto; /* THIS is the key line — grows to fill all remaining space */
+}
+footer {
+  flex-shrink: 0; /* footer keeps its natural height, sticks to bottom */
+}

@@ -1,0 +1,38 @@
+@if (_authService.isLoggedIn()) {
+  <div class="relative flex flex-col flex-1 min-h-0">
+    @if (!_authService.currentUser()?.verified) {
+      <div
+        class="rounded-lg text-sm text-black flex bg-orange-100 py-2 px-4 items-center !bg-system-yellow-100 mh-48"
+        data-testid="note"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          class="fill-current inline-block overflow-visible w-6 h-6 text-orange-700 mr-4 fs-inherit"
+          name="alert-circle"
+          role="img"
+        >
+          <path
+            d="M12 22.88q-.4 0-.76-.15a2 2 0 0 1-.67-.42l-8.02-8.03q-.27-.3-.42-.66t-.15-.76a2 2 0 0 1 .57-1.43l8.03-8.02q.3-.3.66-.44t.76-.14a2 2 0 0 1 1.43.58l8.02 8.02q.3.28.44.65a2.2 2.2 0 0 1 0 1.54 2 2 0 0 1-.44.66l-8.02 8.03a2 2 0 0 1-.65.42q-.37.15-.78.15m0-2 8.03-8.02L12 4.83l-8.02 8.03zm0-7.02q.42 0 .71-.29a1 1 0 0 0 .29-.71v-4a1 1 0 0 0-.29-.71 1 1 0 0 0-.71-.3 1 1 0 0 0-.71.3 1 1 0 0 0-.29.7v4q0 .44.29.72.29.3.71.29m0 3q.42 0 .71-.29a1 1 0 0 0 .29-.71 1 1 0 0 0-.29-.71 1 1 0 0 0-.71-.3 1 1 0 0 0-.71.3 1 1 0 0 0-.29.7q0 .44.29.72.29.3.71.29"
+          ></path>
+        </svg>
+        <div class="w-full flex items-center">
+          <p class="flex-grow">
+            <strong>Confirm your email to finish setting up your account.</strong> We've sent a
+            confirmation link to your sign-up address.
+          </p>
+          <a
+            routerLink="/dashboard/settings"
+            routerLinkActive="active"
+            class="ml-4 flex-shrink-0 bg-system-yellow-400 hover:bg-system-yellow-500 cursor-pointer leading-6 border border-solid border-transparent no-underline font-sans font-semibold transition duration-200 hover:no-underline focus:no-underline focus:outline-none align-middle text-center inline-flex items-center justify-center text-sm py-1 px-3 h-8 rounded-sm focus:outline-blue"
+            >Manage email address</a
+          >
+        </div>
+      </div>
+    }
+    <router-outlet></router-outlet>
+  </div>
+}

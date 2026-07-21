@@ -1,0 +1,292 @@
+<div class="max-w-6xl mx-auto">
+  <div class="mb-8 border-b border-gray-200 pb-5">
+    <h1 class="text-3xl font-bold text-gray-900">Settings</h1>
+    <p class="text-gray-500 mt-1">Manage your account preferences and security.</p>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-8">
+    <aside class="w-full md:w-64 flex-none">
+      <nav class="flex flex-row md:flex-col gap-1 overflow-x-auto no-scrollbar pb-2 md:pb-0">
+        <button
+          (click)="setTab('loginDetails')"
+          [class.bg-gray-100]="activeTab() === 'loginDetails'"
+          [class.text-emerald-600]="activeTab() === 'loginDetails'"
+          [class.text-gray-600]="activeTab() !== 'loginDetails'"
+          class="flex items-center px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+        >
+          Account
+        </button>
+        <button
+          (click)="setTab('addresses')"
+          [class.bg-gray-100]="activeTab() === 'addresses'"
+          [class.text-emerald-600]="activeTab() === 'addresses'"
+          [class.text-gray-600]="activeTab() !== 'addresses'"
+          class="flex items-center px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+        >
+          Address
+        </button>
+
+        <!-- <button
+          (click)="setTab('account')"
+          [class.bg-gray-100]="activeTab() === 'account'"
+          [class.text-emerald-600]="activeTab() === 'account'"
+          [class.text-gray-600]="activeTab() !== 'account'"
+          class="flex items-center px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+        >
+          Account Preferences
+        </button> -->
+
+        <button
+          (click)="setTab('notifications')"
+          [class.bg-gray-100]="activeTab() === 'notifications'"
+          [class.text-emerald-600]="activeTab() === 'notifications'"
+          [class.text-gray-600]="activeTab() !== 'notifications'"
+          class="flex items-center px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+        >
+          Notifications
+        </button>
+
+        <!-- <button
+          (click)="setTab('security')"
+          [class.bg-gray-100]="activeTab() === 'security'"
+          [class.text-emerald-600]="activeTab() === 'security'"
+          [class.text-gray-600]="activeTab() !== 'security'"
+          class="flex items-center px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+        >
+          Password & Security
+        </button> -->
+      </nav>
+    </aside>
+
+    <main class="flex-1">
+      <!-- @if (activeTab() === 'account') {
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Account Preferences</h2>
+          <p class="text-gray-500 mb-6">Language, timezone, and general display settings.</p>
+          <div
+            class="p-4 bg-gray-50 rounded-lg text-center text-gray-500 border border-dashed border-gray-300"
+          >
+            Account inputs go here
+          </div>
+        </div>
+      } -->
+
+      @if (activeTab() === 'notifications') {
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+          <div class="p-6 md:p-8 border-b border-gray-100">
+            <h2 class="text-xl font-bold text-gray-900 mb-1">Notification Settings</h2>
+            <p class="text-gray-500 text-sm">Decide how and when we should contact you.</p>
+          </div>
+
+          <div class="flex flex-col">
+            <div
+              class="flex items-center justify-between p-6 md:px-8 border-b border-gray-100 hover:bg-gray-50 transition-colors"
+            >
+              <div>
+                <h3 class="text-sm font-medium text-gray-900">Email Notifications</h3>
+                <p class="text-sm text-gray-500">Receive daily  Health Store reminders and check-ins.</p>
+              </div>
+
+              <button
+                (click)="toggle('email')"
+                [class.bg-emerald-500]="emailNotifs()"
+                [class.bg-gray-200]="!emailNotifs()"
+                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+              >
+                <span
+                  [class.translate-x-5]="emailNotifs()"
+                  [class.translate-x-0]="!emailNotifs()"
+                  class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                >
+                </span>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center justify-between p-6 md:px-8 border-b border-gray-100 hover:bg-gray-50 transition-colors"
+            >
+              <div>
+                <h3 class="text-sm font-medium text-gray-900">SMS Alerts</h3>
+                <p class="text-sm text-gray-500">Get text messages for upcoming consultations.</p>
+              </div>
+              <button
+                (click)="toggle('sms')"
+                [class.bg-emerald-500]="smsNotifs()"
+                [class.bg-gray-200]="!smsNotifs()"
+                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+              >
+                <span
+                  [class.translate-x-5]="smsNotifs()"
+                  [class.translate-x-0]="!smsNotifs()"
+                  class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                >
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- @if (activeTab() === 'security') {
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Password & Security</h2>
+
+          <div class="max-w-md flex flex-col gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+              <input
+                type="password"
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+              <input
+                type="password"
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+            <button
+              class="mt-2 w-fit px-5 py-2 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              Update Password
+            </button>
+          </div>
+        </div>
+      } -->
+      @if (activeTab() === 'addresses') {
+        <app-my-addresses></app-my-addresses>
+      }
+      @if (activeTab() === 'loginDetails') {
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Login Details</h2>
+          @if (_authService.isLoggedIn()) {
+            <div class="grid gap-8">
+              <div class="set-gd-grid">
+                <div class="flex gap-8">
+                  <img
+                    class="object-cover object-center bg-gray-100 rounded-full w-h-80"
+                    width="80"
+                    height="80"
+                    alt="Avatar for log user "
+                    src="/user/avatar?email=pankajjha%40gmail.com&amp;source=default"
+                  />
+                  <div class="grow">
+                    <p class="font-bold mb-2">Profile Picture</p>
+                    <p class="mb-5">Your profile picture will appear in your Kit teams page.</p>
+                    <button
+                      label="user"
+                      class="mb-2 cursor-pointer leading-6 border border-solid border-transparent no-underline font-sans font-semibold transition duration-200 hover:no-underline focus:no-underline focus:outline-none align-middle text-center inline-flex items-center justify-center text-sm py-2 px-4 h-10 rounded text-gray-900 bg-gray-900/[0.06] hover:bg-gray-900/[0.12] focus:outline-blue"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="fill-current inline-block overflow-visible w-6 h-6 -ml-1 pointer-events-none mr-2 fs-inherit"
+                        name="cloud-upload"
+                        role="img"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M6.5 20.86a5.4 5.4 0 0 1-3.89-1.58A5.2 5.2 0 0 1 1 15.43q0-1.95 1.18-3.47c1.17-1.52 1.8-1.67 3.07-1.95a6.8 6.8 0 0 1 2.5-3.73A7 7 0 0 1 12 4.86q2.92 0 4.96 2.03A6.8 6.8 0 0 1 19 11.86q1.72.2 2.86 1.49a4.4 4.4 0 0 1 1.14 3q0 1.89-1.31 3.2c-1.31 1.3-1.94 1.3-3.19 1.3zm3.6-6.28.9-.87v5.15H6.5a3.4 3.4 0 0 1-2.47-1.03A3.4 3.4 0 0 1 3 15.36q0-1.46 1.02-2.48a3.4 3.4 0 0 1 2.48-1.02H7q0-2.08 1.46-3.54Q9.93 6.86 12 6.86c2.07 0 2.56.48 3.54 1.46A4.8 4.8 0 0 1 17 11.86v2h1.5q1.05 0 1.78.72.72.72.72 1.78c0 1.06-.24 1.29-.72 1.77q-.73.73-1.78.73H13V13.7l.9.87q.3.27.71.26a1 1 0 0 0 .69-.28 1 1 0 0 0 .29-.72 1 1 0 0 0-.29-.68l-2.6-2.6a1 1 0 0 0-.7-.3q-.4 0-.7.3l-2.6 2.6a1 1 0 0 0-.27.7q0 .42.27.7.3.3.71.3a1 1 0 0 0 .69-.28"
+                          clip-rule="evenodd"
+                        ></path></svg
+                      >Upload</button
+                    ><input type="file" class="invisible w-0" />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-semibold text-base text-gray-800">Name</h3>
+                <div
+                  class="max-w-sm mt-1 flex text-sm border rounded px-3 py-2 w-full bg-white border-gray-200 focus:outline-blue"
+                >
+                  <input
+                    disabled=""
+                    class="w-full focus:outline-none design-input lh-22"
+                    data-lpignore="true"
+                    data-1p-ignore="true"
+                    id="name"
+                    aria-label="Name"
+                    autocomplete="off"
+                    spellcheck="false"
+                    [value]="_authService.currentUser()?.firstName || ''"
+                  />
+                </div>
+                <div class="mt-3">
+                  <button
+                    class="cursor-default text-gray-600 bg-gray-100 leading-6 border border-solid border-transparent no-underline font-sans font-semibold transition duration-200 hover:no-underline focus:no-underline focus:outline-none align-middle text-center inline-flex items-center justify-center text-sm py-2 px-4 h-10 rounded focus:outline-blue"
+                    disabled=""
+                  >
+                    Update name
+                  </button>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-semibold text-base text-gray-800">Login email</h3>
+                <p class="text-gray-900 mt-2">{{ _authService.currentUser()?.email }}</p>
+                <div class="mt-3">
+                  <div class="bg-blue-100 rounded-lg p-4" role="status">
+                    <div class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="fill-current inline-block overflow-visible w-6 h-6 text-blue-700 mt-0.5 fs-inherit"
+                        name="information-circle"
+                        role="img"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12 17.86q.42 0 .71-.29a1 1 0 0 0 .29-.71v-4a1 1 0 0 0-.29-.72 1 1 0 0 0-.71-.28 1 1 0 0 0-.71.28 1 1 0 0 0-.29.72v4q0 .42.29.71.29.3.71.29m0-8q.42 0 .71-.29a1 1 0 0 0 .29-.71 1 1 0 0 0-.29-.72 1 1 0 0 0-.71-.28 1 1 0 0 0-.71.28 1 1 0 0 0-.29.72q0 .42.29.71.29.3.71.29m0 13a10 10 0 0 1-3.9-.79 10 10 0 0 1-3.17-2.14 10 10 0 0 1-2.14-3.17 10 10 0 0 1-.79-3.9q0-2.08.79-3.9a10 10 0 0 1 2.13-3.18Q6.28 4.43 8.1 3.65a10 10 0 0 1 3.9-.8q2.07 0 3.9.8a10 10 0 0 1 3.18 2.13q1.34 1.35 2.13 3.18a10 10 0 0 1 .79 3.9 10 10 0 0 1-.79 3.9 10 10 0 0 1-2.14 3.17q-1.34 1.35-3.17 2.14a10 10 0 0 1-3.9.79m0-2q3.35 0 5.68-2.33A7.7 7.7 0 0 0 20 12.86q0-3.36-2.33-5.68A7.7 7.7 0 0 0 12 4.86q-3.34 0-5.67 2.32A7.7 7.7 0 0 0 4 12.86q0 3.34 2.33 5.67A7.7 7.7 0 0 0 12 20.86"
+                        ></path>
+                      </svg>
+                      <div>
+                        <p class="font-semibold text-sm text-gray-900">
+                          Verify your login email address
+                        </p>
+                        <p class="mt-1 text-sm text-gray-900">
+                          We've most recently sent a confirmation to
+                          {{ _authService.currentUser()?.email }}. Some account features will not be
+                          available until you confirm it.
+                        </p>
+                        <div class="mt-3 flex items-center gap-2 text-sm">
+                          <div></div>
+                          <!-- <button type="button" class="font-semibold underline">Change email</button> -->
+                          <span aria-hidden="true">•</span
+                          ><button
+                            (click)="verifyEmailUser()"
+                            type="button"
+                            class="font-semibold underline"
+                          >
+                            Resend email
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-semibold text-base text-gray-800">Password</h3>
+                <p class="text-sm text-gray-900 mt-2">Set a password to log into your account.</p>
+                <div class="mt-3">
+                  <button
+                    class="cursor-pointer leading-6 border border-solid border-transparent no-underline font-sans font-semibold transition duration-200 hover:no-underline focus:no-underline focus:outline-none align-middle text-center inline-flex items-center justify-center text-sm py-2 px-4 h-10 rounded text-gray-900 bg-gray-900/[0.06] hover:bg-gray-900/[0.12] focus:outline-blue"
+                  >
+                    Change password
+                  </button>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </main>
+  </div>
+</div>

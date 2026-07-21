@@ -1,0 +1,353 @@
+<div class="py-12 md:py-24 bg-gray-50 flex items-center pt-12 xs:pt-12">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-12 space-y-3">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+        Complete Your Payment
+      </h1>
+      <p class="text-base md:text-lg text-gray-600 max-w-md mx-auto">
+        You're one step away from your personalized  Health Store plan. Please fill in your details below.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div class="lg:col-span-2 card bg-white shadow-xl border border-gray-100">
+        <div class="card-body p-6 sm:p-10">
+          @if (product(); as p) {
+            <div class="bg-emerald-50 rounded-2xl p-6 md:p-8 border border-emerald-100 mb-8">
+              <h3 class="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-2">
+                Selected Plan
+              </h3>
+              <h2 class="text-3xl font-extrabold text-gray-900 mb-4">{{ p?.name }}</h2>
+
+              <div class="flex items-end gap-3 mb-6 border-b border-emerald-200/60 pb-6">
+                <span class="text-4xl md:text-5xl font-black text-emerald-700"
+                  >&#x20b9;{{ p?.price }}</span
+                >
+                <span class="text-xl text-gray-400 line-through mb-1"
+                  >&#x20b9;{{ p.price + 500 }}</span
+                >
+                <span
+                  class="bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded-md mb-2 ml-2 shadow-sm"
+                  >SAVE &#x20b9;500</span
+                >
+              </div>
+
+              <div>
+                <h3 class="text-base font-semibold text-gray-800 mb-3">Plan Includes:</h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-700">
+                  <li class="flex items-center gap-2">
+                    <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                    <span>Customized  Health Store chart</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                    <span>Weekly check-ins</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                    <span>WhatsApp support</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                    <span>Workout guidance</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Patient Details</h2>
+
+            <form [formGroup]="orderPayForm" (ngSubmit)="product() && saveOrder()">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+                <div class="form-control w-full">
+                  <label class="label" for="name">
+                    <span class="label-text font-semibold text-gray-700">Full Name *</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    formControlName="fullName"
+                    class="input input-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                    placeholder="e.g. Jane Doe"
+                    required
+                  />
+                  @if (orderPayForm.get('name')?.invalid && orderPayForm.get('name')?.touched) {
+                    <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                      <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                      @if (orderPayForm.get('name')?.errors?.['required']) {
+                        Name is required
+                      }
+                    </p>
+                  }
+                </div>
+
+                <div class="form-control w-full">
+                  <label class="label" for="gender">
+                    <span class="label-text font-semibold text-gray-700">Gender *</span>
+                  </label>
+                  <!--  <input type="text" id="gender" name="gender" formControlName="gender"
+                  class="input input-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                  placeholder="e.g. Female" required>
+                @if (orderPayForm.get('gender')?.invalid && orderPayForm.get('gender')?.touched) {
+                <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                   <lucide-icon name="circleX" [size]="20"></lucide-icon> @if (orderPayForm.get('gender')?.errors?.['required']) { Gender is required }
+                </p>
+                } -->
+                  <select
+                    id="gender"
+                    name="gender"
+                    formControlName="gender"
+                    class="w-full bg-gray-50/50 border border-gray-300 text-gray-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all appearance-none"
+                    required
+                  >
+                    <option value="" disabled selected>Select gender</option>
+
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
+
+                  @if (orderPayForm.get('gender')?.invalid && orderPayForm.get('gender')?.touched) {
+                    <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                      <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                      @if (orderPayForm.get('gender')?.errors?.['required']) {
+                        Gender is required
+                      }
+                    </p>
+                  }
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+                <div class="form-control w-full">
+                  <label class="label" for="age">
+                    <span class="label-text font-semibold text-gray-700">Age *</span>
+                  </label>
+                  <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    formControlName="age"
+                    class="input input-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                    placeholder="e.g. 28"
+                    required
+                  />
+                  @if (orderPayForm.get('age')?.invalid && orderPayForm.get('age')?.touched) {
+                    <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                      <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                      @if (orderPayForm.get('age')?.errors?.['required']) {
+                        Age is required
+                      }
+                    </p>
+                  }
+                </div>
+
+                <div class="form-control w-full">
+                  <label class="label" for="email">
+                    <span class="label-text font-semibold text-gray-700">Email Address *</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    formControlName="email"
+                    class="input input-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                    placeholder="your@email.com"
+                    required
+                  />
+                  @if (orderPayForm.get('email')?.invalid && orderPayForm.get('email')?.touched) {
+                    <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                      <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                      @if (orderPayForm.get('email')?.errors?.['required']) {
+                        Email is required
+                      }
+                      @if (orderPayForm.get('email')?.errors?.['email']) {
+                        Enter a valid email
+                      }
+                    </p>
+                  }
+                </div>
+              </div>
+
+              <div class="form-control w-full mb-8">
+                <label class="label" for="phone">
+                  <span class="label-text font-semibold text-gray-700"
+                    >WhatsApp / Phone Number *</span
+                  >
+                </label>
+                <div class="relative">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium"
+                    >+91</span
+                  >
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    formControlName="phone"
+                    class="input input-bordered bg-gray-50/50 w-full pl-12 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                    placeholder="9876543210"
+                    required
+                  />
+                </div>
+                @if (orderPayForm.get('phone')?.invalid && orderPayForm.get('phone')?.touched) {
+                  <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                    <lucide-icon name="circleX" [size]="20"></lucide-icon>
+                    @if (orderPayForm.get('phone')?.errors?.['required']) {
+                      Phone is required
+                    }
+                    @if (orderPayForm.get('phone')?.errors?.['pattern']) {
+                      Enter a valid 10-digit number
+                    }
+                  </p>
+                }
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-emerald-600 hover:bg-emerald-800 text-white text-lg font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              >
+                Proceed to Pay &#x20b9;{{ product()?.price }}
+              </button>
+              <p
+                class="text-center text-xs text-gray-400 mt-4 flex items-center justify-center gap-1"
+              >
+                <i class="bx bxs-lock-alt"></i> Secure encrypted payment via Razorpay
+              </p>
+            </form>
+          } @else {
+            <div class="flex flex-col items-center justify-center py-12">
+              <span class="loading loading-spinner text-emerald-500 loading-lg mb-4"></span>
+              <h2 class="text-xl font-bold text-gray-700">Loading plan details...</h2>
+              <p class="text-gray-500">Please wait while we fetch your package.</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div
+        class="card bg-slate-800 text-slate-100 shadow-xl border border-slate-700 overflow-hidden sticky top-24 h-100"
+      >
+        <div class="card-body p-6 sm:p-8 space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">Need Help?</h2>
+            <p class="text-slate-400 text-sm">We're here to answer your questions.</p>
+          </div>
+
+          <div class="space-y-5 text-base">
+            <div class="flex items-start gap-4">
+              <div
+                class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-emerald-400 shrink-0 shadow-inner"
+              >
+                <lucide-icon name="map-pin" [size]="20"></lucide-icon>
+              </div>
+              <div class="pt-2">
+                <span class="font-medium text-white block">Location</span>
+                <span class="text-sm text-slate-400">New Delhi, India</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-emerald-400 shrink-0 shadow-inner"
+              >
+                <lucide-icon name="folder-code" [size]="20"></lucide-icon>
+              </div>
+              <div class="pt-2">
+                <span class="font-medium text-white block">Email Us</span>
+                <a
+                  href="mailto:admin@www.meiheal.com"
+                  class="text-sm text-slate-400 hover:text-emerald-400 transition-colors break-all"
+                  >admin&#64;www.meiheal.com</a
+                >
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-emerald-400 shrink-0 shadow-inner"
+              >
+                <lucide-icon name="phone" [size]="20"></lucide-icon>
+              </div>
+              <div class="pt-2">
+                <span class="font-medium text-white block">Call / WhatsApp</span>
+                <a
+                  href="https://wa.me/919354999067"
+                  class="text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                  >+91 9354999067</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="divider border-slate-600 my-0"></div>
+
+          <div class="bg-slate-700/50 rounded-xl p-4 border border-slate-600/50">
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Customer support available<br />
+              Mon - Sat: <span class="font-bold text-emerald-400">10:00 AM – 6:00 PM</span>
+            </p>
+          </div>
+
+          <div class="flex gap-4 pt-2">
+            <a
+              href="https://wa.me/919354999067"
+              aria-label="Visit  Health Store with meiheal on WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-emerald-500 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-whatsapp text-xl"></i>
+            </a>
+            <a
+              href="https://instagram.com/dietwith_meiheal/"
+              aria-label="Visit  Health Store with meiheal on Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-pink-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-instagram text-xl"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61590369990172"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit  Health Store with meiheal on Facebook"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-blue-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-facebook text-xl"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/meiheal"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit  Health Store with meiheal on Linkedin"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-blue-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-linkedin text-xl"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/@meiheal"
+              target="_blank"
+              aria-label="Visit  Health Store with meiheal on Youtube"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-blue-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-youtube text-xl"></i>
+            </a>
+            <a
+              href="https://x.com/meiheal"
+              target="_blank"
+              aria-label="Visit  Health Store with meiheal on x"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-blue-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-twitter text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

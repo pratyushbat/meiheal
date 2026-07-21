@@ -1,0 +1,1 @@
+export type Tab = 'account' | 'notifications' | 'security' | 'loginDetails' | 'addresses';

@@ -1,0 +1,32 @@
+// @reference "tailwindcss";
+/* 
+.my-custom-class {
+  @apply mt-4; 
+}
+ */
+
+.lg\:px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
+@reference "tailwindcss";
+.error {
+  @apply text-red-500 text-xs;
+}
+
+.benefit-list {
+  @apply mt-4 space-y-4;
+}
+.benefit-list li {
+  @apply relative pl-8 text-slate-700;
+}
+
+.benefit-list li::before {
+  // content: url(../../../../../public/images/icon-list.svg);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1;
+}

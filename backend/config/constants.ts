@@ -1,0 +1,12 @@
+
+import { InjectionToken } from '@angular/core';
+export const MILLISECONDS_PER_SECOND = 1000;
+export const SECONDS_PER_MINUTES = 60;
+export const MINUTES_PER_HOUR = 60;
+export const HOURS_PER_DAY = 60;
+export const DAYS_PER_MONTH = 30;
+export const DAYS_PER_WEEK = 7;
+export const ACCESS_TOKEN_EXPIRY = 15 * SECONDS_PER_MINUTES * MILLISECONDS_PER_SECOND;
+export const REFRESH_TOKEN_EXPIRY = DAYS_PER_WEEK * HOURS_PER_DAY * MINUTES_PER_HOUR * SECONDS_PER_MINUTES * MILLISECONDS_PER_SECOND;
+export const OAUTH_EXCHNGE_EXPIRY = 10 * SECONDS_PER_MINUTES * MILLISECONDS_PER_SECOND;
+export const API_URL = new InjectionToken<string>('API_URL');

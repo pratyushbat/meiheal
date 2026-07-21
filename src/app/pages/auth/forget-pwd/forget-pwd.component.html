@@ -1,0 +1,52 @@
+<div>
+  <form (ngSubmit)="sendresetPwdAccountMail()" class="form-vertical form--lg" id="new_user">
+    <div class="mb-6 flex">
+      <div class="w-full">
+        <label for="user_email" class="flex"
+          ><div class="pb-2 font-semibold text-gray-900 pr-px">Email</div>
+          <div class="text-orange-500">*</div></label
+        >
+        <div
+          class="w-full h-10 border border-gray-200 hover:border-gray-300 focus:outline-blue flex text-sm border rounded px-3 py-2 w-full bg-white border-gray-200 focus:outline-blue"
+        >
+          <input
+            required
+            [(ngModel)]="email"
+            #emailCtrl="ngModel"
+            type="email"
+            placeholder="Email"
+            [ngClass]="{
+              'border-red-500 focus:ring-red-500': emailCtrl?.invalid && emailCtrl?.touched,
+              'border-gray-200': !emailCtrl?.invalid || !emailCtrl?.touched,
+            }"
+            class="w-full focus:outline-none design-input lh-br"
+            name="user[email]"
+            placeholder="E.g; jane@company.com"
+            id="user_email"
+            type="text"
+          />
+        </div>
+        <div *ngIf="emailCtrl?.invalid && emailCtrl?.touched" class="validator-error">
+          Email is required
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="emailCtrl?.invalid"
+      [ngClass]="
+        emailCtrl?.invalid
+          ? 'cursor-default text-gray-600 bg-gray-100 '
+          : 'cursor-pointer text-gray-900 hover:text-black bg-blue-500 hover:bg-blue-400'
+      "
+      id="user_log_in"
+      class="w-full leading-6 border border-solid border-transparent no-underline font-sans font-semibold transition duration-200 hover:no-underline focus:no-underline focus:outline-none px-5 h-12 rounded-lg align-middle text-center inline-flex items-center justify-center text-sm py-3 focus:outline-blue"
+    >
+      Send me a reset Link
+    </button>
+  </form>
+  <p class="flex justify-center pt-6 text-xs font-semibold">
+    <a routerLink="/login">Go back to Login</a>
+  </p>
+</div>

@@ -1,0 +1,303 @@
+<div class="bg-gray-50 flex items-center pt-16 xs:pt-16">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-4 space-y-3">
+      <h1
+        class="max-w-4xl mx-auto text-center text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
+      >
+        Contact Mei Heal
+        <span class="block text-emerald-600">Book a Healthy Products in Delhi</span>
+      </h1>
+      <p class="text-base md:text-lg text-gray-600 max-w-md mx-auto">
+        I'd love to hear from you. Please fill out the form below and we'll get back to you shortly.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div class="lg:col-span-2 card bg-white shadow-xl border border-gray-100">
+        <div class="card-body p-6 sm:p-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a message</h2>
+
+          <form [formGroup]="contactUsForm" (ngSubmit)="saveContact()" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+              <div class="form-control w-full">
+                <label class="label" for="name">
+                  <span class="label-text font-semibold text-gray-700">Full Name *</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  formControlName="name"
+                  class="input input-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                  placeholder="e.g. Jane Doe"
+                  required
+                />
+                @if (contactUsForm.get('name')?.invalid && contactUsForm.get('name')?.touched) {
+                  <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                    <lucide-icon name="CircleX" [size]="20"></lucide-icon>
+                    @if (contactUsForm.get('name')?.errors?.['required']) {
+                      Name is required
+                    }
+                  </p>
+                }
+              </div>
+
+              <div class="form-control w-full">
+                <label class="label" for="email">
+                  <span class="label-text font-semibold text-gray-700">Email Address *</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  formControlName="email"
+                  class="input input-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                  placeholder="your@email.com"
+                  required
+                />
+                @if (contactUsForm.get('email')?.invalid && contactUsForm.get('email')?.touched) {
+                  <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                    <lucide-icon name="CircleX" [size]="20"></lucide-icon>
+                    @if (contactUsForm.get('email')?.errors?.['required']) {
+                      Email is required
+                    }
+                    @if (contactUsForm.get('email')?.errors?.['email']) {
+                      Enter a valid email
+                    }
+                  </p>
+                }
+              </div>
+            </div>
+
+            <div class="form-control w-full">
+              <label class="label" for="phone">
+                <span class="label-text font-semibold text-gray-700"
+                  >WhatsApp / Phone Number *</span
+                >
+              </label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium"
+                  >+91</span
+                >
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  formControlName="phone"
+                  class="input input-bordered bg-gray-50/50 w-full pl-12 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                  placeholder="9876543210"
+                  required
+                />
+              </div>
+              @if (contactUsForm.get('phone')?.invalid && contactUsForm.get('phone')?.touched) {
+                <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                  <lucide-icon name="CircleX" [size]="20"></lucide-icon>
+                  @if (contactUsForm.get('phone')?.errors?.['required']) {
+                    Phone is required
+                  }
+                  @if (contactUsForm.get('phone')?.errors?.['pattern']) {
+                    Enter a valid 10-digit number
+                  }
+                </p>
+              }
+            </div>
+
+            <div class="form-control w-full">
+              <label class="label" for="subject">
+                <span class="label-text font-semibold text-gray-700">Subject </span>
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                formControlName="subject"
+                class="input input-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                placeholder="What is this regarding?"
+              />
+            </div>
+            <div class="form-control w-full">
+              <label class="label" for="subject">
+                <span class="label-text font-semibold text-gray-700">I'm interested in *</span>
+              </label>
+              <select
+                id="subject"
+                formControlName="interest"
+                class="select select-bordered bg-gray-50/50 w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+              >
+                <option value="" disabled selected>Select a topic</option>
+                <option value="weight-loss">Weight loss consultation</option>
+                <option value="diabetes">Diabetes  Health Store plan</option>
+                <option value="pcos-thyroid">PCOS / Thyroid management</option>
+                <option value="pregnancy">Pregnancy nutrition</option>
+                <option value="general">General  Health Store consultation</option>
+                <option value="online">Online consultation enquiry</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div class="form-control w-full mb-8">
+              <label class="label" for="message">
+                <span class="label-text font-semibold text-gray-700">Message *</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                formControlName="message"
+                rows="5"
+                class="textarea textarea-bordered bg-gray-50/50 w-full text-base transition-all duration-200 resize-y focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
+                placeholder="How can I help you?"
+                required
+              ></textarea>
+              <!--     @if (contactUsForm.get('message')?.invalid && contactUsForm.get('message')?.touched) {
+                <p class="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1">
+                    <lucide-icon name="CircleX" [size]="20"></lucide-icon>
+                  @if (contactUsForm.get('message')?.errors?.['required']) {
+                    Message is required
+                  }
+                </p>
+              } -->
+            </div>
+
+            <div class="pt-4">
+              <button
+                type="submit"
+                class="w-full bg-emerald-600 hover:bg-emerald-800 text-white text-lg font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex justify-center items-center gap-2"
+              >
+                Book My Consultation
+                <lucide-icon name="send-horizontal"></lucide-icon>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="card bg-slate-800 text-slate-100 shadow-xl border border-slate-700 overflow-hidden sticky top-24"
+      >
+        <div class="card-body p-6 sm:p-8 space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">Get in touch</h2>
+            <p class="text-slate-400 text-sm">We're here to answer your questions.</p>
+          </div>
+
+          <div class="space-y-5 text-base">
+            <div class="flex items-start gap-4">
+              <div
+                class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-emerald-400 shrink-0 shadow-inner"
+              >
+                <lucide-icon name="map-pin" [size]="20"></lucide-icon>
+              </div>
+              <div class="pt-2">
+                <span class="font-medium text-white block">Location</span>
+                <span class="text-sm text-slate-400">New Delhi, India</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-emerald-400 shrink-0 shadow-inner"
+              >
+                <lucide-icon name="folder-code"></lucide-icon>
+              </div>
+              <div class="pt-2">
+                <span class="font-medium text-white block">Email Us</span>
+                <a
+                  href="mailto:admin@www.meiheal.com"
+                  class="text-sm text-slate-400 hover:text-emerald-400 transition-colors break-all"
+                  >admin&#64;www.meiheal.com</a
+                >
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-emerald-400 shrink-0 shadow-inner"
+              >
+                <lucide-icon name="Phone" [size]="20"></lucide-icon>
+              </div>
+              <div class="pt-2">
+                <span class="font-medium text-white block">Call / WhatsApp</span>
+                <a
+                  href="tel:+919354999067"
+                  aria-label="Call us"
+                  class="text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                  >+91 9354999067</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="divider border-slate-600 my-0"></div>
+
+          <div class="bg-slate-700/50 rounded-xl p-4 border border-slate-600/50">
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Customer support available<br />
+              Mon - Sat: <span class="font-bold text-emerald-400">10:00 AM – 6:00 PM</span>
+            </p>
+            <p class="text-center text-xs text-gray-400 mt-3">
+              <lucide-icon name="timer"></lucide-icon>
+              I typically respond within 24 hours on working days.
+            </p>
+          </div>
+
+          <div class="flex gap-4 pt-2">
+            <a
+              href="https://wa.me/919354999067"
+              aria-label="Visit  Health Store with meiheal on WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-emerald-500 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-whatsapp text-xl"></i>
+            </a>
+            <a
+              href="https://instagram.com/dietwith_meiheal/"
+              target="_blank"
+              aria-label="Visit  Health Store with meiheal on Instagram"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-pink-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-instagram text-xl"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61590369990172"
+              target="_blank"
+              aria-label="Visit  Health Store with meiheal on Facebook"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-blue-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-facebook text-xl"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/meiheal"
+              target="_blank"
+              aria-label="Visit  Health Store with meiheal on linkedin"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-blue-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-linkedin text-xl"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/@meiheal"
+              target="_blank"
+              aria-label="Visit  Health Store with meiheal on youtube"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-red-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-youtube text-xl"></i>
+            </a>
+            <a
+              href="https://x.com/meiheal"
+              target="_blank"
+              aria-label="Visit  Health Store with meiheal on x"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-white hover:bg-slate-600 hover:-translate-y-1 transition-all"
+            >
+              <i class="bx bxl-twitter text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

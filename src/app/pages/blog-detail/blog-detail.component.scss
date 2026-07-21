@@ -1,0 +1,115 @@
+/* =========================================
+   1. Main Container
+   ========================================= */
+.blog-detail-container {
+  max-width: 1000px;
+  margin: 75px auto 80px; /* Accounts for 120px old your fixed header */
+  padding: 0 24px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* =========================================
+   2. Back Link
+   ========================================= */
+.back-link {
+  color: #718096;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #2b6cb0; /* Brand primary color */
+}
+
+/* =========================================
+   3. Hero Image
+   ========================================= */
+.blog-hero {
+  width: 100%;
+  border-radius: 20px; /* Modern rounded corners */
+  overflow: hidden;
+  margin-bottom: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft drop shadow */
+}
+
+.hero-image {
+  width: 100%;
+  height: 450px; /* Fixed height for a wide, cinematic look */
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================
+   4. Typography & Layout for Reading
+   ========================================= */
+.blog-content {
+  max-width: 800px; /* Prevents text from stretching too wide to read */
+  margin: 0 auto;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.blog-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem); /* Scales smoothly on mobile */
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.blog-meta {
+  color: #718096;
+  font-size: 1.05rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+/* =========================================
+   5. The Actual Article Body Styles
+   ========================================= */
+.blog-body {
+  font-size: 1.15rem;
+  line-height: 1.8; /* High line height is crucial for easy reading */
+  color: #2d3748;
+}
+
+/* Styles applied dynamically via innerHTML */
+::ng-deep .blog-body h3 {
+  font-size: 1.6rem;
+  margin-top: 45px;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+::ng-deep .blog-body p {
+  margin-bottom: 24px;
+}
+
+/* =========================================
+   6. Mobile Adjustments
+   ========================================= */
+@media (max-width: 768px) {
+  .blog-detail-container {
+    margin-top: 90px;
+  }
+
+  .hero-image {
+    height: 250px; /* Shorter image on phones */
+  }
+
+  .blog-body {
+    font-size: 1.05rem; /* Slightly smaller text for mobile */
+  }
+}

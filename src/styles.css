@@ -1,3 +1,295 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+/* @use './styles/base';
+@use './styles/components/team';
+@use './styles/forms/input-group';
+
+@use './styles/components/button';
+@use './styles/components/footer'; */
+
+/* @plugin "daisyui"; */
+
+
+html {
+  height: 100%;
+}
+body {
+  letter-spacing: -0.16px;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-soft-black);
+}
+
+.bg-neutral {
+  background-color: rgb(141, 141, 249);
+  min-height: 100%;
+}
+
+@theme {
+  --color-soft-black: #25292b;
+  --color-warm-white: #f8f5f0;
+  --breakpoint-xs: 30rem;
+  --screen-max-width: 1312px;
+  --color-green-50: #f0fff3;
+  --color-green-100: #d0f5d9;
+  --color-green-200: #b9e9c5;
+  --color-green-500: #65dc8d;
+  --color-green-800: #157033;
+  --color-blue-500: #44b1ff;
+  --color-purple-500: #e4acff;
+  --color-system-yellow-400: #ffc852;
+  --color-gray-200: #e5e7eb;
+  --color-gray-600: #919191;
+  --color-gray-800: #3d3d3d;
+  --color-warm-white-100: #f9f7f4;
+  --color-blue-500: #44b1ff;
+  --min-height-80vh: 80vh;
+}
+
+@layer base {
+  a:hover,
+  button:not(:disabled):hover,
+  [role='button']:not(:disabled):hover {
+    cursor: pointer;
+  }
+
+  input[type='number'],
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  textarea {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-gray-800); /* 🔑 Fixed: added --color- prefix */
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid var(--color-gray-200); /* 🔑 Fixed: added --color- prefix */
+    border-radius: 0.125rem;
+  }
+
+  .text-sm {
+    font-size: 0.875rem;
+  }
+}
+@layer components {
+  .alert-warning {
+    padding: 15px;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border: 1px solid #faebcc;
+  }
+}
+
+@layer utilities {
+  .min-h-80vh {
+    min-height: var(--min-height-80vh);
+  }
+}
+
+
+@keyframes styles_spin__14QyD {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.LoadingAnimation_container___gCfy {
+  --uib-color: var(--color-blue-500);
+  animation: LoadingAnimation_rotate__tpMcx 0.8s linear infinite;
+  overflow: visible;
+  transform-origin: center;
+  will-change: transform;
+}
+.LoadingAnimation_car__YPOI_ {
+  animation: LoadingAnimation_colorShiftBetweenBlueOrangeAndPurple__aLrOe 5s linear infinite;
+  fill: none;
+  stroke: var(--uib-color);
+  stroke-dasharray: 25, 75;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  transition:
+    stroke 0.5s ease,
+    color 2s ease;
+}
+.LoadingAnimation_track__Qh2EQ {
+  fill: none;
+  opacity: 0.1;
+  stroke: var(--uib-color);
+  transition: stroke 0.5s ease;
+}
+@keyframes LoadingAnimation_rotate__tpMcx {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes LoadingAnimation_colorShiftBetweenBlueOrangeAndPurple__aLrOe {
+  0% {
+    stroke: var(--color-blue-500);
+  }
+  33% {
+    stroke: var(--color-purple-500);
+  }
+  66% {
+    stroke: var(--color-orange-500);
+  }
+  to {
+    stroke: var(--color-blue-500);
+  }
+}
+.MenuImageItem_ImageContainer__HVN2m {
+  grid-template-columns: 1fr 1fr;
+}
+.Blockquote_Blockquote__oR3AE {
+  hyphens: none;
+  word-break: word;
+}
+.Blockquote_Blockquote__oR3AE p {
+  font-size: inherit !important;
+  line-height: 1.75;
+}
+.Blockquote_BlockquoteLG__phZlS {
+  font-size: 1.944444444rem !important;
+  max-width: 60%;
+}
+.Blockquote_BlockquoteLG__phZlS.Blockquote_BlockquoteRight__EFHQi {
+  float: right;
+  margin: 20px -90px 20px 20px;
+  text-align: right;
+}
+@media screen and (max-width: 992px) {
+  .Blockquote_BlockquoteLG__phZlS.Blockquote_BlockquoteRight__EFHQi {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Blockquote_BlockquoteLG__phZlS.Blockquote_BlockquoteRight__EFHQi {
+    margin-left: 0;
+  }
+}
+.Blockquote_BlockquoteLG__phZlS.Blockquote_BlockquoteLeft__vvR3H {
+  float: left;
+  margin: 20px 20px 20px -90px;
+}
+@media screen and (max-width: 992px) {
+  .Blockquote_BlockquoteLG__phZlS.Blockquote_BlockquoteLeft__vvR3H {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Blockquote_BlockquoteLG__phZlS:before {
+    border-top: 1px solid var(--color-blue-500);
+    content: '';
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    width: 16px;
+  }
+  .Blockquote_BlockquoteLG__phZlS:after {
+    top: -1px;
+  }
+  .Blockquote_BlockquoteLG__phZlS:before {
+    bottom: 1px;
+  }
+}
+.Blockquote_BlockquoteXL__W5AHv:before {
+  border-top: 1px solid var(--color-blue-500);
+  content: '';
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  width: 16px;
+}
+@media screen and (max-width: 480px) {
+  .Blockquote_Blockquote__oR3AE {
+    margin-right: 0;
+  }
+  .Blockquote_Blockquote__oR3AE:before {
+    border-top: 1px solid var(--color-blue-500);
+    content: '';
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    width: 16px;
+  }
+  .Blockquote_Blockquote__oR3AE:after {
+    top: -1px;
+  }
+  .Blockquote_Blockquote__oR3AE:before {
+    bottom: 1px;
+  }
+}
+.Blockquote_BlockquoteXL__W5AHv p {
+  font-size: 3.055555556rem !important;
+  letter-spacing: 0;
+  text-align: center;
+}
+.Blockquote_BlockquoteXL__W5AHv:after,
+.Blockquote_BlockquoteXL__W5AHv:before {
+  border-top: 1px solid var(--color-blue-500);
+  content: '';
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  width: 16px;
+}
+.Blockquote_BlockquoteXL__W5AHv:before {
+  bottom: 1px;
+}
+.Blockquote_BlockquoteXL__W5AHv:after {
+  top: -1px;
+}
+.styles_ContentItem__cYfxe {
+  grid-template-areas: 'description' 'image' 'quote';
+}
+@media screen and (min-width: 768px) {
+  .styles_ContentItem__cYfxe {
+    grid-template-areas: 'description image' 'quote quote';
+  }
+}
+@media screen and (min-width: 992px) {
+  .styles_ContentItem__cYfxe {
+    grid-template-areas: 'description image' 'quote image';
+  }
+}
+@media screen and (max-width: 767px) {
+  .styles_CarouselButtons__IFsXX {
+    --dimensions: 10px;
+  }
+  .styles_CarouselButton__qIkiG {
+    border-radius: 999px;
+    height: var(--dimensions);
+    width: var(--dimensions);
+  }
+}
+@media screen and (min-width: 768px) {
+  .styles_CarouselButton__qIkiG:first-child {
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+  }
+  .styles_CarouselButton__qIkiG:last-child {
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+}
+
+/* kit */
+
+.validator-error {
+  color: #f36547;
+  margin: 3px 0;
+}
+
+.lh-br {
+  line-height: 22px;
+  border-radius: 7px;
+}
+
+.fs-inherit {
+  font-size: inherit;
+}

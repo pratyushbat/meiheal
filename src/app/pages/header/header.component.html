@@ -1,0 +1,640 @@
+<nav
+  id="mega-nav"
+  [ngClass]="
+    router.url != '/'
+      ? 'style_isActive__DmYuP top-0'
+      : showScrollButton()
+        ? 'style_isActive__DmYuP top-0'
+        : 'top-20 xs:top-12 sm:top-20 md:top-12'
+  "
+  class="fixed left-0 right-0 z-50 transition-all duration-150 style_light__9J_3v will-change-auto"
+>
+  <div
+    [ngClass]="
+      router.url != '/'
+        ? 'bg-white'
+        : showScrollButton() || isMobileMenuOpen()
+          ? 'bg-white'
+          : 'bg-transparent'
+    "
+    class="relative z-10 py-3 transition-colors duration-150"
+  >
+    <div class="px-4 xs:px-5 md:px-6 lg:px-8 max-w-[1920px] mx-auto">
+      <div
+        class="flex items-center justify-between gap-4 [@media(min-width:1022px)]:justify-center"
+      >
+        <div
+          [routerLink]="['/']"
+          class="transition-all duration-150 [@media(min-width:1022px)]:mr-2"
+        >
+          <a
+            class="block focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+            aria-label="meiheal Logo - Navigate to homepage"
+          >
+            <!-- <img src="/logo-new-vj.webp" alt="About Mei Heal" class="profile-img" /> -->
+            <svg
+              viewBox="0 0 80 25"
+              width="80"
+              height="25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="DWV"
+            >
+              <text
+                x="1"
+                y="21"
+                font-family="Georgia, 'Times New Roman', serif"
+                font-size="25"
+                font-weight="bold"
+                font-style="italic"
+                letter-spacing="-1"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+                paint-order="stroke fill"
+              >
+                DWV
+              </text>
+            </svg>
+          </a>
+        </div>
+        <div class="grow flex items-center">
+          <div class="hidden [@media(min-width:821px)]:inline-flex">
+            <div class="flex gap-2">
+              <button
+                (mouseenter)="openFirstDD()"
+                (click)="toggleFirstDD()"
+                class="nav-hover rounded text-sm mr-1 font-semibold capitalize inline-flex items-center duration-200 focus:outline-none text-black hover:text-black focus:text-black focus:bg-warm-white-200 p-custom-dash-btn"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="Features menu"
+                type="button"
+              >
+                Features
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  class="fill-current inline-block overflow-visible w-6 h-6 transition-transform ease-in-out fs-inherit"
+                  [ngClass]="firstDropDownOpen() ? 'transform -rotate-180' : 'false'"
+                  name="down"
+                  role="img"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m12 13.32 3.9-3.9a1 1 0 0 1 .7-.28q.45 0 .7.28a1 1 0 0 1 .29.7 1 1 0 0 1-.28.7l-4.6 4.6q-.15.15-.33.22a1 1 0 0 1-.37.06 1 1 0 0 1-.38-.06 1 1 0 0 1-.33-.21l-4.6-4.61a1 1 0 0 1-.28-.7 1 1 0 0 1 .28-.7 1 1 0 0 1 .7-.28q.42 0 .7.28z"
+                  ></path>
+                </svg>
+              </button>
+              <a
+                (click)="closeAll()"
+                [routerLink]="['/diet-plans']"
+                routerLinkActive="active"
+                class="nav-hover rounded text-sm mr-1 font-semibold capitalize inline-flex items-center duration-200 focus:outline-none text-black hover:text-black focus:text-black focus:bg-warm-white-200"
+                ><span class="px-1">Pricing</span></a
+              >
+              <a
+                (click)="closeAll()"
+                [routerLink]="['/products']"
+                routerLinkActive="active"
+                class="nav-hover rounded text-sm mr-1 font-semibold capitalize inline-flex items-center duration-200 focus:outline-none text-black hover:text-black focus:text-black focus:bg-warm-white-200"
+                ><span class="px-1">Products</span></a
+              >
+              <button
+                (mouseenter)="openThDD()"
+                (click)="toggleThDD()"
+                class="nav-hover rounded text-sm mr-1 font-semibold capitalize inline-flex items-center duration-200 focus:outline-none text-black hover:text-black focus:text-black focus:bg-warm-white-200 p-custom-dash-btn"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="Resources menu"
+                type="button"
+              >
+                Resources
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  class="fill-current inline-block overflow-visible w-6 h-6 transition-transform ease-in-out fs-inherit"
+                  [ngClass]="thDropDownOpen() ? 'transform -rotate-180' : 'false'"
+                  name="down"
+                  role="img"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m12 13.32 3.9-3.9a1 1 0 0 1 .7-.28q.45 0 .7.28a1 1 0 0 1 .29.7 1 1 0 0 1-.28.7l-4.6 4.6q-.15.15-.33.22a1 1 0 0 1-.37.06 1 1 0 0 1-.38-.06 1 1 0 0 1-.33-.21l-4.6-4.61a1 1 0 0 1-.28-.7 1 1 0 0 1 .28-.7 1 1 0 0 1 .7-.28q.42 0 .7.28z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2">
+            <span
+              [routerLink]="['/login']"
+              (click)="closeAll()"
+              class="hidden [@media(min-width:526px)]:block"
+            >
+              <a
+                class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-sm text-sm/[1.7145] px-2 py-1 gap-1 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                data-cta-name="header-login"
+                ><span class="px-1">Log in</span>
+              </a>
+            </span>
+            <!--        <span
+              (click)="closeAll()"
+              [routerLink]="['/contactus']"
+              class="hidden [@media(min-width:821px)]:hidden [@media(min-width:962px)]:block [@media(min-width:526px)]:block"
+              ><a
+                class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-sm text-sm/[1.7145] px-2 py-1 gap-1 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                data-cta-name="top-nav-request-demo"
+                ><span class="px-1">Request a demo </span>
+              </a>
+            </span> -->
+            <span
+              (click)="closeAll()"
+              [routerLink]="['/diet-plans']"
+              [ngClass]="
+                isMobileMenuOpen()
+                  ? 'hidden [@media(min-width:526px)]:inline-block'
+                  : 'inline-block'
+              "
+            >
+              <a
+                class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-soft-black bg-blue-500 hover:bg-blue-200 _btn-sm text-sm/[1.7145] px-2 py-1 gap-1 rounded-lg w-full sm:w-auto focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                data-cta-name="header-signup"
+              >
+                <span class="px-1">Our Packages</span>
+              </a>
+            </span>
+            <button
+              (click)="cart.open(); closeAll()"
+              [ngClass]="
+                isMobileMenuOpen()
+                  ? 'hidden [@media(min-width:526px)]:inline-block'
+                  : 'inline-block'
+              "
+              class="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition"
+              aria-label="Shopping Cart"
+            >
+              <!-- Cart Icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 3h2l2.4 10.39A2 2 0 0 0 9.35 15H18a2 2 0 0 0 1.94-1.52L21 6H7"
+                />
+                <circle cx="10" cy="20" r="1" />
+                <circle cx="18" cy="20" r="1" />
+              </svg>
+
+              <!-- Cart Count -->
+              <span
+                *ngIf="cart.totalItems() > 0"
+                class="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-600 px-1 text-[11px] font-semibold text-white"
+              >
+                {{ cart.totalItems() }}
+              </span>
+            </button>
+          </div>
+          <div
+            class="NavMobileToggle [@media(min-width:821px)]:hidden"
+            (click)="toggleMobileMenu()"
+          >
+            <button
+              aria-expanded="false"
+              role="button"
+              aria-label="Toggle mobile menu"
+              class="MobileMenuToggle_MenuToggle__3DstI"
+            >
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    [ngClass]="
+      firstDropDownOpen() || secDropDownOpen() || thDropDownOpen()
+        ? 'opacity-100 z-999 bg-white'
+        : 'opacity-0 -z-10 pointer-events-none bg-transparent'
+    "
+    class="absolute left-0 top-[56px] hidden max-h-[calc(100vh-102px)] w-full overflow-auto shadow-lg [@media(min-width:821px)]:block transition-all duration-150 wc-op"
+  >
+    <div class="max-w-[1920px] mx-auto">
+      <div class="px-4 xs:px-5 md:px-6 lg:px-8 max-w-[1280px]">
+        <div class="mb-8 mt-6 relative">
+          <div
+            (mouseleave)="closeFirstDD()"
+            [attr.inert]="!firstDropDownOpen() ? '' : null"
+            [ngClass]="firstDropDownOpen() ? 'opacity-100 max-h-full' : 'opacity-0 max-h-0'"
+            class="transition-opacity duration-150 overflow-hidden"
+          >
+            <div
+              class="mr-4 grid grid-cols-1 gap-4 xs:grid-cols-2 sm:mr-0 sm:grid-cols-3 md:grid-cols-[200px_repeat(5,1fr)]"
+            >
+              <div class="order-6 rounded-2xl bg-soft-black/6 p-6 xs:order-1 xs:mr-6 sm:col-span-1">
+                <div class="flex flex-col bl-gap-1">
+                  <span class="text-sm font-semibold">Want a personalized  Health Store tour?</span>
+                  <span class="text-sm">We would love to connect with you.</span>
+                  <div>
+                    <a
+                      (click)="closeAll()"
+                      class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-warm-white bg-soft-black hover:bg-gray-800 _btn-sm text-sm/[1.7145] px-2 py-1 gap-1 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                      routerLink="/contactus"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      routerLinkActive="active"
+                      ><span class="px-1">Request demo</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-2">
+                <span class="text-xs font-bold uppercase text-soft-black">Help</span>
+                <ul class="mt-2 flex flex-col gap-2">
+                  <li>
+                    <a
+                      (click)="closeAll()"
+                      routerLink="/contactus"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      routerLinkActive="active"
+                      class="text-sm relative transition-colors duration-100 hover:text-gray-700 focus:text-gray-700 underline underline-offset-2 decoration-1 decoration-transparent hover:decoration-inherit focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                      data-cta-name="earn-link"
+                      >Contact Us</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      (click)="closeAll()"
+                      routerLink="/faq"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      routerLinkActive="active"
+                      class="text-sm relative transition-colors duration-100 hover:text-gray-700 focus:text-gray-700 underline underline-offset-2 decoration-1 decoration-transparent hover:decoration-inherit focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                      data-cta-name="earn-link"
+                      >FAQ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      (click)="closeAll()"
+                      routerLink="/about"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      routerLinkActive="active"
+                      class="text-sm relative transition-colors duration-100 hover:text-gray-700 focus:text-gray-700 underline underline-offset-2 decoration-1 decoration-transparent hover:decoration-inherit focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                      data-cta-name="earn-link"
+                      >About Us</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            (mouseleave)="closesecDD()"
+            [attr.inert]="!secDropDownOpen() ? '' : null"
+            [ngClass]="secDropDownOpen() ? 'opacity-100 max-h-full' : 'opacity-0 max-h-0'"
+            class="transition-opacity duration-150 overflow-hidden"
+          >
+            <div class="grid grid-cols-1 gap-4 xs:grid-cols-12">
+              <div class="order-2 xs:order-1 xs:col-span-5 sm:col-span-3 md:col-span-3"></div>
+              <ul
+                class="UseCases order-1 grid grid-cols-1 grid-rows-[auto_auto_1fr] place-content-start gap-3 xs:order-2 xs:col-span-7 sm:col-span-9 sm:grid-cols-2 md:order-2 md:col-span-9 md:border-0 md:pl-0"
+              >
+                <li>
+                  <a class="focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden">
+                    <div
+                      class="MenuImageItem_ImageContainer__HVN2m MenuImageItem group flex rounded-xl p-1 transition-all duration-300 hover:bg-warm-white h-full"
+                    >
+                      <div class="flex flex-1 flex-row gap-3 p-5">
+                        <span
+                          aria-label="Emails"
+                          role="img"
+                          class="inline-block Icon_Icon__T_Hml min-w-6 wd-24-inline"
+                          ><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M5.5 4C5.5 3.44772 5.94772 3 6.5 3H17.5C18.0523 3 18.5 3.44772 18.5 4C18.5 4.55228 18.0523 5 17.5 5H6.5C5.94772 5 5.5 4.55228 5.5 4Z"
+                              fill="currentColor"
+                            ></path>
+                            <path
+                              d="M5.5 6C4.94772 6 4.5 6.44772 4.5 7C4.5 7.55228 4.94772 8 5.5 8H18.5C19.0523 8 19.5 7.55228 19.5 7C19.5 6.44772 19.0523 6 18.5 6H5.5Z"
+                              fill="currentColor"
+                            ></path>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M3.5875 20.4125C3.97917 20.8042 4.45 21 5 21L19 21C19.55 21 20.0208 20.8042 20.4125 20.4125C20.8042 20.0208 21 19.55 21 19V11C21 10.45 20.8042 9.97917 20.4125 9.5875C20.0208 9.19583 19.55 9 19 9H5C4.45 9 3.97917 9.19583 3.5875 9.5875C3.19583 9.97917 3 10.45 3 11V19C3 19.55 3.19583 20.0208 3.5875 20.4125ZM19 12.425L12.9097 15.5354C12.3383 15.8272 11.6617 15.8272 11.0903 15.5354L5 12.425V19L19 19V12.425ZM6.45 11L12 13.55L17.5 11H6.45Z"
+                              fill="currentColor"
+                            ></path></svg
+                        ></span>
+                        <div class="flex flex-col bl-gap-25">
+                          <span class="text-4 flex font-semibold">Email marketing</span
+                          ><span class="text-3.5 leading-tight"
+                            >Market your products and services using email marketing features built
+                            for creators</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            (mouseleave)="closeThDD()"
+            [attr.inert]="!thDropDownOpen() ? '' : null"
+            [ngClass]="thDropDownOpen() ? 'opacity-100 max-h-full' : 'opacity-0 max-h-0'"
+            class="transition-opacity duration-150 overflow-hidden"
+          >
+            <div class="grid grid-cols-2 gap-4 xs:grid-cols-12">
+              <ul
+                class="Resources order-1 col-span-8 grid grid-cols-1 place-content-start gap-3 xs:col-span-8 sm:order-2 sm:grid-cols-2 md:order-1 md:col-span-9 md:border-0"
+              >
+                <li>
+                  <a
+                    (click)="closeAll()"
+                    class="focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                    data-cta-name="nav-resources-blog"
+                    [routerLink]="['/blogs']"
+                    routerLinkActive="active"
+                  >
+                    <div
+                      (click)="closeAll()"
+                      [routerLink]="['/blogs']"
+                      routerLinkActive="active"
+                      class="MenuImageItem_ImageContainer__HVN2m MenuImageItem group flex rounded-xl p-1 transition-all duration-300 hover:bg-warm-white h-full"
+                    >
+                      <div class="flex flex-1 flex-row gap-3 p-5">
+                        <span
+                          aria-label="Newspaper"
+                          role="img"
+                          class="inline-block Icon_Icon__T_Hml min-w-6 wd-24-inline"
+                          ><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M4 21C3.45 21 2.97917 20.8042 2.5875 20.4125C2.19583 20.0208 2 19.55 2 19V3.60001C2 3.48335 2.05 3.40418 2.15 3.36251C2.25 3.32085 2.34167 3.34168 2.425 3.42501L3.675 4.67501L4.975 3.35001C5.075 3.25001 5.19167 3.20001 5.325 3.20001C5.45833 3.20001 5.575 3.25001 5.675 3.35001L7 4.67501L8.325 3.35001C8.425 3.25001 8.54167 3.20001 8.675 3.20001C8.80833 3.20001 8.925 3.25001 9.025 3.35001L10.325 4.67501L11.65 3.35001C11.75 3.25001 11.8667 3.20001 12 3.20001C12.1333 3.20001 12.25 3.25001 12.35 3.35001L13.675 4.67501L14.975 3.35001C15.075 3.25001 15.1917 3.20001 15.325 3.20001C15.4583 3.20001 15.575 3.25001 15.675 3.35001L17 4.67501L18.325 3.35001C18.425 3.25001 18.5417 3.20001 18.675 3.20001C18.8083 3.20001 18.925 3.25001 19.025 3.35001L20.325 4.67501L21.575 3.42501C21.6583 3.34168 21.75 3.32085 21.85 3.36251C21.95 3.40418 22 3.48335 22 3.60001V19C22 19.55 21.8042 20.0208 21.4125 20.4125C21.0208 20.8042 20.55 21 20 21H4ZM4 19H11V13H4V19ZM13 19H20V17H13V19ZM13 15H20V13H13V15ZM4 11H20V8.00001H4V11Z"
+                              fill="currentColor"
+                            ></path></svg
+                        ></span>
+                        <div class="flex flex-col bl-gap-25">
+                          <span class="text-4 flex font-semibold">Blog</span
+                          ><span class="text-3.5 leading-tight">living lifestyle blogs </span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="mt-auto self-end xs:text-right sm:col-span-2">
+                  <a
+                    (click)="closeAll()"
+                    routerLink="/signup"
+                    routerLinkActive="active"
+                    class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-soft-black hover:bg-soft-black/[16%] focus:bg-soft-black/[16%] bg-soft-black/[8%] _btn-md text-sm px-3 gap-1 leading-[2.858] rounded-[10px] focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                    ><span class="px-1">See all resources</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="w-full overflow-auto bg-white shadow-sm [@media(min-width:821px)]:hidden flex flex-col transition-all duration-150 -z-10"
+    [ngClass]="isMobileMenuOpen() ? 'z-50 opacity-100 h-svh' : 'opacity-0 pointer-events-none h-0'"
+  >
+    <div class="grow mb-64 xs:mb-72">
+      <div class="grid gap-2 space-y-1 px-2 pb-3 pt-2 sm:px-3">
+        <div>
+          <button
+            (click)="toggleFirstDD()"
+            class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-lg text-base px-4 gap-1 leading-none py-3 w-full justify-between rounded-md text-left"
+            type="button"
+          >
+            <span class="px-1">Features</span>
+            <span
+              aria-label="Down"
+              role="img"
+              class="inline-block Icon_Icon__T_Hml transition-transform duration-150 wd-20-inline"
+              [ngClass]="firstDropDownOpen() ? 'transform -rotate-180' : 'false'"
+            >
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.0049 13.1814L15.9084 9.27548C16.0919 9.09187 16.3255 9.00006 16.6091 9.00006C16.8926 9.00006 17.1262 9.09187 17.3097 9.27548C17.4932 9.45909 17.5849 9.69278 17.5849 9.97655C17.5849 10.2603 17.4932 10.494 17.3097 10.6776L12.7056 15.2846C12.6055 15.3848 12.497 15.4557 12.3803 15.4975C12.2635 15.5392 12.1384 15.5601 12.0049 15.5601C11.8715 15.5601 11.7464 15.5392 11.6296 15.4975C11.5128 15.4557 11.4044 15.3848 11.3043 15.2846L6.70017 10.6776C6.51668 10.494 6.42493 10.2603 6.42493 9.97655C6.42493 9.69278 6.51668 9.45909 6.70017 9.27548C6.88367 9.09187 7.11721 9.00006 7.4008 9.00006C7.68439 9.00006 7.91793 9.09187 8.10143 9.27548L12.0049 13.1814Z"
+                  fill="currentColor"
+                ></path></svg
+            ></span>
+          </button>
+          @if (firstDropDownOpen()) {
+            <div class="rounded-lg bg-warm-white/30 py-3 pl-3">
+              <div
+                class="mr-4 grid grid-cols-1 gap-4 xs:grid-cols-2 sm:mr-0 sm:grid-cols-3 md:grid-cols-[200px_repeat(5,1fr)]"
+              >
+                <div
+                  class="order-6 rounded-2xl bg-soft-black/6 p-6 xs:order-1 xs:mr-6 sm:col-span-1"
+                >
+                  <div class="flex flex-col bl-gap-1">
+                    <span class="text-sm font-semibold">Want a personalized  Health Store tour?</span
+                    ><span class="text-sm">We would love to connect with you.</span>
+                    <div>
+                      <a
+                        (click)="closeAll()"
+                        [routerLink]="['/contactus']"
+                        routerLinkActive="active"
+                        class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-warm-white bg-soft-black hover:bg-gray-800 _btn-sm text-sm/[1.7145] px-2 py-1 gap-1 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                        ><span class="px-1">Request demo</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="order-2">
+                  <span class="text-xs font-bold uppercase text-soft-black">Help</span>
+                  <ul class="mt-2 flex flex-col gap-2">
+                    <li>
+                      <a
+                        (click)="closeAll()"
+                        class="text-sm relative transition-colors duration-100 hover:text-gray-700 focus:text-gray-700 underline underline-offset-2 decoration-1 decoration-transparent hover:decoration-inherit focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                        [routerLink]="['/contactus']"
+                        routerLinkActive="active"
+                        >Contact Us</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        (click)="closeAll()"
+                        class="text-sm relative transition-colors duration-100 hover:text-gray-700 focus:text-gray-700 underline underline-offset-2 decoration-1 decoration-transparent hover:decoration-inherit focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                        [routerLink]="['/faq']"
+                        routerLinkActive="active"
+                        >FAQ</a
+                      >
+                    </li>
+                    <li>
+                      <span
+                        (click)="closeAll()"
+                        class="text-4 cursor-pointer"
+                        type="button"
+                        [routerLink]="['/about']"
+                        routerLinkActive="active"
+                        ><span
+                          class="inline-block text-sm transition-colors duration-100 hover:text-gray-700 focus:text-gray-700 underline underline-offset-2 decoration-1 decoration-transparent hover:decoration-inherit outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500"
+                          tabindex="0"
+                          >About Us</span
+                        ></span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+        <div>
+          <a
+            class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-lg text-base px-4 gap-1 rounded-xl py-4 leading-none w-full justify-between focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+            [routerLink]="['/diet-plans']"
+            routerLinkActive="active"
+            (click)="closeAll()"
+            ><span class="px-1">Pricing</span></a
+          >
+        </div>
+        <div>
+          <a
+            class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-lg text-base px-4 gap-1 rounded-xl py-4 leading-none w-full justify-between focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+            [routerLink]="['/products']"
+            routerLinkActive="active"
+            (click)="closeAll()"
+            ><span class="px-1">Products</span></a
+          >
+        </div>
+        <div>
+          <button
+            (click)="toggleThDD()"
+            class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-lg text-base px-4 gap-1 leading-none py-3 w-full justify-between rounded-md text-left"
+            type="button"
+          >
+            <span class="px-1">Resources </span
+            ><span
+              aria-label="Down"
+              role="img"
+              class="inline-block Icon_Icon__T_Hml transition-transform duration-150 wd-20-inline"
+              [ngClass]="thDropDownOpen() ? 'transform -rotate-180' : 'false'"
+              ><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.0049 13.1814L15.9084 9.27548C16.0919 9.09187 16.3255 9.00006 16.6091 9.00006C16.8926 9.00006 17.1262 9.09187 17.3097 9.27548C17.4932 9.45909 17.5849 9.69278 17.5849 9.97655C17.5849 10.2603 17.4932 10.494 17.3097 10.6776L12.7056 15.2846C12.6055 15.3848 12.497 15.4557 12.3803 15.4975C12.2635 15.5392 12.1384 15.5601 12.0049 15.5601C11.8715 15.5601 11.7464 15.5392 11.6296 15.4975C11.5128 15.4557 11.4044 15.3848 11.3043 15.2846L6.70017 10.6776C6.51668 10.494 6.42493 10.2603 6.42493 9.97655C6.42493 9.69278 6.51668 9.45909 6.70017 9.27548C6.88367 9.09187 7.11721 9.00006 7.4008 9.00006C7.68439 9.00006 7.91793 9.09187 8.10143 9.27548L12.0049 13.1814Z"
+                  fill="currentColor"
+                ></path></svg
+            ></span>
+          </button>
+          @if (thDropDownOpen()) {
+            <div class="rounded-lg bg-warm-white/30 py-3 pl-3">
+              <div class="grid grid-cols-2 gap-4 xs:grid-cols-12">
+                <ul
+                  class="Resources order-1 col-span-8 grid grid-cols-1 place-content-start gap-3 xs:col-span-8 sm:order-2 sm:grid-cols-2 md:order-1 md:col-span-9 md:border-0"
+                >
+                  <li>
+                    <a
+                      class="focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+                      data-cta-name="nav-resources-blog"
+                    >
+                      <div
+                        class="MenuImageItem_ImageContainer__HVN2m MenuImageItem group flex rounded-xl p-1 transition-all duration-300 hover:bg-warm-white h-full"
+                      >
+                        <div
+                          class="flex flex-1 flex-row gap-3 p-5"
+                          [routerLink]="['/blogs']"
+                          routerLinkActive="active"
+                          (click)="closeAll()"
+                        >
+                          <span
+                            aria-label="Newspaper"
+                            role="img"
+                            class="inline-block Icon_Icon__T_Hml min-w-6 wd-24-inline"
+                            ><svg
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4 21C3.45 21 2.97917 20.8042 2.5875 20.4125C2.19583 20.0208 2 19.55 2 19V3.60001C2 3.48335 2.05 3.40418 2.15 3.36251C2.25 3.32085 2.34167 3.34168 2.425 3.42501L3.675 4.67501L4.975 3.35001C5.075 3.25001 5.19167 3.20001 5.325 3.20001C5.45833 3.20001 5.575 3.25001 5.675 3.35001L7 4.67501L8.325 3.35001C8.425 3.25001 8.54167 3.20001 8.675 3.20001C8.80833 3.20001 8.925 3.25001 9.025 3.35001L10.325 4.67501L11.65 3.35001C11.75 3.25001 11.8667 3.20001 12 3.20001C12.1333 3.20001 12.25 3.25001 12.35 3.35001L13.675 4.67501L14.975 3.35001C15.075 3.25001 15.1917 3.20001 15.325 3.20001C15.4583 3.20001 15.575 3.25001 15.675 3.35001L17 4.67501L18.325 3.35001C18.425 3.25001 18.5417 3.20001 18.675 3.20001C18.8083 3.20001 18.925 3.25001 19.025 3.35001L20.325 4.67501L21.575 3.42501C21.6583 3.34168 21.75 3.32085 21.85 3.36251C21.95 3.40418 22 3.48335 22 3.60001V19C22 19.55 21.8042 20.0208 21.4125 20.4125C21.0208 20.8042 20.55 21 20 21H4ZM4 19H11V13H4V19ZM13 19H20V17H13V19ZM13 15H20V13H13V15ZM4 11H20V8.00001H4V11Z"
+                                fill="currentColor"
+                              ></path></svg
+                          ></span>
+                          <div class="flex flex-col bl-gap-25">
+                            <span class="text-4 flex font-semibold">Blog</span
+                            ><span class="text-3.5 leading-tight">living llifestyle blogs</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    <div
+      class="fixed bottom-0 w-full bg-white before:content-[''] before:absolute before:-top-10 before:left-0 before:w-full before:h-10 before:from-transparent before:to-white before:bg-linear-to-b before:z-10 before:pointer-events-none [@media(min-width:526px)]:hidden"
+    >
+      <div class="border-t border-gray-200 pb-2 pt-4">
+        <div
+          (click)="closeAll()"
+          [routerLink]="['/diet-plans']"
+          routerLinkActive="active"
+          class="flex justify-center items-center px-5"
+        >
+          <a
+            class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-soft-black bg-blue-500 hover:bg-blue-200 _btn-lg text-base px-4 gap-1 rounded-xl py-4 leading-none w-full focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+          >
+            <span class="px-1">Our Packages</span>
+          </a>
+        </div>
+      </div>
+      <!--       <div
+        [routerLink]="['/contactus']"
+        routerLinkActive="active"
+        (click)="closeAll()"
+        class="pb-2"
+      >
+        <div class="flex justify-center items-center px-5">
+          <a
+            class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-lg text-base px-4 gap-1 rounded-xl py-4 leading-none w-full focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+            data-cta-name="mobile-dropdown-navigation-request-demo"
+          >
+            <span class="px-1">Request a demo</span>
+          </a>
+        </div>
+      </div> -->
+      <div class="pb-4">
+        <div
+          (click)="closeAll()"
+          [routerLink]="['/login']"
+          routerLinkActive="active"
+          class="flex justify-center items-center px-5"
+        >
+          <a
+            class="font-sans transition-all tracking-[-0.14px] duration-150 font-semibold inline-flex items-center justify-center text-soft-black bg-transparent hover:bg-soft-black/[8%] focus:bg-soft-black/[8%] _btn-lg text-base px-4 gap-1 rounded-xl py-4 leading-none w-full focus-visible:ring-2 focus-visible:ring-blue-500 outline-hidden"
+          >
+            <span class="px-1">Log in</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

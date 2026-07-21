@@ -1,0 +1,23 @@
+<div class="page" id="ck-page">
+  <dash-header></dash-header>
+
+  <div class="content_wrapper min-h-screen flex flex-col">
+    <!--  //flex flex-col -->
+    <div id="app" class="flex-one-one">
+      <div class="flex flex-col h-svh">
+        <button
+          *ngIf="false"
+          class="alert-no-hide alert-warning alert--banner alert--account-review td-none"
+          id="approval-trigger"
+        >
+          Some features of your account are disabled until it has been approved by our team. Start
+          the approvals process by clicking here.
+        </button>
+        <router-outlet></router-outlet>
+        <app-cart-drawer />
+      </div>
+    </div>
+  </div>
+</div>
+
+<dashboard-mobile-menu></dashboard-mobile-menu>

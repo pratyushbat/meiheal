@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
-const angularApp = new AngularNodeAppEngine({trustProxyHeaders:true, allowedHosts: ["localhost:4000","localhost","meihealth-410127885041.asia-southeast1.run.app","meihealth--meihealth.asia-southeast1.hosted.app","*.meihealth.com"]});
+const angularApp = new AngularNodeAppEngine({trustProxyHeaders:true, allowedHosts: ["localhost:4000","localhost","meiheal-309696976357.us-east4.run.app","https://meiheal--meihealth-cfc62.us-east4.hosted.app","*.meihealth.com"]});
 
 /**
  * Example Express Rest API endpoints can be defined here.

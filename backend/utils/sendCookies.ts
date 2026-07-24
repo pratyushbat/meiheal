@@ -1,4 +1,4 @@
-require("dotenv").config()
+
 import { Response } from "express";
 
 export const sendOtpCookie = (

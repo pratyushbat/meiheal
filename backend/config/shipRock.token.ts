@@ -1,4 +1,3 @@
-require("dotenv").config()
 
 let cachedToken: string | null = null;
 let tokenFetchedAt = 0;

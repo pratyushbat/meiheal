@@ -1,4 +1,4 @@
-require("dotenv").config()
+
 import twilio from "twilio";
 
 const client = twilio(

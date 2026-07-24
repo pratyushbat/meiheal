@@ -1,4 +1,3 @@
-require("dotenv").config()
 
 import Razorpay from 'razorpay';
 export const createRazorpayInstance = () => {

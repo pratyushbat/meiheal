@@ -1,4 +1,4 @@
-require("dotenv").config()
+
 import * as nodeMailer from 'nodemailer';
 import SendGrid from 'nodemailer-sendgrid-transport';
 export class Nodemailer {

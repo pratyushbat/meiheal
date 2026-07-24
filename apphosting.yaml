@@ -16,9 +16,8 @@ headers:
     headers:
       - key: X-Frame-Options
         value: SAMEORIGIN
-        
-# Environment variables and secrets.
-# env:
+  # Environment variables and secrets.
+  # env:
   # Configure environment variables.
   # See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
   # - variable: MESSAGE
@@ -31,3 +30,14 @@ headers:
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
   # - variable: MY_SECRET
   #   secret: mySecretRef
+env:
+  - variable: DB_URI
+    secret: DB_URI
+  - variable: TWILIO_SERVICE_ID
+    secret: TWILIO_SERVICE_ID
+  - variable: NODE_ENV
+    secret: NODE_ENV
+  - variable: RESEND_ID
+    secret: RESEND_ID
+  - variable: JWT_KEY
+    secret: JWT_KEY

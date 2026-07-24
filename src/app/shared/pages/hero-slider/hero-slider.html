@@ -1,0 +1,86 @@
+<div class="mei-hero-slideshow" data-autoplay="true" data-delay="5000"
+    data-pause-on-hover="true" data-total-slides="7">
+    <div class="mei-hero-slideshow-container">
+        @for (slide of slides; track slide.desktopImage; let i = $index) {
+        <!-- Slide 1 -->
+        <div class="mei-hero-slide " [class.active]="i === activeIndex" [attr.data-slide-index]="i + 1"  data-slide-index="1"
+            style="--overlay-opacity: 0;">
+            <div class="mei-hero-slide-media">
+                <picture>
+                    <source media="(max-width: 749px)"
+                        [srcset]="slide.desktopImage">
+                    <img [src]="slide.desktopImage" [loading]="i === 0 ? 'eager' : 'lazy'" alt="" loading="eager"
+                        width="2048" height="647">
+                </picture>
+            </div>
+
+            <div class="mei-hero-slide-overlay"></div>
+
+            <a href="/products/meiheal-percussion-gun-massager-machine-for-full-body-pain-relief-for-men-women-2800-rpm-deep-tissue-massage-gun-with-speed-indicator-4-removable-heads-6-speed-levels-high-torque-motor-lightweight-with-non-slip-handle-hm140"
+                class="mei-hero-slideshow-link" aria-label="Slide 1 link"
+                draggable="false"></a>
+
+            <div class="mei-hero-slide-content">
+                <div class="mei-hero-slide-text-wrapper align-left mobile-align-center"
+                    style="color: #ffffff;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button
+            class="mei-hero-arrow mei-hero-arrow-prev"
+            aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+            </svg>
+        </button>
+        <button
+            class="mei-hero-arrow mei-hero-arrow-next"
+            aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+            </svg>
+        </button>
+
+    }
+    </div>
+</div>
+
+<!-- 
+<div class="hero-slider">
+    @for (slide of slides; track slide.desktopImage; let i = $index) {
+    <div class="hero-slide" [class.active]="i === activeIndex" [attr.data-slide-index]="i + 1"
+        [style.--overlay-opacity]="slide.overlayOpacity">
+
+        <div class="hero-slide-media">
+
+            <picture>
+
+                <source media="(max-width:749px)" [srcset]="slide.mobileImage">
+
+                <img [src]="slide.desktopImage" alt="" [loading]="i === 0 ? 'eager' : 'lazy'">
+
+            </picture>
+
+        </div>
+        <button class="ai-hero-arrow-default ai-hero-arrow-prev-default" aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+            </svg>
+        </button>
+        <button class="ai-hero-arrow-default ai-hero-arrow-next-default" aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+            </svg>
+        </button>
+        <div class="hero-slide-overlay"></div>
+
+        <a [routerLink]="slide.link" class="hero-banner-link">
+        </a>
+
+    </div>
+
+    }
+
+</div> -->

@@ -942,7 +942,7 @@ export class CheckoutNewComponent implements OnInit {
       key: environment.razorpayKeyId,
       amount: data.razorpayOrder.amount,
       currency: 'INR',
-      name: 'Aroved  Health Store meiheal',
+      name: 'MeiHeal  Health Store meiheal',
       order_id: data.razorpayOrder.id,
       handler: (response: any) => {
         if (isPlatformBrowser(this.platformId)) {

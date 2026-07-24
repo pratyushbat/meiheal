@@ -1,6 +1,6 @@
 
 
-import { AfterViewInit, Component, computed, ElementRef, inject, OnDestroy, OnInit, PLATFORM_ID, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, importProvidersFrom, inject, OnDestroy, OnInit, PLATFORM_ID, signal, ViewChild } from '@angular/core';
 
 
 import { CommonModule, isPlatformBrowser } from '@angular/common';
@@ -13,22 +13,64 @@ import { Meta } from '@angular/platform-browser';
 import { ProductListResponse } from '../../services/product.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
+import { HeroSliderComponent } from '../../shared/pages/hero-slider/hero-slider';
 
+import { Globe } from 'lucide-angular';
+import { TopPicksComponent, TopPicksTab } from '../../shared/pages/top-picks/top-picks';
+import { bestSellerTabs } from '../../shared/pages/top-picks/bestSeller';
+import { HeroSlide, SlideShowComponent } from '../../shared/pages/slide-show/slide-show';
 
 @Component({
   selector: 'landing-page',
-  imports:[CommonModule,LucideAngularModule,RouterModule],
+  imports: [CommonModule, LucideAngularModule, RouterModule, HeroSliderComponent, TopPicksComponent,SlideShowComponent],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
+
   standalone: true
 })
 export class LandingPageComponent implements OnInit, AfterViewInit, OnDestroy {
+
+heroSlides: HeroSlide[] = [
+  {
+    imageDesktop: '//healthsense.in/cdn/shop/files/1.svg?v=1784200587&width=2400',
+    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_45_AM.png?v=1781070495&width=800',
+    alt: '',
+    width: 1890,
+    height: 832
+  },
+  {
+    imageDesktop: '//healthsense.in/cdn/shop/files/2_50c71721-25f8-4ee3-8d36-2892807e33d4.svg?v=1784200601&width=2400',
+    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_50_AM.png?v=1781070520&width=800',
+    alt: '',
+    width: 1890,
+    height: 832
+  },
+  {
+    imageDesktop: '//healthsense.in/cdn/shop/files/3_8d14ddbb-666a-4f40-8e2d-ae6417744f96.svg?v=1784200616&width=2400',
+    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_48_AM.png?v=1781070536&width=800',
+    alt: '',
+    width: 1890,
+    height: 832
+  },
+  {
+    imageDesktop: '//healthsense.in/cdn/shop/files/4_f66702cf-bac0-457a-ab56-618d4433007c.svg?v=1784200635&width=2400',
+    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_52_AM.png?v=1781070550&width=800',
+    alt: '',
+    width: 1890,
+    height: 832
+  },
+  {
+    imageDesktop: '//healthsense.in/cdn/shop/files/5_7669cbd5-0231-4676-90d3-939cf9e9f064.svg?v=1784200655&width=2400',
+    alt: '',
+    width: 1890,
+    height: 832
+  }
+];
   title: string = 'Mei Heal — Healthy Products';
   description: string = `Personalized Health porducts`;
   url: string = 'https://www.meiheal.com';
   image: string = 'https://www.meiheal.com/landingth.webp';
-
-
+  bestSellerTabs: TopPicksTab[] = bestSellerTabs
   private toast = inject(ToastService);
   products = signal<USubscriptionPlan[]>([]);
   isLoading = signal<boolean>(true);
@@ -149,7 +191,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit, OnDestroy {
     //   },
     //   "sameAs": [
     //     "https://www.facebook.com/profile.php?id=61590369990172",
-    //     "https://instagram.com/dietwith_meiheal",
+    //     "https://instagram.com/meihealmeiheal",
     //     "https://www.linkedin.com/in/meiheal",
     //     "https://www.youtube.com/@meiheal",
     //     "https://x.com/meiheal"

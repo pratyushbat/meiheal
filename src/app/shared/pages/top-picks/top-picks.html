@@ -1,0 +1,91 @@
+<div class="top-picks">
+  <div class="top-picks__container">
+ 
+    <div class="top-picks__header">
+      <div class="top-picks__header-left">
+        <h2 class="top-picks__title">{{ title }}</h2>
+ 
+        <div class="top-picks__tabs" *ngIf="tabs.length > 1">
+          <button
+            *ngFor="let tab of tabs"
+            type="button"
+            class="top-picks__tab"
+            [class.active]="isActiveTab(tab.key)"
+            (click)="setActiveTab(tab.key)"
+          >
+            {{ tab.label }}
+          </button>
+        </div>
+      </div>
+ 
+      <a *ngIf="viewAllUrl" [href]="viewAllUrl" class="top-picks__view-all"></a>
+    </div>
+ 
+    <div class="top-picks__content">
+      <button
+        type="button"
+        class="top-picks__arrow top-picks__arrow--left"
+        aria-label="Previous products"
+        (click)="scroll('left')"
+      >
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+ 
+      <button
+        type="button"
+        class="top-picks__arrow top-picks__arrow--right"
+        aria-label="Next products"
+        (click)="scroll('right')"
+      >
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+      </button>
+ 
+      <div
+        *ngFor="let tab of tabs"
+        class="top-picks__tab-content"
+        [class.active]="isActiveTab(tab.key)"
+      >
+        <div class="top-picks__slider" #slider>
+          <div class="top-picks__card" *ngFor="let product of tab.products">
+            <a [href]="product.url" class="top-picks__image-wrapper">
+              <img
+                [src]="product.imagePrimary"
+                [alt]="product.title"
+                class="top-picks__image"
+                [class.top-picks__image--has-secondary]="!!product.imageSecondary"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+              <img
+                *ngIf="product.imageSecondary"
+                [src]="product.imageSecondary"
+                [alt]="product.title"
+                class="top-picks__image top-picks__image--secondary"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
+            </a>
+ 
+            <div class="top-picks__card-content">
+              <div class="top-picks__rating" *ngIf="product.judgeMeId">
+                <div class="jdgm-widget jdgm-preview-badge" [attr.data-id]="product.judgeMeId"></div>
+              </div>
+ 
+              <h3 class="top-picks__product-title">
+                <a [href]="product.url">{{ product.title }}</a>
+              </h3>
+ 
+              <div class="top-picks__price-row">
+                <span class="top-picks__current-price">{{ product.currentPrice }}</span>
+                <span class="top-picks__old-price" *ngIf="product.oldPrice">{{ product.oldPrice }}</span>
+                <span class="top-picks__discount" *ngIf="product.discount">{{ product.discount }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

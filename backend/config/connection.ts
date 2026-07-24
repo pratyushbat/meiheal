@@ -1,4 +1,4 @@
-import { API_URL } from './constants';
+
 import mongoose from "mongoose";
 
 // Register once — these fire for the lifetime of the app, not just at initial connect

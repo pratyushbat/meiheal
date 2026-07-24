@@ -62,7 +62,7 @@ export class ContactusComponent implements OnInit, OnDestroy {
 
     //     "sameAs": [
     //       "https://www.facebook.com/profile.php?id=61590369990172",
-    //       "https://instagram.com/dietwith_meiheal",
+    //       "https://instagram.com/meihealmeiheal",
     //       "https://www.linkedin.com/in/meiheal",
     //       "https://www.youtube.com/@meiheal",
     //       "https://x.com/meiheal"

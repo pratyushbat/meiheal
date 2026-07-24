@@ -1,1090 +1,179 @@
-<section class="carousel w-full scroll-smooth pt-16 xs:pt-16">
-  <div #slide1 class="carousel-item relative w-full w-full-img">
-    <img
-      fetchpriority="high"
-      loading="eager"
-      src="landingth-large.webp"
-      srcset="landingth-small.webp 500w, landingth-med.webp 1000w, landingth-large.webp 1570w"
-      sizes="(max-width: 768px) 100vw, 50vw"
-      class="w-full object-cover object-center"
-      alt="Mei Heal - Best Nutritionist in Pitampura Delhi"
-    />
-    <div
-      class="absolute left-5 right-5 top-1/2 -translate-y-1/2 transform justify-between hidden md:flex opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
-    >
-      <button
-        (click)="goToSlide(3)"
-        class="btn btn-circle bg-white/50 border-none hover:bg-white text-slate-800 backdrop-blur-sm shadow-md"
-      >
-        ❮
-      </button>
-      <button
-        (click)="goToSlide(2)"
-        class="btn btn-circle bg-white/50 border-none hover:bg-white text-slate-800 backdrop-blur-sm shadow-md"
-      >
-        ❯
-      </button>
-    </div>
-  </div>
+<app-hero-slider></app-hero-slider>
 
-  <div #slide2 class="carousel-item relative w-full w-full-img">
-    <img
-      fetchpriority="high"
-      loading="eager"
-      src="landing-sec-1k.webp"
-      srcset="landing-sec-5.webp 500w, landing-sec-1k.webp 1000w, landing-sec-1k.webp 1570w"
-      sizes="(max-width: 768px) 100vw, 50vw"
-      class="w-full object-cover object-center"
-      alt="Personalized  Health Store Plans for Weight Loss and Diabetes - Delhi"
-    />
-    <div
-      class="absolute left-5 right-5 top-1/2 -translate-y-1/2 transform justify-between hidden md:flex opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
-    >
-      <button
-        (click)="goToSlide(1)"
-        class="btn btn-circle bg-white/50 border-none hover:bg-white text-slate-800 backdrop-blur-sm shadow-md"
-      >
-        ❮
-      </button>
-      <button
-        (click)="goToSlide(3)"
-        class="btn btn-circle bg-white/50 border-none hover:bg-white text-slate-800 backdrop-blur-sm shadow-md"
-      >
-        ❯
-      </button>
-    </div>
-  </div>
+<div class="trust-badges">
+  <div class="trust-badges__container">
+    <div class="trust-badges__grid">
 
-  <div #slide3 class="carousel-item relative w-full w-full-img">
-    <img
-      fetchpriority="high"
-      loading="eager"
-      src="langing-th-2.webp"
-      srcset="langing-th.webp 500w, langing-th-1.webp 1000w, langing-th-2.webp 1570w"
-      sizes="(max-width: 768px) 100vw, 50vw"
-      class="w-full object-cover object-center"
-      alt="PCOS and Thyroid  Health Store Consultation - Mei Heal"
-    />
-    <div
-      class="absolute left-5 right-5 top-1/2 -translate-y-1/2 transform justify-between hidden md:flex opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
-    >
-      <button
-        (click)="goToSlide(2)"
-        class="btn btn-circle bg-white/50 border-none hover:bg-white text-slate-800 backdrop-blur-sm shadow-md"
-      >
-        ❮
-      </button>
-      <button
-        (click)="goToSlide(1)"
-        class="btn btn-circle bg-white/50 border-none hover:bg-white text-slate-800 backdrop-blur-sm shadow-md"
-      >
-        ❯
-      </button>
-    </div>
-  </div>
-  <div class="absolute top-custom z-10 w-full px-4 flex flex-col items-center pointer-events-none">
-    <h1 class="text-white text-4xl md:text-5xl font-bold text-center mb-6 drop-shadow-lg">
-      Trusted Nutritionist Mei Heal
-      <!-- Mei Heal — Trusted Nutritionist in Pitampura, Delhi -->
-    </h1>
-
-    <div class="flex gap-4 justify-center pointer-events-auto">
-      @if (_authService.isLoggedIn()) {
-        <button routerLink="/dashboard" class="primary-btn shadow-lg">Go to Dashboard</button>
-      } @else {
-        <button routerLink="/diet-plans" class="primary-btn shadow-lg">Start Your Journey</button>
-      }
-    </div>
-  </div>
-</section>
-
-<span id="aboutProgram" class="block relative -top-24"></span>
-<section class="max-w-7xl mx-auto px-6 py-20">
-  <div class="text-center max-w-2xl mx-auto mb-16">
-    <span
-      class="text-xs uppercase tracking-widest font-bold text-emerald-900 bg-emerald-50 px-3 py-1 rounded-full"
-      >Exclusivity
-    </span>
-    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-4">
-      Mei Heal - Health Store 
-    </h2>
-    <p class="text-slate-600 leading-relaxed">
-      Unlike standard  Health Store plans, my approach looks at your whole life — not just your plate. Your
-      sleep, stress, activity levels, and daily routine all shape how your body responds to food.
-      That's why my clients see results that actually last.
-    </p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div class="bg-sky-50/60 border border-sky-100/50 rounded-2xl p-8 flex gap-5 items-start">
-      <div
-        class="w-12 h-12 rounded-xl bg-sky-500 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="Globe"></lucide-icon>
-      </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Dedicated dietitian</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">
-         Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-        </p>
-      </div>
-    </div>
-
-    <div class="bg-amber-50/60 border border-amber-100/50 rounded-2xl p-8 flex gap-5 items-start">
-      <div
-        class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="Users" [size]="20"></lucide-icon>
-      </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Personalized approach</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">
-        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft  experience of 5 years each.
-        </p>
-      </div>
-    </div>
-    <div
-      class="bg-emerald-50/60 border border-emerald-100/50 rounded-2xl p-8 flex gap-5 items-start"
-    >
-      <div
-        class="w-12 h-12 rounded-xl bg-emerald-700 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="Hospital" [size]="20"></lucide-icon>
-      </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Work with Everyone</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">
-        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft ies, I help everyone.
-        </p>
-      </div>
-    </div>
-    <div class="bg-indigo-50/60 border border-indigo-100/50 rounded-2xl p-8 flex gap-5 items-start">
-      <div
-        class="w-12 h-12 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="medal"></lucide-icon>
-      </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Real-Life Framework</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">
-        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft ting you up for standalone success post-program.
-        </p>
-      </div>
-    </div>
-    <div class="bg-sky-50/60 border border-sky-100/50 rounded-2xl p-8 flex gap-5 items-start">
-      <div
-        class="w-12 h-12 rounded-xl bg-sky-500 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="Globe" [size]="20"></lucide-icon>
-      </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Holistic health</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">
-         Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft ines, and tailored supplement strategies.
-        </p>
-      </div>
-    </div>
-    <div class="bg-amber-50/60 border border-amber-100/50 rounded-2xl p-8 flex gap-5 items-start">
-      <div
-        class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="Users" [size]="20"></lucide-icon>
-      </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Targeted Programs</h3>
-        <div class="text-sm text-slate-500 space-y-1.5 font-medium">
-          <span
-            class="inline-flex items-center gap-2 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md text-xs"
-            >Weight Management</span
-          >
-          <span
-            class="inline-flex items-center gap-2 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md text-xs"
-            >Thyroid & PCOS Clinicals</span
-          >
-          <span
-            class="inline-flex items-center gap-2 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md text-xs"
-            >Diabetes Nutrition</span
-          >
-          <span
-            class="inline-flex items-center gap-2 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md text-xs"
-            >Pregnancy Nutrition</span
-          >
-          <span
-            class="inline-flex items-center gap-2 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md text-xs"
-            >Kidney & Renal Diet</span
-          >
-          <span
-            class="inline-flex items-center gap-2 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md text-xs"
-            >Sports Nutrition</span
-          >
+      <div class="trust-badges__item">
+        <div class="trust-badges__icon">
+          <img src="//healthsense.in/cdn/shop/files/ChatGPT_Image_May_13_2026_12_32_25_PM.png?v=1778655831&width=200"
+            alt="Trusted for 12+ Years" loading="lazy" width="36" height="36">
         </div>
+        <div class="trust-badges__text">Trusted for 12+ Years</div>
       </div>
-    </div>
 
-    <div
-      class="bg-emerald-50/60 border border-emerald-100/50 rounded-2xl p-8 flex gap-5 items-start"
-    >
-      <div
-        class="w-12 h-12 rounded-xl bg-emerald-700 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="hospital" [size]="20"></lucide-icon>
+      <div class="trust-badges__item">
+        <div class="trust-badges__icon">
+          <img
+            src="//healthsense.in/cdn/shop/files/ChatGPT_Image_May_13_2026_12_32_25_PM_a6bbbb87-0145-4b37-adcc-ec3c84c2d63b.png?v=1778655959&width=200"
+            alt="Loved by 3M+ Customers" loading="lazy" width="36" height="36">
+        </div>
+        <div class="trust-badges__text">Loved by 3M+ Customers</div>
       </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Goal tracking</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">
-        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft orming sustainable behavioral changes.
-        </p>
+
+      <div class="trust-badges__item">
+        <div class="trust-badges__icon">
+          <img
+            src="//healthsense.in/cdn/shop/files/ChatGPT_Image_May_13_2026_12_32_25_PM_f0b1f5d5-3399-436c-add2-d55af304cb92.png?v=1778656057&width=200"
+            alt="1,30,000+ Verified 5★ Reviews" loading="lazy" width="36" height="36">
+        </div>
+        <div class="trust-badges__text">1,30,000+ Verified 5★ Reviews</div>
       </div>
-    </div>
-    <div class="bg-indigo-50/60 border border-indigo-100/50 rounded-2xl p-8 flex gap-5 items-start">
-      <div
-        class="w-12 h-12 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-2xl shrink-0"
-      >
-        <lucide-icon name="Crown" [size]="20"></lucide-icon>
+
+      <div class="trust-badges__item">
+        <div class="trust-badges__icon">
+          <img
+            src="//healthsense.in/cdn/shop/files/ChatGPT_Image_May_13_2026_12_32_25_PM_cc9bf5aa-61d3-46d0-b690-8cff7a445cdd.png?v=1778656119&width=200"
+            alt="Assured Warranty Coverage" loading="lazy" width="36" height="36">
+        </div>
+        <div class="trust-badges__text">Assured Warranty Coverage</div>
       </div>
-      <div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2">Curated content</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">
-          Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft ustom curated directly for you.
-        </p>
+
+      <div class="trust-badges__item">
+        <div class="trust-badges__icon">
+          <img
+            src="//healthsense.in/cdn/shop/files/ChatGPT_Image_May_13_2026_12_32_25_PM_b2f8886d-b5be-46e6-9150-a2b7ce57e26e.png?v=1778656169&width=200"
+            alt="Quick & Reliable Support" loading="lazy" width="36" height="36">
+        </div>
+        <div class="trust-badges__text">Quick &amp; Reliable Support</div>
       </div>
+
+      <div class="trust-badges__item">
+        <div class="trust-badges__icon">
+          <img
+            src="//healthsense.in/cdn/shop/files/ChatGPT_Image_May_13_2026_12_32_25_PM_2ef6a966-605e-488b-b9c7-6adf22d0d7aa.png?v=1778656255&width=200"
+            alt="Quality Driven" loading="lazy" width="36" height="36">
+        </div>
+        <div class="trust-badges__text">Quality Driven</div>
+      </div>
+
     </div>
   </div>
-</section>
-<section class="bg-white border-y border-slate-100 py-8">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-    <div>
-      <p class="text-3xl font-bold text-emerald-600">3+</p>
-      <p class="text-sm text-slate-500 mt-1">Years of experience</p>
-    </div>
-    <div>
-      <p class="text-3xl font-bold text-emerald-600">100+</p>
-      <p class="text-sm text-slate-500 mt-1">Clients transformed</p>
-    </div>
-    <div>
-      <p class="text-3xl font-bold text-emerald-600">6+</p>
-      <p class="text-sm text-slate-500 mt-1">Conditions treated</p>
-    </div>
-    <div>
-      <p class="text-3xl font-bold text-emerald-600">🏅</p>
-      <p class="text-sm text-slate-500 mt-1">Ex-Clinical Dietitian, Fortis Hospital</p>
-    </div>
-  </div>
-</section>
-<section class="py-20 px-6 bg-white border-t border-slate-100">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-    <!-- LEFT: Photo placeholder -->
-    <div
-      class="bg-emerald-50 rounded-3xl overflow-hidden h-[480px] flex items-center justify-center border border-emerald-100"
-    >
-      <img
-        src="/images/drmeiheal.jpeg"
-        alt="Mei Heal - Nutritionist in Pitampura Delhi"
-        class="w-full h-full object-cover object-top"
-      />
-    </div>
+</div>
+<top-picks title="Best seller" viewAllUrl="/collections" [tabs]="bestSellerTabs">
+</top-picks>
+<top-picks title="MeiHeal Elite" viewAllUrl="/collections" [tabs]="bestSellerTabs">
+</top-picks>
+<top-picks title="Discover More" viewAllUrl="/collections" [tabs]="bestSellerTabs">
+</top-picks>
 
-    <!-- RIGHT: Content -->
-    <div class="space-y-6 max-w-lg">
-      <!-- Badge -->
-      <span
-        class="text-xs uppercase tracking-widest font-bold text-emerald-900 bg-emerald-50 px-3 py-1 rounded-full"
-      >
-        Meet Your  Health Store 
-      </span>
+<div class="mei-section-header">
 
-      <!-- Name + Title -->
-      <div>
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-2">
-         Mei Heal — Healthy Products in Delhi
-        </h2>
-        <p class="text-emerald-700 font-semibold text-sm">
-          BSc in Dietetics & Nutrition &nbsp;·&nbsp; Nutrition Consultant
-        </p>
-      </div>
-
-      <!-- Main bio -->
-      <p class="text-slate-600 leading-relaxed">
-        Hi, I'm meiheal — a Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft ur life more than any crash  Health Store ever could.
-      </p>
-      <p class="text-slate-600 leading-relaxed">
-        With a Bachelor's dBody Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft and finally feel in control of their health
-        again.
-      </p>
-      <p class="text-slate-600 leading-relaxed">
-        My approBody Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft d a plan that fits <em>your</em> lifestyle, your kitchen,
-        and your body.
-      </p>
-
-      <!-- Award callout -->
-      <div
-        class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 text-sm text-amber-800 font-medium flex items-start gap-3"
-      >
-        <span class="text-xl">🏅</span>
-        <span
-          >Helping clients achieve healthier lifestyles through practical, customized nutrition
-          guidance..</span
-        >
-      </div>
-
-      <!-- Specialties -->
-      <p class="text-sm text-slate-500">
-        Specializing in
-        <span class="text-slate-800 font-semibold">weight loss</span>,
-        <span class="text-slate-800 font-semibold">diabetes nutrition</span>, and
-        <span class="text-slate-800 font-semibold">holistic Indian  Health Store planning</span>
-        for sustainable, long-term results.
-      </p>
-
-      <!-- CTA -->
-      <a
-        routerLink="/diet-plans"
-        class="inline-block bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-transform hover:-translate-y-1 mt-2"
-      >
-        Book a Free Consultation
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="bg-white py-20 border-y border-slate-100">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div
-      class="bg-slate-50 rounded-2xl p-8 flex items-center justify-center border border-slate-100"
-    >
-      <img
-        src="/images/consult/Mitahar-01.svg"
-        alt="Mitahar  Health Store by Mei Heal "
-        class="max-h-72 w-auto"
-      />
-    </div>
-    <div>
-      <h3 class="text-2xl font-bold text-slate-900 mb-4">The Ancient Wisdom of Mitahar</h3>
-      <p class="text-slate-600 leading-relaxed mb-6">
-        Mitahar is India's ancient wisdom that teaches you to eat local, seasonal foods and
-        celebrate homegrown culinary knowledge so that you may experience a higher sense of
-        wellbeing in your body and a better sense of harmony with your surroundings.
-      </p>
-      <div
-        class="bg-emerald-50/40 border-l-4 border-emerald-500 rounded-r-xl p-5 text-sm italic text-slate-700 leading-relaxed"
-      >
-      Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-      </div>
-    </div>
-  </div>
-</section>
-
-<span id="howItWorks" class="block relative -top-24"></span>
-<section class="max-w-7xl mx-auto px-6 py-24 relative">
-  <div class="text-center mb-20 max-w-2xl mx-auto">
-    <span
-      class="text-xs uppercase tracking-widest font-bold text-emerald-900 bg-emerald-50 px-3 py-1 rounded-full"
-    >
-      The Roadmap
-    </span>
-    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-3 mb-4">
-      How the Program Operates
-    </h2>
-    <p class="text-sm md:text-base text-slate-500 leading-relaxed font-medium">
-      You customize your deployment based on
-      <span class="text-slate-800 font-semibold">Duration</span> (3, 6, or 12 months) and
-      <span class="text-slate-800 font-semibold">Consultant Split</span>.
-    </p>
-  </div>
-
-  <div class="relative">
-    <div
-      class="hidden md:block absolute top-[52px] left-[15%] right-[15%] h-[3px] bg-linear-to-r from-emerald-50 via-emerald-200 to-emerald-50 z-0 rounded-full"
-    ></div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 items-stretch">
-      <div
-        class="group relative bg-white border border-slate-100 p-8 rounded-3xl shadow-xs hover:shadow-2xl hover:shadow-emerald-900/5 hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
-      >
-        <div
-          class="absolute -right-4 -top-8 text-[140px] font-black text-slate-50 group-hover:text-emerald-50/50 transition-colors duration-500 select-none z-0 leading-none"
-        >
-          1
-        </div>
-        <div class="relative z-10">
-          <div class="flex items-center gap-4 mb-8">
-            <div
-              class="relative w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xl group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all duration-300 shadow-inner"
-            >
-              01
-              <span
-                class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white shadow-xs"
-              ></span>
-            </div>
-            <div
-              class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-500 transition-colors"
-            >
-              <lucide-icon name="Crown" [size]="20"></lucide-icon>
-            </div>
-          </div>
-
-          <h3 class="font-extrabold text-slate-900 mb-3 text-lg tracking-tight">
-            Pre-Consultation
-          </h3>
-          <p class="text-sm text-slate-500 leading-relaxed font-medium">
-            Fill in a simple lifestyle form covering your health history, food habits, and daily
-            routine. We then schedule your first session at a time that works for you
-          </p>
-        </div>
-      </div>
-      <div
-        class="group relative bg-white border border-slate-100 p-8 rounded-3xl shadow-xs hover:shadow-2xl hover:shadow-emerald-900/5 hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
-      >
-        <div
-          class="absolute -right-4 -top-8 text-[140px] font-black text-slate-50 group-hover:text-emerald-50/50 transition-colors duration-500 select-none z-0 leading-none"
-        >
-          2
-        </div>
-
-        <div class="relative z-10">
-          <div class="flex items-center gap-4 mb-8">
-            <div
-              class="relative w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xl group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all duration-300 shadow-inner"
-            >
-              02
-              <span
-                class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white shadow-xs"
-              ></span>
-            </div>
-            <div
-              class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-500 transition-colors"
-            >
-              <lucide-icon name="Sparkles" [size]="20"></lucide-icon>
-            </div>
-          </div>
-          <h3 class="font-extrabold text-slate-900 mb-3 text-lg tracking-tight">
-            Active Consultation
-          </h3>
-          <p class="text-sm text-slate-500 leading-relaxed font-medium">
-            Your first session is a detailed one-on-one review. I understand your goals, current
-            diet, and any medical conditions to build your personalised plan
-          </p>
-        </div>
-      </div>
-      <div
-        class="group relative bg-white border border-slate-100 p-8 rounded-3xl shadow-xs hover:shadow-2xl hover:shadow-emerald-900/5 hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
-      >
-        <div
-          class="absolute -right-4 -top-8 text-[140px] font-black text-slate-50 group-hover:text-emerald-50/50 transition-colors duration-500 select-none z-0 leading-none"
-        >
-          3
-        </div>
-        <div class="relative z-10">
-          <div class="flex items-center gap-4 mb-8">
-            <div
-              class="relative w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xl group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all duration-300 shadow-inner"
-            >
-              03
-              <span
-                class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white shadow-xs"
-              ></span>
-            </div>
-            <div
-              class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-500 transition-colors"
-            >
-              <lucide-icon name="gem" [size]="20"></lucide-icon>
-            </div>
-          </div>
-
-          <h3 class="font-extrabold text-slate-900 mb-3 text-lg tracking-tight">Ongoing Support</h3>
-          <p class="text-sm text-slate-500 leading-relaxed font-medium">
-            Regular follow-ups to track your progress, adjust your plan, and keep you on course —
-            with WhatsApp support between sessions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-24 px-6 bg-slate-50 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center max-w-xl mx-auto mb-20 space-y-3">
-      <span
-        class="text-xs uppercase tracking-widest font-bold text-emerald-900 bg-emerald-50 px-3 py-1 rounded-full"
-      >
-        Invest In Your Health
-      </span>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-        Transparent Pricing Plans
-      </h2>
-      <p class="text-base text-slate-500 font-medium">
-        Choose Your Wellness Package & Start Your Transformation
-      </p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-      @if (isLoading()) {
-        <div class="col-span-full flex flex-col items-center justify-center py-12 space-y-4">
-          <div
-            class="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"
-          ></div>
-          <p class="text-slate-500 font-medium text-sm animate-pulse">
-            Loading dynamic wellness tiers...
-          </p>
-        </div>
-      } @else {
-        @for (item of products(); track item._id; let i = $index) {
-          <div
-            class="relative flex flex-col justify-between rounded-3xl p-8 transition-all duration-300 border shadow-xs"
-            [ngClass]="
-              i === 1
-                ? 'bg-slate-900 text-white border-slate-900 lg:-translate-y-4 shadow-xl shadow-slate-900/10 z-10'
-                : 'bg-white text-slate-800 border-slate-200/60 hover:shadow-lg hover:shadow-slate-200/50'
-            "
-          >
-            @if (i === 1) {
-              <span
-                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-700 text-white text-[10px] uppercase tracking-widest font-extrabold px-3 py-1 rounded-full shadow-xs"
-              >
-                Most Popular
-              </span>
-            }
-            <div>
-              <div class="flex justify-between items-center mb-6">
-                <span
-                  class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md"
-                  [ngClass]="
-                    i === 1 ? 'bg-white/10 text-emerald-400' : 'bg-slate-100 text-slate-700'
-                  "
-                >
-                  {{ planLabels[i] }}
-                </span>
-                <div
-                  class="w-11 h-11 rounded-xl flex items-center justify-center text-xl shadow-xs transition-transform duration-300"
-                  [ngClass]="{
-                    'bg-blue-50 text-blue-600': i === 0,
-                    'bg-emerald-700 text-white': i === 1,
-                    'bg-rose-50 text-rose-600': i === 2,
-                  }"
-                >
-                  <!-- <lucide-icon
-                    [name]="i === 0 ? 'BadgeDollarSign' : i === 1 ? 'BadgeCheck' : 'Wallet'"
-                    [size]="20"
-                  >
-                  </lucide-icon> -->
-                  <lucide-icon [name]="getIconName(i)" [size]="20"></lucide-icon>
-                </div>
-              </div>
-              <h3
-                class="text-xl font-bold tracking-tight mb-2"
-                [ngClass]="i === 1 ? 'text-white' : 'text-slate-900'"
-              >
-                {{ item?.name }}
-              </h3>
-
-              <div class="flex items-baseline gap-1 my-6">
-                <span
-                  class="text-4xl font-extrabold tracking-tight"
-                  [ngClass]="i === 1 ? 'text-white' : 'text-slate-900'"
-                >
-                  ₹{{ item.price }}
-                </span>
-                <span
-                  class="text-xs font-medium"
-                  [ngClass]="i === 1 ? 'text-slate-400' : 'text-slate-500'"
-                >
-                  / Package
-                </span>
-              </div>
-              <ul
-                class="space-y-3.5 my-8 border-t pt-6"
-                [ngClass]="i === 1 ? 'border-white/10' : 'border-slate-100'"
-              >
-                @for (itemdes of item.features; track $index) {
-                  <li class="flex items-start gap-3">
-                    <span
-                      class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                      [ngClass]="
-                        i === 1
-                          ? 'bg-emerald-500/20 text-emerald-400'
-                          : 'bg-emerald-50 text-emerald-600'
-                      "
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="3"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </span>
-                    <p
-                      class="text-sm leading-relaxed"
-                      [ngClass]="i === 1 ? 'text-slate-300' : 'text-slate-600'"
-                    >
-                      {{ itemdes }}
-                    </p>
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="mt-4">
-              <a
-                [routerLink]="['/order-detail', item.slug]"
-                [attr.aria-label]="'Choose ' + item.name + ' plan'"
-                class="block w-full text-center py-3.5 px-6 font-semibold text-sm rounded-xl transition-all duration-200 clw"
-                [ngClass]="
-                  i === 1
-                    ? 'bg-emerald-500 hover:bg-emerald-800  text-white shadow-md shadow-emerald-700/10'
-                    : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
-                "
-              >
-                Get started
-              </a>
-            </div>
-          </div>
-        } @empty {
-          <div
-            class="col-span-full bg-white border border-dashed border-slate-200 rounded-2xl p-12 text-center flex flex-col items-center justify-center"
-          >
-            <div
-              class="w-12 h-12 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center text-xl mb-4"
-            >
-              <lucide-icon name="folder-code" [size]="20"></lucide-icon>
-            </div>
-            <h4 class="text-base font-bold text-slate-900 mb-1">No Active Plans Found</h4>
-            <p class="text-xs text-slate-500">
-              Custom tailored consultation models are currently being updated.
-            </p>
-          </div>
-        }
-      }
-    </div>
-  </div>
-</section>
+  <h2 class="mei-section-header_title">
+    <strong>MeiHeal Classics. Powered by Innovation.</strong>
+  </h2>
+</div>
+<app-slide-show [slides]="heroSlides" [autoplay]="true" [autoplayDelay]="5000">
+</app-slide-show>
 
 <span id="ourProducts" class="block relative -top-24"></span>
 <section class="py-24 px-6 bg-white border-t border-slate-100">
   <div class="max-w-7xl mx-auto">
     <div class="flex items-end justify-between mb-10">
       <div class="max-w-xl">
-        <span
-          class="text-xs uppercase tracking-widest font-bold text-emerald-900 bg-emerald-50 px-3 py-1 rounded-full"
-        >
+        <span class="text-xs uppercase tracking-widest font-bold text-emerald-900 bg-emerald-50 px-3 py-1 rounded-full">
           Natural Powders
         </span>
         <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
           Shop Herbal & Nutrition Powders
         </h2>
         <p class="text-slate-500 mt-2 text-sm md:text-base font-medium">
-          Amla, Moringa, Ashwagandha and more — recommended alongside your  Health Store plan.
+          Amla, Moringa, Ashwagandha and more — recommended alongside your Health Store plan.
         </p>
       </div>
 
       <!-- Scroll arrows -->
 
       <div class="hidden md:flex gap-3">
-        <button
-          (click)="scrollProducts(-1)"
+        <button (click)="scrollProducts(-1)"
           class="btn btn-circle bg-slate-50 hover:bg-emerald-600 hover:text-white text-slate-700 border border-slate-200 shadow-xs transition-colors"
-          aria-label="Scroll left"
-        >
+          aria-label="Scroll left">
           <lucide-icon name="chevron-left" [size]="20"></lucide-icon>
         </button>
-        <button
-          (click)="scrollProducts(1)"
+        <button (click)="scrollProducts(1)"
           class="btn btn-circle bg-slate-50 hover:bg-emerald-600 hover:text-white text-slate-700 border border-slate-200 shadow-xs transition-colors"
-          aria-label="Scroll right"
-        >
+          aria-label="Scroll right">
           <lucide-icon name="chevron-right" [size]="20"></lucide-icon>
         </button>
       </div>
     </div>
 
     @if (isProductsLoading()) {
-      <div class="flex flex-col items-center justify-center py-12 space-y-4">
-        <div
-          class="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"
-        ></div>
-        <p class="text-slate-500 font-medium text-sm animate-pulse">Loading products...</p>
-      </div>
+    <div class="flex flex-col items-center justify-center py-12 space-y-4">
+      <div class="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+      <p class="text-slate-500 font-medium text-sm animate-pulse">Loading products...</p>
+    </div>
     } @else {
-      <div
-        #productTrack
-        class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar"
-      >
-        @for (item of productsList(); track item.id; let i = $index) {
-          <a
-            [routerLink]="['/products', item.slug]"
-            class="group snap-start shrink-0 w-[260px] md:w-[280px] bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-xs hover:shadow-2xl hover:shadow-emerald-900/10 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 flex flex-col"
-          >
-            <!-- Image -->
-            <div class="relative h-56 overflow-hidden bg-emerald-50">
-              <img
-                [src]="item.thumbnail"
-                [alt]="item.name"
-                loading="lazy"
-                class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out"
-              />
+    <div #productTrack class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar">
+      @for (item of productsList(); track item.id; let i = $index) {
+      <a [routerLink]="['/products', item.slug]"
+        class="group snap-start shrink-0 w-[260px] md:w-[280px] bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-xs hover:shadow-2xl hover:shadow-emerald-900/10 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 flex flex-col">
+        <!-- Image -->
+        <div class="relative h-56 overflow-hidden bg-emerald-50">
+          <img [src]="item.thumbnail" [alt]="item.name" loading="lazy"
+            class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out" />
+          @if (item.compareAtPrice && item.compareAtPrice > item.price) {
+          <span
+            class="absolute top-3 left-3 bg-emerald-700 text-white text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full shadow-xs">
+            Sale
+          </span>
+          }
+          @if (item.stock === 0) {
+          <span
+            class="absolute inset-0 bg-white/70 flex items-center justify-center text-xs font-bold text-slate-600 uppercase tracking-widest">
+            Out of stock
+          </span>
+          }
+        </div>
+
+        <!-- Content -->
+        <div class="p-5 flex flex-col grow">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-1">
+            {{ item.category }}
+          </span>
+          <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-emerald-700 transition-colors">
+            {{ item.name }}
+          </h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4 line-clamp-2">
+            {{ item.shortDescription }}
+          </p>
+
+          <div class="mt-auto flex items-end justify-between">
+            <div class="flex items-baseline gap-2">
+              <span class="text-lg font-extrabold text-slate-900">₹{{ item.price }}</span>
               @if (item.compareAtPrice && item.compareAtPrice > item.price) {
-                <span
-                  class="absolute top-3 left-3 bg-emerald-700 text-white text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full shadow-xs"
-                >
-                  Sale
-                </span>
-              }
-              @if (item.stock === 0) {
-                <span
-                  class="absolute inset-0 bg-white/70 flex items-center justify-center text-xs font-bold text-slate-600 uppercase tracking-widest"
-                >
-                  Out of stock
-                </span>
+              <span class="text-xs text-slate-400 line-through">₹{{ item.compareAtPrice }}</span>
               }
             </div>
-
-            <!-- Content -->
-            <div class="p-5 flex flex-col grow">
-              <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-1">
-                {{ item.category }}
-              </span>
-              <h3
-                class="font-bold text-slate-900 text-base mb-1 group-hover:text-emerald-700 transition-colors"
-              >
-                {{ item.name }}
-              </h3>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4 line-clamp-2">
-                {{ item.shortDescription }}
-              </p>
-
-              <div class="mt-auto flex items-end justify-between">
-                <div class="flex items-baseline gap-2">
-                  <span class="text-lg font-extrabold text-slate-900">₹{{ item.price }}</span>
-                  @if (item.compareAtPrice && item.compareAtPrice > item.price) {
-                    <span class="text-xs text-slate-400 line-through"
-                      >₹{{ item.compareAtPrice }}</span
-                    >
-                  }
-                </div>
-                <span
-                  class="w-9 h-9 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300"
-                >
-                  <lucide-icon name="arrow-right"></lucide-icon>
-                </span>
-              </div>
-            </div>
-          </a>
-        } @empty {
-          <div
-            class="w-full bg-white border border-dashed border-slate-200 rounded-2xl p-12 text-center flex flex-col items-center justify-center"
-          >
-            <div
-              class="w-12 h-12 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center text-xl mb-4"
-            >
-              <lucide-icon name="package" [size]="20"></lucide-icon>
-            </div>
-            <h4 class="text-base font-bold text-slate-900 mb-1">No Products Found</h4>
-            <p class="text-xs text-slate-500">Our product catalog is currently being updated.</p>
+            <span
+              class="w-9 h-9 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+              <lucide-icon name="arrow-right"></lucide-icon>
+            </span>
           </div>
-        }
+        </div>
+      </a>
+      } @empty {
+      <div
+        class="w-full bg-white border border-dashed border-slate-200 rounded-2xl p-12 text-center flex flex-col items-center justify-center">
+        <div class="w-12 h-12 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center text-xl mb-4">
+          <lucide-icon name="package" [size]="20"></lucide-icon>
+        </div>
+        <h4 class="text-base font-bold text-slate-900 mb-1">No Products Found</h4>
+        <p class="text-xs text-slate-500">Our product catalog is currently being updated.</p>
       </div>
+      }
+    </div>
     }
   </div>
 </section>
 
-<section class="py-20 px-4 bg-nourish-sage">
-  <div class="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div
-      class="order-2 md:order-1 h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl relative"
-    >
-      <img
-        src="/images/healthd.webp"
-        alt="Expert Nutritionist in Delhi"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-    </div>
-    <div class="order-1 md:order-2 space-y-6 max-w-lg">
-      <h2 class="text-3xl font-bold text-slate-900 mb-6">
-        Mei Heal - Expert Nutritionist in Delhi
-      </h2>
-      <p class="text-lg text-slate-600">
-        Customized  Health Store plans for weight loss, PCOS, thyroid, diabetes, and holistic nutrition.
-      </p>
-      <p class="text-lg text-gray-800">
-        My consultations go beyond the routine (and totally flawed) portion control, counting
-        calories and measuring weight loss protocol. You instead track your eating habits, daily
-        activity, sleep hours, exercise compliance, work hours, etc., and I will educate you about
-        how food effects your health, fitness and productivity.
-      </p>
-      <a
-        routerLink="/diet-plans"
-        [attr.aria-label]="'Get started with the plan'"
-        class="inline-block bg-emerald-600 hover:bg-emerald-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-transform hover:-translate-y-1"
-      >
-        Ready to get started?
-      </a>
-    </div>
-  </div>
-</section>
-
-@defer (on viewport) {
-  <section class="team">
-    <div class="container">
-      <div class="intro-team">
-        <p class="text-red">Our Services</p>
-        <h2 class="section-title">Nutrition Programs Designed For You</h2>
-        <p class="sub-title">
-          Sustainable and science-based  Health Store plans to help you improve your health and lifestyle.
-        </p>
-      </div>
-      <div class="team-img">
-        <div class="image-grid">
-          <div class="image-1">
-            <img
-              src="/test1.webp"
-              class="person-img person-img-1"
-              alt="Testimonial Mei Heal"
-            />
-          </div>
-          <div class="image-2">
-            <img src="/test2.webp" class="person-img" alt="Testimonial 2 Mei Heal" />
-          </div>
-          <div class="image-3">
-            <img src="/test3.webp" class="person-img" alt="Testimonial 3 Mei Heal" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-} @placeholder {
-  <div class="min-h-[400px] bg-slate-50 animate-pulse"></div>
-}
-
-<section class="py-20 px-4 bg-sova-cream">
-  <div class="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-12">
-    <div class="md:col-span-1 space-y-4 md:sticky md:top-24 self-start">
-      <span class="font-mono text-green-700 uppercase tracking-widest text-xs"
-        >The honest answer</span
-      >
-      <h2 class="text-4xl font-light">
-        Will the  Health Store Consultation <br /><span class="font-black italic text-green-700"
-          >help me?</span
-        >
-      </h2>
-      <p class="text-gray-600 leading-relaxed">
-        Find your situation below. If any of these sound like you — yes, root-cause testing was
-        built for this and more.
-      </p>
-    </div>
-    <div class="md:col-span-2 space-y-4">
-      <details
-        class="group bg-white border border-gray-200 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden"
-      >
-        <summary
-          class="flex justify-between items-center cursor-pointer p-6 font-bold text-lg text-gray-800"
-        >
-          <div class="flex items-center gap-4">
-            <div
-              class="w-10 h-10 rounded-lg bg-sova-mint text-green-700 flex items-center justify-center"
-            >
-              🌬️
-            </div>
-            I've been trying to lose weight for years but nothing works.
-          </div>
-          <span class="transition group-open:rotate-45 text-2xl text-green-600">+</span>
-        </summary>
-        <div class="px-6 pb-6 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 ml-16">
-        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft  plan around your actual Indian lifestyle, not a template.
-          <div
-            class="mt-4 bg-sova-mint text-green-800 text-xs font-bold inline-block px-3 py-1.5 rounded-lg uppercase tracking-wide"
-          >
-            Strong fit — weight management is the most common goal
-          </div>
-        </div>
-      </details>
-
-      <details
-        class="group bg-white border border-gray-200 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden"
-      >
-        <summary
-          class="flex justify-between items-center cursor-pointer p-6 font-bold text-lg text-gray-800"
-        >
-          <div class="flex items-center gap-4">
-            <div
-              class="w-10 h-10 rounded-lg bg-sova-mint text-green-700 flex items-center justify-center"
-            >
-              🔥
-            </div>
-            My blood sugar is high but I don't want to depend on medication forever.
-          </div>
-          <span class="transition group-open:rotate-45 text-2xl text-green-600">+</span>
-        </summary>
-        <div class="px-6 pb-6 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 ml-16">
-        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          <div
-            class="mt-4 bg-sova-mint text-green-800 text-xs font-bold inline-block px-3 py-1.5 rounded-lg uppercase tracking-wide"
-          >
-            Strong fit — diabetes nutrition is a core specialization
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-@defer (on viewport) {
-  <section class="py-20 px-4 bg-white border-t border-gray-100">
-    <div class="container mx-auto max-w-7xl space-y-12">
-      <div class="flex justify-between items-end border-b-2 border-nourish-dark pb-4">
-        <h2 class="text-3xl md:text-4xl font-bold">FAQs</h2>
-      </div>
-      <div class="space-y-0">
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            Who is Mei Heal and what makes her different?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-           Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          </div>
-        </details>
-
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            Can I follow your  Health Store plan if I eat Indian food only?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-           Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          </div>
-        </details>
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            How many sessions does it take to see results?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          </div>
-        </details>
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            Do you provide  Health Store plans for diabetes management?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-         Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          </div>
-        </details>
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            I have PCOS and thyroid issues — can you help?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-           Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          </div>
-        </details>
-
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            Do you provide  Health Store plans in Hindi?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-            Yes. Mei Heal prBody Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          </div>
-        </details>
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            What should I bring or share before my first consultation?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-         Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft 
-          </div>
-        </details>
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            Can I consult online from outside Delhi?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-            YesBody Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft ollow-up support are provided remotely, so you can stay on
-            track no matter where you live.
-          </div>
-        </details>
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            Do you provide  Health Store plans during pregnancy?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-         Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft if present, and ensuring both mother and baby are well-nourished
-            throughout.
-          </div>
-        </details>
-        <details class="group border-b border-gray-200 [&_summary::-webkit-details-marker]:hidden">
-          <summary
-            class="flex justify-between items-center font-bold cursor-pointer py-6 text-xl text-gray-800 hover:text-nourish-coral transition-colors"
-          >
-            What is the difference between a  Health Store  and a nutritionist?
-            <span
-              class="transition group-open:rotate-45 text-3xl font-light text-gray-400 group-hover:text-nourish-coral"
-              >+</span
-            >
-          </summary>
-          <div class="pb-6 text-gray-600 leading-relaxed pr-8">
-          Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft   Health Store planning.
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-} @placeholder {
-  <div class="min-h-[500px] bg-white"></div>
-}

@@ -1,0 +1,471 @@
+/*
+  Top Picks / Product Carousel Component — Styles
+  Deduplicated from 3 near-identical Shopify blocks
+  (azhvnrvmzl0fwas9qzaigenblocke1e0bc9c3q4xc,
+   aaetfm3rivvpnkzzqraigenblocke1e0bc97erfpu,
+   as1pivkxer2leyujosaigenblocke1e0bc9e6yfp3)
+  into ONE reusable class set. Use this same set of classes
+  for every instance of the component on the page — no per-block
+  suffixes needed since each block is now scoped only by its
+  own instance wrapper (see markup notes at bottom).
+*/
+
+.top-picks {
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0 0 50px;
+}
+
+.top-picks__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.top-picks__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.top-picks__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.top-picks__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.top-picks__tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.top-picks__tab {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.top-picks__tab:not(.active):hover {
+  background-color: #e5e7eb;
+}
+
+.top-picks__tab.active {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.top-picks__tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.top-picks__view-all {
+  font-size: 14px;
+  color: #666666;
+  text-decoration: underline;
+  align-self: flex-start;
+}
+
+.top-picks__view-all:hover {
+  color: #000000;
+}
+
+.top-picks__content {
+  position: relative;
+}
+
+/* --- Arrow Controls --- */
+.top-picks__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #fafafa;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.top-picks__arrow:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%) scale(1.05);
+  background-color: #f9fafb;
+}
+
+.top-picks__arrow svg {
+  width: 24px;
+  height: 24px;
+  fill: #000000;
+}
+
+.top-picks__arrow--left {
+  left: -22px;
+}
+
+.top-picks__arrow--right {
+  right: -22px;
+}
+
+/* --- Tab panels --- */
+.top-picks__tab-content {
+  display: none;
+}
+
+.top-picks__tab-content.active {
+  display: block;
+}
+
+.top-picks__slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
+}
+
+.top-picks__slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Product card --- */
+.top-picks__card {
+  flex: 0 0 calc((100% - 64px) / 5);
+  background-color: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.top-picks__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.top-picks__card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.top-picks__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.top-picks__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.top-picks__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.top-picks__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.top-picks__image--secondary {
+  opacity: 0;
+}
+
+.top-picks__card:hover .top-picks__image--has-secondary {
+  opacity: 0;
+}
+
+.top-picks__card:hover .top-picks__image--secondary {
+  opacity: 1;
+}
+
+.top-picks__card:hover .top-picks__image {
+  transform: scale(1.05);
+}
+
+.top-picks__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  min-height: 20px; /* reserves space so cards align */
+}
+
+.top-picks__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.top-picks__star {
+  width: 14px;
+  height: 14px;
+  fill: #fbbf24;
+}
+
+.top-picks__review-count {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.top-picks__product-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.top-picks__product-title a {
+  font-family: inherit;
+}
+
+.top-picks__price-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.top-picks__old-price {
+  font-size: 12px;
+  color: #9ca3af;
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.top-picks__current-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.top-picks__discount {
+  font-size: 12px;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.top-picks__feature {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.top-picks__offer-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background-color: #fef3c7;
+  border-radius: 6px;
+}
+
+.top-picks__offer-icon {
+  width: 14px;
+  height: 14px;
+  fill: #f59e0b;
+}
+
+.top-picks__offer-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #10b981;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 1024px) {
+  .top-picks__card {
+    flex: 0 0 calc((100% - 32px) / 3);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-picks__container {
+    padding: 0 16px;
+  }
+
+  .top-picks__header {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .top-picks__view-all {
+    align-self: flex-end;
+  }
+
+  .top-picks__arrow {
+    display: none;
+  }
+
+  .top-picks__slider {
+    margin: 0;
+    padding: 10px 0;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow-x: hidden;
+  }
+
+  .top-picks__card {
+    flex: 0 0 calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .top-picks__card-content {
+    padding: 8px;
+    padding-top: 0;
+  }
+
+  .top-picks__image-wrapper {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 6px;
+  }
+
+  /* Limit to 9 items (3 rows of 3) on mobile */
+  .top-picks__card:nth-child(n + 10) {
+    display: none;
+  }
+
+  .top-picks__title {
+    font-size: 20px;
+  }
+
+  .top-picks__product-title {
+    font-size: 11px;
+    margin: 0 0 4px;
+  }
+
+  .top-picks__current-price {
+    font-size: 12px;
+  }
+
+  .top-picks__old-price {
+    font-size: 10px;
+  }
+
+  .top-picks__badge {
+    font-size: 9px;
+    padding: 2px 6px;
+    top: 6px;
+    left: 6px;
+  }
+
+  .top-picks__rating {
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+
+  .top-picks__star {
+    width: 10px;
+    height: 10px;
+  }
+
+  .top-picks__review-count,
+  .top-picks__feature,
+  .top-picks__discount,
+  .top-picks__offer-text {
+    font-size: 9px;
+  }
+
+  .top-picks__offer-row {
+    padding: 4px 6px;
+    gap: 4px;
+  }
+
+  .top-picks__offer-icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .top-picks__price-row {
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+}
+
+/*
+  MARKUP NOTES:
+  - Root element: <div class="top-picks"> ... </div>
+  - If you have multiple Top Picks blocks on one page, wrap each in a
+    unique parent (e.g. an id or data-attribute) rather than renaming
+    every class — that's what caused the original duplication:
+      <div id="top-picks-bestsellers" class="top-picks">...</div>
+      <div id="top-picks-elite" class="top-picks">...</div>
+  - A card's primary image should get both "top-picks__image" and
+    "top-picks__image--has-secondary" when a hover-swap image exists;
+    the secondary image gets "top-picks__image" + "top-picks__image--secondary".
+*/

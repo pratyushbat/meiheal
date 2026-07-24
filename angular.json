@@ -35,7 +35,12 @@
             },
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "externalDependencies": [
+              "puppeteer",
+              "yargs",
+              "@puppeteer/browsers"
+            ]
           },
           "configurations": {
             "production": {

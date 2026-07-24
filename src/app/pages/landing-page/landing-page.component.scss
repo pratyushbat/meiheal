@@ -104,3 +104,210 @@ button,
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------- badge */
+.trust-badges {
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px 0;
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+ 
+  .trust-badges__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+ 
+  .trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+ 
+  .trust-badges__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 15px;
+    position: relative;
+    cursor: default;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+  }
+ 
+  .trust-badges__item:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+ 
+  /* Divider between items */
+  .trust-badges__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, #e5e5e5, transparent);
+  }
+ 
+  .trust-badges__icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+ 
+  .trust-badges__item:hover .trust-badges__icon {
+    transform: scale(1.12);
+  }
+ 
+  .trust-badges__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+  }
+ 
+  .trust-badges__icon-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .trust-badges__icon-placeholder svg {
+    width: 50%;
+    height: 50%;
+    opacity: 0.4;
+    fill: currentColor;
+  }
+ 
+  .trust-badges__text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c2c2c;
+    line-height: 1.4;
+    text-align: left;
+    max-width: 160px;
+  }
+ 
+  /* Tablet */
+  @media screen and (max-width: 1200px) {
+    .trust-badges__grid {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 24px;
+    }
+ 
+    .trust-badges__item::after {
+      display: block !important;
+    }
+    .trust-badges__item:nth-child(3n)::after {
+      display: none !important;
+    }
+    .trust-badges__item:last-child::after {
+      display: none !important;
+    }
+  }
+ 
+  /* Mobile — horizontal scroll carousel, 3 items per view */
+  @media screen and (max-width: 768px) {
+    .trust-badges__container {
+      padding: 0 16px;
+    }
+ 
+    .trust-badges__grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      gap: 0;
+      row-gap: 0;
+      padding-bottom: 8px;
+    }
+ 
+    .trust-badges__grid::-webkit-scrollbar {
+      display: none;
+    }
+ 
+    .trust-badges__item {
+      flex: 0 0 33.3333%;
+      scroll-snap-align: start;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      gap: 8px;
+      padding: 10px 8px;
+    }
+ 
+    .trust-badges__item::after {
+      display: block !important;
+      right: 0;
+    }
+    .trust-badges__item:last-child::after {
+      display: none !important;
+    }
+ 
+    .trust-badges__icon {
+      width: 24px;
+      height: 24px;
+    }
+ 
+    .trust-badges__text {
+      text-align: center;
+      max-width: 100%;
+      font-size: 11px;
+    }
+  }
+/* -----------badge */
+
+
+.mei-section-header {
+    display: block;
+    width: 80%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px 0 40px;
+    text-align: center;
+}
+
+.mei-section-header_title {
+    color: #000000;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.2;
+}
+
+h2 strong {
+    font-weight: 500 !important;
+}

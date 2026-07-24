@@ -1,0 +1,81 @@
+<div
+  class="ai-premium-hero"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
+  <div class="ai-premium-hero-container">
+    <div
+      *ngFor="let slide of slides; let i = index; trackBy: trackBySlide"
+      #slideEl
+      class="ai-premium-hero-slide"
+      [class.active]="i === currentSlide"
+    >
+      <div class="ai-premium-hero-media-wrapper">
+        <picture>
+          <source
+            *ngIf="slide.imageMobile"
+            media="(max-width: 749px)"
+            [srcset]="slide.imageMobile"
+          />
+          <img
+            [src]="slide.imageDesktop"
+            [alt]="slide.alt || ''"
+            class="ai-premium-hero-media"
+            [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+            [attr.width]="slide.width || 1890"
+            [attr.height]="slide.height || 832"
+          />
+        </picture>
+      </div>
+    </div>
+
+    <ng-container *ngIf="slides.length > 1">
+      <button
+        class="ai-premium-hero-arrow ai-premium-hero-arrow-prev"
+        aria-label="Previous slide"
+        (click)="previousSlide()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button
+        class="ai-premium-hero-arrow ai-premium-hero-arrow-next"
+        aria-label="Next slide"
+        (click)="nextSlide()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="ai-premium-hero-pagination" #paginationContainer>
+        <div
+          *ngFor="let slide of slides; let i = index; trackBy: trackBySlide"
+          class="ai-premium-hero-pagination-line"
+          [class.active]="i === currentSlide"
+          [style.--slide-duration.s]="i === currentSlide ? autoplayDelay / 1000 : 0"
+          (click)="goToSlide(i)"
+        ></div>
+      </div>
+    </ng-container>
+  </div>
+</div>

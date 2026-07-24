@@ -155,7 +155,7 @@ export class OrderPayComponent implements OnInit, OnDestroy {
       key: environment.razorpayKeyId, // Replace with your Key ID
       amount: data.razorpayOrder.amount,// Amount in paise (50000 paise = 500 INR)
       currency: 'INR',
-      name: 'Aroved  Health Store meiheal',
+      name: 'MeiHeal  Store ',
       order_id: data.razorpayOrder.id, // Get this from your Node.js backend
       handler: (response: any) => {
         console.log(',response', response)

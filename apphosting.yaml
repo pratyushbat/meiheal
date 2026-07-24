@@ -37,6 +37,8 @@ env:
     secret: TWILIO_SERVICE_ID
   - variable: NODE_ENV
     secret: NODE_ENV
+    availability:
+      - RUNTIME
   - variable: RESEND_ID
     secret: RESEND_ID
   - variable: JWT_KEY

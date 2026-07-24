@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
       provide: API_URL,
       useValue: environment.apiUrl,
     },
-    // { provide: ErrorHandler, useClass: ChunkErrorHandler },
+    { provide: ErrorHandler, useClass: ChunkErrorHandler },
     provideRouter(routes),
     importProvidersFrom(LucideAngularModule.pick({ Home, Phone, ArrowUp, CircleX, FolderCode, ShoppingCart, Wallet, BadgeCheck, BadgeDollarSign, Gem, Sparkles, Crown, Hospital, Globe, SendHorizontal, Users, Medal, MapPin, User, Heart, Salad, ChartLine, MessageCircleDashed, Package, Timer, Search, Menu, X, ChevronLeft, ChevronRight, ArrowRight })),
     provideClientHydration(withEventReplay()),

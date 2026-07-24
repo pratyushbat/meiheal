@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component,  ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Product } from '../../../models/product.model';
 export interface TopPicksProduct {
   imagePrimary: string;
   imageSecondary?: string;
@@ -16,7 +17,7 @@ export interface TopPicksProduct {
 export interface TopPicksTab {
   key: string;      // e.g. 'tab1'
   label: string;    // e.g. 'Trending now'
-  products: TopPicksProduct[];
+  products:  Product[];
 }
 @Component({
   selector: 'top-picks',

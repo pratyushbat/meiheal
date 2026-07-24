@@ -3,11 +3,12 @@ import { anonGuard } from './guards/anon-guard';
 import { authGuard } from './guards/auth.guard';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { productListResolver } from './pages/storefront/product-list-resolver';
+import { productDetailResolver } from './pages/storefront/product-detail-resolver';
 
 export const routes: Routes = [
-    { path: '',component: LandingPageComponent},
+    { path: '', component: LandingPageComponent , resolve: { productList: productListResolver }},
     {
-        path: '',
+        path: 'account',
         canActivate: [anonGuard],
         loadComponent: () => import('./pages/auth/auth-layout.component').then(m => m.AuthLayoutComponent),
         children: [
@@ -16,6 +17,13 @@ export const routes: Routes = [
             { path: 'forget', loadComponent: () => import('./pages/auth/forget-pwd/forget-pwd.component').then(m => m.ForgetPwdComponent) }
         ]
     },
+    { path: 'products', loadComponent: () => import('./pages/storefront/storefront-product-list/storefront-product-list.component').then((m) => m.StoreFrontProductListComponent), title: 'Shop — All Products', resolve: { productList: productListResolver }, },
+    {
+        path: 'products/:slug', loadComponent: () => import('./pages/storefront/storefront-product-detail/storefront-product-detail.component').then((m) => m.StoreFrontProductDetailComponent),
+        resolve: { productDetail: productDetailResolver },
+    },
+    
+
     {
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard-layout/dashboard-layout.component').then(m => m.DashboardLayoutComponent),

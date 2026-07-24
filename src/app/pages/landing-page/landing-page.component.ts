@@ -1,6 +1,6 @@
 
 
-import { AfterViewInit, Component, computed, ElementRef, importProvidersFrom, inject, OnDestroy, OnInit, PLATFORM_ID, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, effect, ElementRef, importProvidersFrom, inject, OnDestroy, OnInit, PLATFORM_ID, signal, ViewChild } from '@angular/core';
 
 
 import { CommonModule, isPlatformBrowser } from '@angular/common';
@@ -17,13 +17,13 @@ import { HeroSliderComponent } from '../../shared/pages/hero-slider/hero-slider'
 
 import { Globe } from 'lucide-angular';
 import { TopPicksComponent, TopPicksTab } from '../../shared/pages/top-picks/top-picks';
-import { bestSellerTabs } from '../../shared/pages/top-picks/bestSeller';
+// import { bestSellerTabs } from '../../shared/pages/top-picks/bestSeller';
 import { HeroSlide, SlideShowComponent } from '../../shared/pages/slide-show/slide-show';
 import { JoinTribeComponent } from '../../shared/pages/join-tribe/join-tribe';
 
 @Component({
   selector: 'landing-page',
-  imports: [CommonModule, LucideAngularModule, RouterModule, HeroSliderComponent, TopPicksComponent,SlideShowComponent,JoinTribeComponent],
+  imports: [CommonModule, LucideAngularModule, RouterModule, HeroSliderComponent, TopPicksComponent, SlideShowComponent, JoinTribeComponent],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
 
@@ -31,47 +31,59 @@ import { JoinTribeComponent } from '../../shared/pages/join-tribe/join-tribe';
 })
 export class LandingPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
-heroSlides: HeroSlide[] = [
-  {
-    imageDesktop: '//healthsense.in/cdn/shop/files/1.svg?v=1784200587&width=2400',
-    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_45_AM.png?v=1781070495&width=800',
-    alt: '',
-    width: 1890,
-    height: 832
-  },
-  {
-    imageDesktop: '//healthsense.in/cdn/shop/files/2_50c71721-25f8-4ee3-8d36-2892807e33d4.svg?v=1784200601&width=2400',
-    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_50_AM.png?v=1781070520&width=800',
-    alt: '',
-    width: 1890,
-    height: 832
-  },
-  {
-    imageDesktop: '//healthsense.in/cdn/shop/files/3_8d14ddbb-666a-4f40-8e2d-ae6417744f96.svg?v=1784200616&width=2400',
-    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_48_AM.png?v=1781070536&width=800',
-    alt: '',
-    width: 1890,
-    height: 832
-  },
-  {
-    imageDesktop: '//healthsense.in/cdn/shop/files/4_f66702cf-bac0-457a-ab56-618d4433007c.svg?v=1784200635&width=2400',
-    imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_52_AM.png?v=1781070550&width=800',
-    alt: '',
-    width: 1890,
-    height: 832
-  },
-  {
-    imageDesktop: '//healthsense.in/cdn/shop/files/5_7669cbd5-0231-4676-90d3-939cf9e9f064.svg?v=1784200655&width=2400',
-    alt: '',
-    width: 1890,
-    height: 832
-  }
-];
+  heroSlides: HeroSlide[] = [
+    {
+      imageDesktop: '//healthsense.in/cdn/shop/files/1.svg?v=1784200587&width=2400',
+      imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_45_AM.png?v=1781070495&width=800',
+      alt: '',
+      width: 1890,
+      height: 832
+    },
+    {
+      imageDesktop: '//healthsense.in/cdn/shop/files/2_50c71721-25f8-4ee3-8d36-2892807e33d4.svg?v=1784200601&width=2400',
+      imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_50_AM.png?v=1781070520&width=800',
+      alt: '',
+      width: 1890,
+      height: 832
+    },
+    {
+      imageDesktop: '//healthsense.in/cdn/shop/files/3_8d14ddbb-666a-4f40-8e2d-ae6417744f96.svg?v=1784200616&width=2400',
+      imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_48_AM.png?v=1781070536&width=800',
+      alt: '',
+      width: 1890,
+      height: 832
+    },
+    {
+      imageDesktop: '//healthsense.in/cdn/shop/files/4_f66702cf-bac0-457a-ab56-618d4433007c.svg?v=1784200635&width=2400',
+      imageMobile: '//healthsense.in/cdn/shop/files/ChatGPT_Image_Jun_10_2026_11_16_52_AM.png?v=1781070550&width=800',
+      alt: '',
+      width: 1890,
+      height: 832
+    },
+    {
+      imageDesktop: '//healthsense.in/cdn/shop/files/5_7669cbd5-0231-4676-90d3-939cf9e9f064.svg?v=1784200655&width=2400',
+      alt: '',
+      width: 1890,
+      height: 832
+    }
+  ];
   title: string = 'Mei Heal — Healthy Products';
   description: string = `Personalized Health porducts`;
   url: string = 'https://www.meiheal.com';
   image: string = 'https://www.meiheal.com/landingth.webp';
-  bestSellerTabs: TopPicksTab[] = bestSellerTabs
+  // bestSellerTabs: TopPicksTab[] = bestSellerTabs;
+  apiSellerTabs: TopPicksTab[] = [
+    {
+      key: 'tab1',
+      label: 'TrendingA now',
+      products: []
+    },
+    {
+      key: 'tab2',
+      label: 'MeiHeal Recommended',
+      products: []
+    }
+  ];
   private toast = inject(ToastService);
   products = signal<USubscriptionPlan[]>([]);
   isLoading = signal<boolean>(true);
@@ -161,7 +173,11 @@ heroSlides: HeroSlide[] = [
   }
   constructor(private seoService: SeoService,
     private _dietService: DietService, private meta: Meta) {
-
+     effect(() => {
+    const products = this.productsList();
+    this.apiSellerTabs[0].products = products; // tab1
+    this.apiSellerTabs[1].products = products; // tab2
+  });
   }
 
   ngOnInit(): void {

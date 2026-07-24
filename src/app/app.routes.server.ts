@@ -13,9 +13,9 @@ export const serverRoutes: ServerRoute[] = [
   // { path: 'faq', renderMode: RenderMode.Prerender },
 
   // Auth pages
-  { path: 'login', renderMode: RenderMode.Client },
-  { path: 'signup', renderMode: RenderMode.Client },
-  { path: 'forget', renderMode: RenderMode.Client },
+  { path: 'account/login', renderMode: RenderMode.Client },
+  { path: 'account/signup', renderMode: RenderMode.Client },
+  { path: 'account/forget', renderMode: RenderMode.Client },
 
   // Dashboard
   { path: 'dashboard', renderMode: RenderMode.Client },
@@ -27,8 +27,8 @@ export const serverRoutes: ServerRoute[] = [
   // { path: 'blogs/:category', renderMode: RenderMode.Server, headers: { 'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=60' } },
   // { path: 'blogs/:category/:slug', renderMode: RenderMode.Server, headers: { 'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=60' } },
 
-  // { path: 'products', renderMode: RenderMode.Server, headers: { 'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=60' } },
-  // { path: 'products/:slug', renderMode: RenderMode.Server, headers: { 'Cache-Control': 'no-store' } },
+  { path: 'products', renderMode: RenderMode.Server, headers: { 'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=60' } },
+  { path: 'products/:slug', renderMode: RenderMode.Server, headers: { 'Cache-Control': 'no-store' } },
 
 
   // 2. CLIENT: Best for private or highly interactive pages (Dashboards, Login).

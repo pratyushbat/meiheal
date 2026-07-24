@@ -47,20 +47,20 @@
       >
         <div class="top-picks__slider" #slider>
           <div class="top-picks__card" *ngFor="let product of tab.products">
-            <a [href]="product.url" class="top-picks__image-wrapper">
+            <a [href]="product.slug" class="top-picks__image-wrapper">
               <img
-                [src]="product.imagePrimary"
-                [alt]="product.title"
+                [src]="product.thumbnail"
+                [alt]="product.description"
                 class="top-picks__image"
-                [class.top-picks__image--has-secondary]="!!product.imageSecondary"
+                [class.top-picks__image--has-secondary]="!!product.images[0]"
                 loading="lazy"
                 width="400"
                 height="400"
               >
               <img
-                *ngIf="product.imageSecondary"
-                [src]="product.imageSecondary"
-                [alt]="product.title"
+                *ngIf="product.images[0]"
+                [src]="product.images[0]"
+                [alt]="product.name"
                 class="top-picks__image top-picks__image--secondary"
                 loading="lazy"
                 width="400"
@@ -69,18 +69,18 @@
             </a>
  
             <div class="top-picks__card-content">
-              <div class="top-picks__rating" *ngIf="product.judgeMeId">
-                <div class="jdgm-widget jdgm-preview-badge" [attr.data-id]="product.judgeMeId"></div>
+              <div class="top-picks__rating" *ngIf="product.sku">
+                <div class="jdgm-widget jdgm-preview-badge" [attr.data-id]="product.sku"></div>
               </div>
  
               <h3 class="top-picks__product-title">
-                <a [href]="product.url">{{ product.title }}</a>
+                <a [href]="product?.slug">{{ product.name }}</a>
               </h3>
  
               <div class="top-picks__price-row">
-                <span class="top-picks__current-price">{{ product.currentPrice }}</span>
-                <span class="top-picks__old-price" *ngIf="product.oldPrice">{{ product.oldPrice }}</span>
-                <span class="top-picks__discount" *ngIf="product.discount">{{ product.discount }}</span>
+                <span class="top-picks__current-price">{{ product?.variants?.[0]?.price }}</span>
+                <span class="top-picks__old-price" *ngIf="product?.variants?.[0] && product.variants?.[0]?.compareAtPrice">{{ product.variants?.[0]?.compareAtPrice }}</span>
+                <!-- <span class="top-picks__discount" *ngIf="product?.variants[0]?.price && product.variants[0]?.compareAtPrice ">{{ (1- ((product?.variants[0]?.compareAtPrice - product.variants[0]?.price)/100))*100 }}</span> -->
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ import { FooterComponent } from './pages/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, HeaderComponent,LucideAngularModule,FooterComponent],
+  imports: [RouterOutlet, CommonModule, HeaderComponent, LucideAngularModule, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -42,8 +42,9 @@ export class App implements OnInit {
   }
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.ngZone.runOutsideAngular(() => {
+
+    this.ngZone.runOutsideAngular(() => {
+      if (isPlatformBrowser(this.platformId)) {
         fromEvent(window, 'scroll').pipe(
           throttleTime(100, asyncScheduler, { leading: true, trailing: true }),
           map(() => {
@@ -60,7 +61,8 @@ export class App implements OnInit {
           });
 
         });
-      });
-    }
+      }
+    });
+
   }
 }

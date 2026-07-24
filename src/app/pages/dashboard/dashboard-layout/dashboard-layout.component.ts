@@ -6,7 +6,7 @@ import { SeoService } from '../../../services/seo.service';
 import { DashboardMobileMenuComponent } from '../dashboard-mobile-menu/dashboard-mobile-menu.component';
 import { CartDrawerComponent } from '../../storefront/storefront-cart-drawer/cart-drawer.component';
 import { RouterModule } from '@angular/router';
-import { DHeaderComponent } from '../dash-header/dash-header.component';
+// import { DHeaderComponent } from '../dash-header/dash-header.component';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { DHeaderComponent } from '../dash-header/dash-header.component';
   templateUrl: './dashboard-layout.component.html',
   styleUrls: ['./dashboard-layout.component.scss'],
   standalone: true,
-  imports:[DashboardMobileMenuComponent,CartDrawerComponent,RouterModule,DHeaderComponent]
+  imports:[DashboardMobileMenuComponent,CartDrawerComponent,RouterModule]
 })
 export class DashboardLayoutComponent {
 

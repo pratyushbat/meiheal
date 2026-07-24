@@ -14,10 +14,10 @@ import { FooterComponent } from '../pages/footer/footer.component';
 import { LucideAngularModule } from 'lucide-angular';
 import { HeaderComponent } from '../pages/header/header.component';
 import { CartDrawerComponent } from '../pages/storefront/storefront-cart-drawer/cart-drawer.component';
-import { DHeaderComponent } from '../pages/dashboard/dash-header/dash-header.component';
+
 @Component({
   selector: 'public-layout',
-  imports:[CommonModule,DashboardMobileMenuComponent ,DHeaderComponent,FooterComponent,LucideAngularModule,RouterModule,HeaderComponent,CartDrawerComponent],
+  imports: [CommonModule, DashboardMobileMenuComponent,  FooterComponent, LucideAngularModule, RouterModule, HeaderComponent, CartDrawerComponent],
   templateUrl: './public-layout.component.html',
   styleUrls: ['./public-layout.component.scss'],
   standalone: true
@@ -58,16 +58,8 @@ export class PublicLayoutComponent {
 
   scrollToTop(event?: Event) {
     if (isPlatformBrowser(this.platformId)) {
-      if (event) {
-        event.preventDefault(); // 3. Explicitly prevents the browser from rubber-banding
-      }
-
-      if (isPlatformBrowser(this.platformId)) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
+      if (event) { event.preventDefault(); }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 

@@ -27,7 +27,7 @@
   </div>
   <div class="relative public-lay bg-white font-normal text-soft-black antialiased public-lay">
     <app-header *ngIf="!_authService.isLoggedIn()"></app-header>
-    <dash-header *ngIf="_authService.isLoggedIn()"></dash-header>
+    <!-- <dash-header *ngIf="_authService.isLoggedIn()"></dash-header> -->
     <div class="main">
       <router-outlet></router-outlet>
     </div>

@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -8,24 +8,27 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   templateUrl: './hero-slider.html',
   styleUrl: './hero-slider.css',
-  imports:[CommonModule,RouterModule ,FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
 })
-export class HeroSliderComponent implements OnInit ,OnDestroy {
- activeIndex = 0;
+export class HeroSliderComponent implements OnInit, OnDestroy {
+  activeIndex = 0;
 
- private intervalId!: number;
+  private intervalId!: number;
+  platformId = inject(PLATFORM_ID)
 
-ngOnInit() {
-  this.intervalId = window.setInterval(() => {
-    this.next();
-  }, 5000);
-}
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.intervalId = window.setInterval(() => {
+        this.next();
+      }, 5000);
+    }
+  }
 
-ngOnDestroy() {
-  clearInterval(this.intervalId);
-}
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
+  }
 
-public  slides = [
+  public slides = [
     {
       desktopImage: '/banners/banner1.svg',
       mobileImage: '/banners/banner1.svg',

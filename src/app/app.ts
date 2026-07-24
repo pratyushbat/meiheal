@@ -32,37 +32,37 @@ export class App implements OnInit {
         event.preventDefault(); // 3. Explicitly prevents the browser from rubber-banding
       }
 
-      if (isPlatformBrowser(this.platformId)) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
+      // if (isPlatformBrowser(this.platformId)) {
+      //   window.scrollTo({
+      //     top: 0,
+      //     behavior: 'smooth'
+      //   });
+      // }
     }
   }
 
   ngOnInit(): void {
 
-    this.ngZone.runOutsideAngular(() => {
-      if (isPlatformBrowser(this.platformId)) {
-        fromEvent(window, 'scroll').pipe(
-          throttleTime(100, asyncScheduler, { leading: true, trailing: true }),
-          map(() => {
-            const yOffset = window.scrollY || document.documentElement.scrollTop;
-            return Math.max(0, yOffset) > 100;
-          }),
-          distinctUntilChanged(),
-          takeUntilDestroyed(this.destroyRef)
-        ).subscribe(isScrolled => {
-          this.ngZone.run(() => {
-            if (isPlatformBrowser(this.platformId)) {
-              this.showScrollButton.set(isScrolled);
-            }
-          });
+    // this.ngZone.runOutsideAngular(() => {
+    //   if (isPlatformBrowser(this.platformId)) {
+    //     fromEvent(window, 'scroll').pipe(
+    //       throttleTime(100, asyncScheduler, { leading: true, trailing: true }),
+    //       map(() => {
+    //         const yOffset = window.scrollY || document.documentElement.scrollTop;
+    //         return Math.max(0, yOffset) > 100;
+    //       }),
+    //       distinctUntilChanged(),
+    //       takeUntilDestroyed(this.destroyRef)
+    //     ).subscribe(isScrolled => {
+    //       this.ngZone.run(() => {
+    //         if (isPlatformBrowser(this.platformId)) {
+    //           this.showScrollButton.set(isScrolled);
+    //         }
+    //       });
 
-        });
-      }
-    });
+    //     });
+    //   }
+    // });
 
   }
 }

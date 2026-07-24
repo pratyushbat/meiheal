@@ -19,10 +19,11 @@ import { Globe } from 'lucide-angular';
 import { TopPicksComponent, TopPicksTab } from '../../shared/pages/top-picks/top-picks';
 import { bestSellerTabs } from '../../shared/pages/top-picks/bestSeller';
 import { HeroSlide, SlideShowComponent } from '../../shared/pages/slide-show/slide-show';
+import { JoinTribeComponent } from '../../shared/pages/join-tribe/join-tribe';
 
 @Component({
   selector: 'landing-page',
-  imports: [CommonModule, LucideAngularModule, RouterModule, HeroSliderComponent, TopPicksComponent,SlideShowComponent],
+  imports: [CommonModule, LucideAngularModule, RouterModule, HeroSliderComponent, TopPicksComponent,SlideShowComponent,JoinTribeComponent],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
 

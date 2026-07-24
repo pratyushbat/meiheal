@@ -1,0 +1,100 @@
+<section class="join-tribe">
+  <div class="join-tribe__container">
+
+    <div class="join-tribe__header">
+      <h2 class="join-tribe__title">Join The Tribe</h2>
+    </div>
+
+    <!-- Previous Button -->
+    <button class="carousel-btn prev" (click)="scrollLeft()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="carousel-wrapper">
+
+      <div class="carousel" #carousel>
+
+        <div class="tribe-card" *ngFor="let item of products">
+
+          <div class="video-container">
+<video
+  [src]="item.video"
+  autoplay
+  muted
+  loop
+  playsinline
+   preload="auto"
+  >
+</video>
+           <!--  <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata">
+              <source [src]="item.video" type="video/mp4">
+            </video> -->
+
+            <div class="thumbnail-wrapper">
+              <div class="thumbnail">
+                <img
+                  [src]="item.thumbnail"
+                  [alt]="item.title">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+
+            <h4 class="product-title">
+              {{ item.title }}
+            </h4>
+
+            <div class="price-row">
+
+              <span class="current-price">
+                {{ item.currentPrice }}
+              </span>
+
+              <span
+                class="old-price"
+                *ngIf="item.oldPrice">
+                {{ item.oldPrice }}
+              </span>
+
+              <span
+                class="discount"
+                *ngIf="item.discount">
+                {{ item.discount }}
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Next Button -->
+    <button class="carousel-btn next" (click)="scrollRight()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M9 6L15 12L9 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+  </div>
+</section>

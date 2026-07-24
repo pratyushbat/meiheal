@@ -5,7 +5,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { productListResolver } from './pages/storefront/product-list-resolver';
 
 export const routes: Routes = [
-    { path: '', data: { preload: true }, resolve: { productList: productListResolver },component: LandingPageComponent},
+    { path: '',component: LandingPageComponent},
     {
         path: '',
         canActivate: [anonGuard],

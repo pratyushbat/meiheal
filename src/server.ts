@@ -28,12 +28,12 @@ const cors = require('cors');
 const browserDistFolder = join(import.meta.dirname, '../browser');
 const app = express();
 
-try {
-  await configDb();
-} catch (err) {
-  console.error("Fatal: could not connect to database, exiting:", err);
-  process.exit(1);
-}
+// try {
+//   await configDb();
+// } catch (err) {
+//   console.error("Fatal: could not connect to database, exiting:", err);
+//   process.exit(1);
+// }
 app.use(compression());
 app.set('trust proxy', true);
 app.use("/api/payment/webhook", express.raw({ type: "application/json" }));
@@ -151,7 +151,7 @@ app.use(async (req: express.Request, res: express.Response, next: express.NextFu
   try {
 
     const response: any = await angularApp.handle(req, { server: 'express' });
-    console.log('response.status req:----', response?.status)
+    // console.log('response.status req:----', response?.status)
     if (!response) {
       return res.sendFile(join(browserDistFolder, 'index.html'));
     }
@@ -204,13 +204,19 @@ app.use(async (req: express.Request, res: express.Response, next: express.NextFu
 });
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
-
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+ configDb()
+    .catch((err) => {
+      console.error("Fatal: could not connect to database, exiting:", err instanceof Error ? err.message : err);
+      process.exit(1);
+    })
+    .then(() => {
+      app.listen(port, (error) => {
+        if (error) {
+          throw error;
+        }
+        console.log(`Node Express server listening on http://localhost:${port}`);
+      });
+    });
 }
 
 export const reqHandler = createNodeRequestHandler(app);

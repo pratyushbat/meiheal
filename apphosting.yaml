@@ -43,3 +43,5 @@ env:
     secret: RESEND_ID
   - variable: JWT_KEY
     secret: JWT_KEY
+  - variable: API_URL
+    secret: API_URL

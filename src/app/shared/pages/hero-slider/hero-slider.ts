@@ -32,7 +32,7 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
     {
       desktopImage: '/banners/banner1.svg',
       mobileImage: '/banners/banner1.svg',
-      link: '/products/healthsense-percussion-gun-massager-machine-for-full-body-pain-relief-for-men-women-2800-rpm-deep-tissue-massage-gun-with-speed-indicator-4-removable-heads-6-speed-levels-high-torque-motor-lightweight-with-non-slip-handle-hm140',
+      link: '/products/percussion-gun-massager-machine-for-full-body-pain-relief-for-men-women-2800-rpm-deep-tissue-massage-gun-with-speed-indicator-4-removable-heads-6-speed-levels-high-torque-motor-lightweight-with-non-slip-handle-hm140',
       overlayOpacity: 0,
       textColor: '#ffffff',
       desktopAlign: 'align-left',

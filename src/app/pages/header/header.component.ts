@@ -30,9 +30,11 @@ export interface HeaderNavLink {
   standalone: true
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  _authService = inject(AuthService);
+  private router = inject(Router);
   /** Product/collection categories shown in the "Categories" mega menu. */
   @Input() categories: HeaderCategory[] = [];
-
+  private destroy$ = new Subject<void>();
   /** Links shown under the "More" dropdown (desktop) / accordion (mobile). */
   @Input() moreLinks: HeaderNavLink[] = [];
 
@@ -50,6 +52,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   platformId = inject(PLATFORM_ID);
 
   readonly cart;
+  isLoggingOut = signal<boolean>(false);
+
   constructor(private cartService: CartService) {
     this.cart = cartService;
   }
@@ -57,7 +61,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
   ngOnDestroy(): void {
-
+    this.destroy$?.next();
+    this.destroy$?.complete();
   }
 
   @HostListener('window:scroll')
@@ -114,4 +119,36 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // this.router.navigate(['/search'], { queryParams: { q: query } });
   }
 
+
+  logoutUser() {
+    if (this.isLoggingOut()) return;
+    this.isLoggingOut.set(true);
+
+    this._authService.logoutUser()
+      .pipe(
+
+        takeUntil(this.destroy$)
+      )
+      .subscribe({
+        next: () => {
+
+          this.router.navigate(['/account/login']).then(() => {
+            // this._utilityService.closeDMobileMenu();
+            // this._utilityService.closeAllDD();
+            // this._utilityService.closeAllMDD();
+            this.isLoggingOut.set(false);
+            // this._utilityService.closeAllDD();
+          });
+
+        },
+        error: (error) => {
+          console.error('Logout failed', error);
+          this._authService.purgeAuth(); // 🚀 The Safety Net
+          // this._utilityService.closeAllDD();
+          this.isLoggingOut.set(false);
+          return of(null);
+
+        }
+      });
+  }
 }

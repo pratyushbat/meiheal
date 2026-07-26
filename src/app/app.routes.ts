@@ -7,6 +7,12 @@ import { productDetailResolver } from './pages/storefront/product-detail-resolve
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent, resolve: { productList: productListResolver } },
+    { path: 'terms', loadComponent: () => import('./pages/terms/terms.component').then(m => m.TermsComponent) },
+    { path: 'privacy-policy', loadComponent: () => import('./pages/privacy-policy/privacy-policy.component').then(m => m.PrivacypolicyComponent) },
+    { path: 'payment-success/:id', loadComponent: () => import('./pages/order-summary/order-summary.component').then(m => m.OrderSummaryComponent) },
+    { path: 'payment-failure', loadComponent: () => import('./pages/payments/payment-failiure/payment-failiure.component').then(m => m.PaymentFailiureComponent) },
+    { path: 'order-detail/:slug', loadComponent: () => import('./pages/orderpay/orderpay.component').then(m => m.OrderPayComponent) },
+    { path: 'setup-password', loadComponent: () => import('./pages/setup-password/setup-password.component').then(m => m.SetupPasswordComponent) },
     {
         path: 'account',
         canActivate: [anonGuard],
@@ -23,7 +29,7 @@ export const routes: Routes = [
         path: 'products/:slug', loadComponent: () => import('./pages/storefront/storefront-product-detail/storefront-product-detail.component').then((m) => m.StoreFrontProductDetailComponent),
         resolve: { productDetail: productDetailResolver },
     },
-    
+
 
     {
         path: 'dashboard',

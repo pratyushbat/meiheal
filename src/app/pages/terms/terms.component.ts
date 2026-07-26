@@ -8,7 +8,7 @@ import { Meta } from '@angular/platform-browser';
   selector: 'terms',
   templateUrl: './terms.component.html',
   styleUrls: ['./terms.component.scss'],
-  standalone: false
+  standalone: true
 })
 export class TermsComponent {
   title: string = 'Terms & Conditions | Mei Heal';

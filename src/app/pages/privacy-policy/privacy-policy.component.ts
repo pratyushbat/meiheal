@@ -8,7 +8,7 @@ import { Meta } from '@angular/platform-browser';
   selector: 'privacy-policy',
   templateUrl: './privacy-policy.component.html',
   styleUrls: ['./privacy-policy.component.scss'],
-  standalone: false
+  standalone: true
 })
 export class PrivacypolicyComponent implements OnInit {
 

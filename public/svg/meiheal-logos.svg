@@ -1,0 +1,26 @@
+<svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8A6A0"/>
+      <stop offset="100%" stop-color="#C97B72"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9CB8A3"/>
+      <stop offset="100%" stop-color="#748F7C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Circular badge -->
+  <circle cx="160" cy="140" r="118" fill="none" stroke="#C97B72" stroke-width="1.5" opacity="0.35"/>
+
+  <!-- Monogram: an "M" built from two curved petal strokes that
+       also read as a wave / clasped-hands shape -->
+  <g transform="translate(160,140)">
+    <path d="M-55,45 C-55,-15 -35,-55 -5,-55 C-15,-25 -15,15 -5,45"
+          fill="none" stroke="url(#g1)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M55,45 C55,-15 35,-55 5,-55 C15,-25 15,15 5,45"
+          fill="none" stroke="url(#g2)" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="0" cy="-2" r="7" fill="#FBF6F0"/>
+  </g>
+
+</svg>

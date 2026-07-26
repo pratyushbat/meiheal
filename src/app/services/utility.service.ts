@@ -8,7 +8,7 @@ import { CartItemN, Product, ProductVariant } from '../models/product.model';
 })
 export class UtilityService {
   router = inject(Router);
-  hiddenRoutes = ['/login', '/signup', '/forget'];
+  hiddenRoutes = ['/account/login', '/account/signup', '/account/forget'];
 
   isDMobileMenuOpen = signal<boolean>(false);
 

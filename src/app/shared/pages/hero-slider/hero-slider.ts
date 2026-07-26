@@ -30,17 +30,17 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
 
   public slides = [
     {
-      desktopImage: '/banners/banner1.svg',
-      mobileImage: '/banners/banner1.svg',
-      link: '/products/percussion-gun-massager-machine-for-full-body-pain-relief-for-men-women-2800-rpm-deep-tissue-massage-gun-with-speed-indicator-4-removable-heads-6-speed-levels-high-torque-motor-lightweight-with-non-slip-handle-hm140',
+      desktopImage: '/banners/bannere.svg',
+      mobileImage: '/banners/bannerew.svg',
+      link: '/products/-machine-for-full-body-pain-relief-for-men-women-2800-rpm-deep-tissue-massage-gun-with-speed-indicator-4-removable-heads-6-speed-levels-high-torque-motor-lightweight-with-non-slip-handle-hm140',
       overlayOpacity: 0,
       textColor: '#ffffff',
       desktopAlign: 'align-left',
       mobileAlign: 'mobile-align-center'
     },
     {
-      desktopImage: '/banners/banner2.svg',
-      mobileImage: '/banners/banner2.svg',
+      desktopImage: '/banners/bannerw2.svg',
+      mobileImage: '/banners/bannewr2.svg',
       link: '/products/2',
       overlayOpacity: 0,
       textColor: '#ffffff',
@@ -48,8 +48,8 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
       mobileAlign: 'mobile-align-center'
     },
     {
-      desktopImage: '/banners/banner3.svg',
-      mobileImage: '/banners/banner3.svg',
+      desktopImage: '/banners/banwner3.svg',
+      mobileImage: '/banners/bannewr3.svg',
       link: '/products/3',
       overlayOpacity: 0,
       textColor: '#ffffff',

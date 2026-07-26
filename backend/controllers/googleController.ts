@@ -50,7 +50,7 @@ export class GoogleController {
 
         ) {
             req.flash("errors", "Coudn't login with google because invalid login attempt.Please try again!");
-            return res.redirect("/login");
+            return res.redirect("/account/login");
 
         }
 
@@ -59,7 +59,7 @@ export class GoogleController {
             tokens = await google.validateAuthorizationCode(code, codeVerifier);
         } catch {
             req.flash("errors", "Coudn't login with google because invalid login attempt.Please try again!");
-            return res.redirect("/login");
+            return res.redirect("/account/login");
         }
 
         const claims: any = decodeIdToken(tokens.idToken());

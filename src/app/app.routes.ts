@@ -6,12 +6,13 @@ import { productListResolver } from './pages/storefront/product-list-resolver';
 import { productDetailResolver } from './pages/storefront/product-detail-resolver';
 
 export const routes: Routes = [
-    { path: '', component: LandingPageComponent , resolve: { productList: productListResolver }},
+    { path: '', component: LandingPageComponent, resolve: { productList: productListResolver } },
     {
         path: 'account',
         canActivate: [anonGuard],
         loadComponent: () => import('./pages/auth/auth-layout.component').then(m => m.AuthLayoutComponent),
         children: [
+            { path: '', redirectTo: 'login', pathMatch: 'full' },
             { path: 'login', loadComponent: () => import('./pages/auth/login/login.component').then(m => m.LoginComponent) },
             { path: 'signup', loadComponent: () => import('./pages/auth/sgnup/signup.component').then(m => m.SignupComponent) },
             { path: 'forget', loadComponent: () => import('./pages/auth/forget-pwd/forget-pwd.component').then(m => m.ForgetPwdComponent) }

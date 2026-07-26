@@ -9,11 +9,7 @@
 
 <header class="main-header" [class.is-sticky]="isSticky()">
   <div class="header-container">
-    <button
-      class="mobile-menu-toggle"
-      (click)="openMobileMenu()"
-      aria-label="Open menu"
-    >
+    <button class="mobile-menu-toggle" (click)="openMobileMenu()" aria-label="Open menu">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="12" x2="21" y2="12"></line>
         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -37,11 +33,7 @@
               <div class="mega-menu">
                 <div class="mega-menu-container">
                   <div class="mega-menu-grid">
-                    <a
-                      *ngFor="let category of categories"
-                      [routerLink]="category.url"
-                      class="category-item"
-                    >
+                    <a *ngFor="let category of categories" [routerLink]="category.url" class="category-item">
                       <div class="category-image">
                         <img [src]="category.image" [alt]="category.name" loading="lazy" />
                       </div>
@@ -52,12 +44,15 @@
               </div>
             </li>
 
-            <li class="nav-item">
+            <!--     <li class="nav-item">
               <a routerLink="/about-us" class="nav-link">Our Story</a>
             </li>
 
             <li class="nav-item">
               <a routerLink="/warranty-registration" class="nav-link">Register for Warranty</a>
+            </li> -->
+            <li class="nav-item">
+              <a routerLink="/products" class="nav-link">Products</a>
             </li>
 
             <li class="nav-item" *ngIf="moreLinks.length">
@@ -71,13 +66,9 @@
               </a>
 
               <div class="simple-dropdown">
-                <a
-                  *ngFor="let link of moreLinks"
-                  [routerLink]="!link.external ? link.url : null"
-                  [href]="link.external ? link.url : null"
-                  [target]="link.external ? '_blank' : undefined"
-                  class="dropdown-link"
-                >
+                <a *ngFor="let link of moreLinks" [routerLink]="!link.external ? link.url : null"
+                  [href]="link.external ? link.url : null" [target]="link.external ? '_blank' : undefined"
+                  class="dropdown-link">
                   {{ link.label }}
                 </a>
               </div>
@@ -90,14 +81,7 @@
     <div class="header-right-group">
       <div class="search-bar">
         <form class="search-form" #searchForm="ngForm" (ngSubmit)="onSearchSubmit(searchInput.value)">
-          <input
-            #searchInput
-            type="search"
-            name="q"
-            class="search-input"
-            placeholder="Search"
-            aria-label="Search"
-          />
+          <input #searchInput type="search" name="q" class="search-input" placeholder="Search" aria-label="Search" />
           <button type="submit" class="search-icon" aria-label="Search">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"></circle>
@@ -108,11 +92,11 @@
       </div>
 
       <div class="action-icons">
-        <a routerLink="/wishlist" class="icon-link icon-wishlist" aria-label="Wishlist">
+        <!-- <a routerLink="/wishlist" class="icon-link icon-wishlist" aria-label="Wishlist">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M16.5429 4C13.4999 4 12 6.99984 12 6.99984C12 6.99984 10.5001 4 7.45712 4C4.98412 4 3.02579 6.06895 3.00048 8.53772C2.94892 13.6623 7.06573 17.3066 11.5782 20.3693C11.7026 20.4539 11.8495 20.4992 12 20.4992C12.1505 20.4992 12.2975 20.4539 12.4219 20.3693C16.9338 17.3066 21.0506 13.6623 20.9995 8.53772C20.9742 6.06895 19.0159 4 16.5429 4Z" />
           </svg>
-        </a>
+        </a> -->
 
         <a routerLink="/account" class="icon-link icon-account" aria-label="Account">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -149,25 +133,14 @@
         <button class="mobile-category-toggle" (click)="toggleMobileCategories()">
           Categories
           <svg viewBox="0 0 100 60" width="18" height="12" aria-hidden="true">
-            <path
-              d="M10 10 L50 50 L90 10"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              [attr.transform]="mobileCategoriesOpen() ? 'rotate(180 50 30)' : null"
-            />
+            <path d="M10 10 L50 50 L90 10" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"
+              stroke-linejoin="round" [attr.transform]="mobileCategoriesOpen() ? 'rotate(180 50 30)' : null" />
           </svg>
         </button>
 
         <div class="mobile-category-list" [class.active]="mobileCategoriesOpen()">
-          <a
-            *ngFor="let category of categories"
-            [routerLink]="category.url"
-            class="mobile-category-link"
-            (click)="closeMobileMenu()"
-          >
+          <a *ngFor="let category of categories" [routerLink]="category.url" class="mobile-category-link"
+            (click)="closeMobileMenu()">
             <div class="mobile-category-img">
               <img [src]="category.image" [alt]="category.name" loading="lazy" />
             </div>
@@ -190,27 +163,15 @@
         <button class="mobile-more-toggle" (click)="toggleMobileMore()">
           More
           <svg viewBox="0 0 100 60" width="18" height="12" aria-hidden="true">
-            <path
-              d="M10 10 L50 50 L90 10"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              [attr.transform]="mobileMoreOpen() ? 'rotate(180 50 30)' : null"
-            />
+            <path d="M10 10 L50 50 L90 10" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"
+              stroke-linejoin="round" [attr.transform]="mobileMoreOpen() ? 'rotate(180 50 30)' : null" />
           </svg>
         </button>
 
         <div class="mobile-more-list" [class.active]="mobileMoreOpen()">
-          <a
-            *ngFor="let link of moreLinks"
-            [routerLink]="!link.external ? link.url : null"
-            [href]="link.external ? link.url : null"
-            [target]="link.external ? '_blank' : undefined"
-            class="mobile-more-link"
-            (click)="closeMobileMenu()"
-          >
+          <a *ngFor="let link of moreLinks" [routerLink]="!link.external ? link.url : null"
+            [href]="link.external ? link.url : null" [target]="link.external ? '_blank' : undefined"
+            class="mobile-more-link" (click)="closeMobileMenu()">
             {{ link.label }}
           </a>
         </div>
@@ -221,7 +182,8 @@
   <div class="mobile-icon-links">
     <a routerLink="/wishlist" class="icon-link" aria-label="Wishlist" (click)="closeMobileMenu()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M16.5429 4C13.4999 4 12 6.99984 12 6.99984C12 6.99984 10.5001 4 7.45712 4C4.98412 4 3.02579 6.06895 3.00048 8.53772C2.94892 13.6623 7.06573 17.3066 11.5782 20.3693C11.7026 20.4539 11.8495 20.4992 12 20.4992C12.1505 20.4992 12.2975 20.4539 12.4219 20.3693C16.9338 17.3066 21.0506 13.6623 20.9995 8.53772C20.9742 6.06895 19.0159 4 16.5429 4Z" />
+        <path
+          d="M16.5429 4C13.4999 4 12 6.99984 12 6.99984C12 6.99984 10.5001 4 7.45712 4C4.98412 4 3.02579 6.06895 3.00048 8.53772C2.94892 13.6623 7.06573 17.3066 11.5782 20.3693C11.7026 20.4539 11.8495 20.4992 12 20.4992C12.1505 20.4992 12.2975 20.4539 12.4219 20.3693C16.9338 17.3066 21.0506 13.6623 20.9995 8.53772C20.9742 6.06895 19.0159 4 16.5429 4Z" />
       </svg>
     </a>
 

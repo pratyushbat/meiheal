@@ -45,3 +45,7 @@ env:
     secret: JWT_KEY
   - variable: API_URL
     secret: API_URL
+  - variable: GOOGLE_CLIENT_ID
+    secret: GOOGLE_CLIENT_ID
+  - variable: GOOGLE_CLIENT_SECRET
+    secret: GOOGLE_CLIENT_SECRET

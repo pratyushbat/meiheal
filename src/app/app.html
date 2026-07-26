@@ -1,10 +1,11 @@
 <main>
- 
   <div class="relative public-lay bg-white font-normal text-soft-black antialiased public-lay">
-    <app-header [announcementText]="'Free shipping on orders over ₹999'" *ngIf="!_authService.isLoggedIn()"></app-header>
+    <app-header [announcementText]="'Free shipping on orders over ₹999'"
+      *ngIf="!_authService.isLoggedIn() && !router.url.startsWith('/account')"></app-header>
     <!-- <dash-header *ngIf="_authService.isLoggedIn()"></dash-header> -->
     <div class="main">
       <router-outlet></router-outlet>
+      <app-cart-drawer />
     </div>
     <!-- <app-cart-drawer /> -->
     <button *ngIf="!_utilityService.isAuthRoute()" (click)="scrollToTop($event)"

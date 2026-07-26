@@ -47,7 +47,7 @@
       >
         <div class="top-picks__slider" #slider>
           <div class="top-picks__card" *ngFor="let product of tab.products">
-            <a [href]="product.slug" class="top-picks__image-wrapper">
+            <a [routerLink]="['/products', product.slug]" class="top-picks__image-wrapper">
               <img
                 [src]="product.thumbnail"
                 [alt]="product.description"
@@ -78,8 +78,8 @@
               </h3>
  
               <div class="top-picks__price-row">
-                <span class="top-picks__current-price">{{ product?.variants?.[0]?.price }}</span>
-                <span class="top-picks__old-price" *ngIf="product?.variants?.[0] && product.variants?.[0]?.compareAtPrice">{{ product.variants?.[0]?.compareAtPrice }}</span>
+                <span class="top-picks__current-price"> ₹ {{ product?.variants?.[0]?.price }}</span>
+                <span class="top-picks__old-price" *ngIf="product?.variants?.[0] && product.variants?.[0]?.compareAtPrice">₹{{ product.variants?.[0]?.compareAtPrice }}</span>
                 <!-- <span class="top-picks__discount" *ngIf="product?.variants[0]?.price && product.variants[0]?.compareAtPrice ">{{ (1- ((product?.variants[0]?.compareAtPrice - product.variants[0]?.price)/100))*100 }}</span> -->
               </div>
             </div>

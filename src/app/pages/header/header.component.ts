@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   /** Links shown under the "More" dropdown (desktop) / accordion (mobile). */
   @Input() moreLinks: HeaderNavLink[] = [];
 
-  @Input() logoUrl = '/logo.png';
+  @Input() logoUrl = '/images/logo.png';
   @Input() logoAlt = 'Store logo';
   @Input() announcementText: string = 'Free shipping on orders over ₹999';
 

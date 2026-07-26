@@ -13,6 +13,7 @@ export const serverRoutes: ServerRoute[] = [
   // { path: 'faq', renderMode: RenderMode.Prerender },
 
   // Auth pages
+  {  path: 'account', renderMode: RenderMode.Client},
   { path: 'account/login', renderMode: RenderMode.Client },
   { path: 'account/signup', renderMode: RenderMode.Client },
   { path: 'account/forget', renderMode: RenderMode.Client },

@@ -62,7 +62,7 @@ declare var Razorpay: any;
     <h1 class="text-2xl sm:text-3xl font-semibold text-neutral-900">Checkout</h1>
     @if (!isLoggedIn()) {
       <a
-        routerLink="/login"
+        routerLink="/account//login"
         class="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-700 border border-neutral-300 rounded-full px-4 py-1.5 hover:bg-neutral-50 hover:border-neutral-400 transition-colors"
       >
         <svg

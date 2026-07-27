@@ -6,8 +6,9 @@ import {
 
 import { QueryFilter } from 'mongoose';
 const slugify = require('slugify');
-
+import streamifier from "streamifier";
 import Product, { IProduct, IProductDimension, IProductVariant } from '../models/productsModel';
+import cloudinary from "../config/cloudinary.config";
 
 
 
@@ -52,6 +53,7 @@ const validateVariantDimensions = (variants: IProductVariant[] = []): string | n
 // Fetch a paginated/filterable product list.
 export const getProducts = async (req: Request, res: Response) => {
   try {
+
     const {
       category,
       sortBy = 'featured',
@@ -103,6 +105,44 @@ export const getProducts = async (req: Request, res: Response) => {
       total,
       page: pageNum,
       pageSize: size,
+    });
+  } catch (err) {
+    console.error('getProducts error:', err);
+    return res.status(500).json({ message: 'Failed to fetch products' });
+  }
+};
+
+// Fetch a paginated/filterable product list.
+export const uploadProds = async (req: any, res: Response) => {
+  try {
+
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+    console.log('req.file', req.file)
+
+    const result = await new Promise<any>((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        {
+          folder: "products",
+        },
+        (error, result) => {
+          if (error) return reject(error);
+          resolve(result);
+        }
+      );
+
+      streamifier.createReadStream(req.file.buffer).pipe(stream);
+    });
+
+    // const result = await cloudinary.uploader.upload(req.file.path, {
+    //   folder: "products",
+    // });
+    console.log('result', result)
+
+    return res.json({
+      imageUrl: result.secure_url,
+      publicId: result.public_id,
     });
   } catch (err) {
     console.error('getProducts error:', err);

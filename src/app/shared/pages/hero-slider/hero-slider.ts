@@ -30,8 +30,8 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
 
   public slides = [
     {
-      desktopImage: '/banners/bannere.svg',
-      mobileImage: '/banners/bannerew.svg',
+      desktopImage: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140425/products/aralzlrhix86oemz60pj.png',
+      mobileImage: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140553/products/ckcmo1hynbrh6s7sqb4s.png',
       link: '/products/-machine-for-full-body-pain-relief-for-men-women-2800-rpm-deep-tissue-massage-gun-with-speed-indicator-4-removable-heads-6-speed-levels-high-torque-motor-lightweight-with-non-slip-handle-hm140',
       overlayOpacity: 0,
       textColor: '#ffffff',
@@ -39,8 +39,8 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
       mobileAlign: 'mobile-align-center'
     },
     {
-      desktopImage: '/banners/bannerw2.svg',
-      mobileImage: '/banners/bannewr2.svg',
+      desktopImage: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140612/products/a4rwmauash9clopaaqlp.png',
+      mobileImage: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140716/products/vxmcz1xsasww7kzidhi1.png',
       link: '/products/2',
       overlayOpacity: 0,
       textColor: '#ffffff',
@@ -48,8 +48,8 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
       mobileAlign: 'mobile-align-center'
     },
     {
-      desktopImage: '/banners/banwner3.svg',
-      mobileImage: '/banners/bannewr3.svg',
+      desktopImage: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140425/products/aralzlrhix86oemz60pj.png',
+      mobileImage: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140553/products/ckcmo1hynbrh6s7sqb4s.png',
       link: '/products/3',
       overlayOpacity: 0,
       textColor: '#ffffff',

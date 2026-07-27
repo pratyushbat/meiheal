@@ -1,12 +1,14 @@
 import { Router } from "express";
-import { createProduct, deleteProduct, getById, getBySlug, getProducts, getRelated, updateProduct } from "../controllers/productController";
+import { createProduct, deleteProduct, getById, getBySlug, getProducts, getRelated, updateProduct, uploadProds } from "../controllers/productController";
 
 // import { requireAuth, requireAdmin } from '../middleware/auth'; // wire in your existing middleware
+import upload from '../middleware/upload';
 
 const route = Router();
 
 // Public
 route.get('/', getProducts);
+route.post("/upload", upload.single("image"),uploadProds)
 route.get('/slug/:slug', getBySlug);
 route.get('/slug/:slug/related', getRelated);
 

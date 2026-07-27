@@ -40,7 +40,7 @@ declare let gtag: Function;
     class="hidden md:flex items-center justify-center min-h-full max-h-screen relative overflow-hidden"
   >
     <img
-    src="/images/login-f.webp"
+    src="https://res.cloudinary.com/jwrnfsov/image/upload/v1785136788/products/bckieu4qo6quzolj5ybu.webp"
       alt="Auth Mei Heal"
       class="object-cover object-center min-h-full"
     />

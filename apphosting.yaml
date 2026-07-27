@@ -49,3 +49,9 @@ env:
     secret: GOOGLE_CLIENT_ID
   - variable: GOOGLE_CLIENT_SECRET
     secret: GOOGLE_CLIENT_SECRET
+  - variable: CLOUDINARY_CLOUD_NAME
+    secret: CLOUDINARY_CLOUD_NAME
+  - variable: CLOUDINARY_API_KEY
+    secret: CLOUDINARY_API_KEY
+  - variable: CLOUDINARY_API_SECRET
+    secret: CLOUDINARY_API_SECRET

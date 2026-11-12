@@ -46,7 +46,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const angularApp = new AngularNodeAppEngine({trustProxyHeaders:true, allowedHosts: ["localhost:4000","localhost","meiheal-309696976357.us-east4.run.app","https://meiheal--meihealth-cfc62.us-east4.hosted.app","*.meiheal.com"]});
+const angularApp = new AngularNodeAppEngine({ trustProxyHeaders: true, allowedHosts: ["localhost:4000", "localhost", "meiheal-309696976357.us-east4.run.app", "https://meiheal--meihealth-cfc62.us-east4.hosted.app", "*.meiheal.com"] });
 
 app.use(
   express.static(browserDistFolder, {
@@ -68,6 +68,7 @@ app.use(cors({
   origin: [
     'https://meiheal.com',
     'http://localhost:4000',
+    'https://bk-mei-heal--meiheal.us-east4.hosted.app',
     'https://www.meiheal.com']
   ,
   credentials: true
@@ -204,7 +205,7 @@ app.use(async (req: express.Request, res: express.Response, next: express.NextFu
 });
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
- configDb()
+  configDb()
     .catch((err) => {
       console.error("Fatal: could not connect to database, exiting:", err instanceof Error ? err.message : err);
       process.exit(1);

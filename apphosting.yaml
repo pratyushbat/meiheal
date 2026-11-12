@@ -2,22 +2,13 @@
 # See https://firebase.google.com/docs/app-hosting/configure#cloud-run
 runConfig:
   minInstances: 0
-  maxInstances: 2
-  concurrency: 80
-  cpu: 1
-  memoryMiB: 512
+  # maxInstances: 100
+  # concurrency: 80
+  # cpu: 1
+  # memoryMiB: 512
 
-headers:
-  - glob: '/index.html'
-    headers:
-      - key: Cache-Control
-        value: no-store
-  - glob: '/**'
-    headers:
-      - key: X-Frame-Options
-        value: SAMEORIGIN
-  # Environment variables and secrets.
-  # env:
+# Environment variables and secrets.
+# env:
   # Configure environment variables.
   # See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
   # - variable: MESSAGE
@@ -27,31 +18,7 @@ headers:
   #     - RUNTIME
 
   # Grant access to secrets in Cloud Secret Manager.
+  # You can create secrets with the CLI command `firebase apphosting:secrets:set <secretName>`.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
   # - variable: MY_SECRET
   #   secret: mySecretRef
-env:
-  - variable: DB_URI
-    secret: DB_URI
-  - variable: TWILIO_SERVICE_ID
-    secret: TWILIO_SERVICE_ID
-  - variable: NODE_ENV
-    secret: NODE_ENV
-    availability:
-      - RUNTIME
-  - variable: RESEND_ID
-    secret: RESEND_ID
-  - variable: JWT_KEY
-    secret: JWT_KEY
-  - variable: API_URL
-    secret: API_URL
-  - variable: GOOGLE_CLIENT_ID
-    secret: GOOGLE_CLIENT_ID
-  - variable: GOOGLE_CLIENT_SECRET
-    secret: GOOGLE_CLIENT_SECRET
-  - variable: CLOUDINARY_CLOUD_NAME
-    secret: CLOUDINARY_CLOUD_NAME
-  - variable: CLOUDINARY_API_KEY
-    secret: CLOUDINARY_API_KEY
-  - variable: CLOUDINARY_API_SECRET
-    secret: CLOUDINARY_API_SECRET

@@ -1,0 +1,12 @@
+<h1>dummy one</h1>
+<h2>Count: {{ count }}</h2>
+<button (click)="increase()">Increase</button>
+
+<h2>{{ countSg() }}</h2>
+
+<button (click)="add()">Add Item</button>
+<div class="boxpare" #boxpare>
+  @for (item of items(); track item) {
+    <div class="box" #box>{{ item }}</div>
+  }
+</div>

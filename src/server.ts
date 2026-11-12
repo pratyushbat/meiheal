@@ -69,6 +69,7 @@ app.use(cors({
     'https://meiheal.com',
     'http://localhost:4000',
     'https://bk-mei-heal--meiheal.us-east4.hosted.app',
+    'https://bk-mei-heal-369612891730.us-east4.run.app',
     'https://www.meiheal.com']
   ,
   credentials: true

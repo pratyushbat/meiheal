@@ -2,23 +2,33 @@
 # See https://firebase.google.com/docs/app-hosting/configure#cloud-run
 runConfig:
   minInstances: 0
-  # maxInstances: 100
-  # concurrency: 80
-  # cpu: 1
-  # memoryMiB: 512
+  maxInstances: 1
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+
+headers:
+  - glob: '/index.html'
+    headers:
+      - key: Cache-Control
+        value: no-store
+  - glob: '/**'
+    headers:
+      - key: X-Frame-Options
+        value: SAMEORIGIN
 
 # Environment variables and secrets.
 # env:
-  # Configure environment variables.
-  # See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
-  # - variable: MESSAGE
-  #   value: Hello world!
-  #   availability:
-  #     - BUILD
-  #     - RUNTIME
+# Configure environment variables.
+# See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
+# - variable: MESSAGE
+#   value: Hello world!
+#   availability:
+#     - BUILD
+#     - RUNTIME
 
-  # Grant access to secrets in Cloud Secret Manager.
-  # You can create secrets with the CLI command `firebase apphosting:secrets:set <secretName>`.
-  # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
-  # - variable: MY_SECRET
-  #   secret: mySecretRef
+# Grant access to secrets in Cloud Secret Manager.
+# You can create secrets with the CLI command `firebase apphosting:secrets:set <secretName>`.
+# See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
+# - variable: MY_SECRET
+#   secret: mySecretRef

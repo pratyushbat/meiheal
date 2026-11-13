@@ -70,6 +70,7 @@ export class ProductService {
 
     if (this.listCache.has(cacheKey)) {
       const cached = this.listCache.get(cacheKey)!;
+      console.log('cahching now this.listCache.has(cacheKey)', cached.products)
       this.products.set(cached.products);
       this.totalCount.set(cached.total);
       return of(cached);
@@ -83,6 +84,7 @@ export class ProductService {
     return this.http.get<ProductListResponse>(this.API_BASE + '', { params }).pipe(
       tap((res) => {
         this.products.set(res.products);
+        console.log('firing original products ', res.products)
         this.totalCount.set(res.total);
         this.loading.set(false);
         this.listCache.set(cacheKey, res);

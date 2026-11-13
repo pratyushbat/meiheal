@@ -177,6 +177,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit, OnDestroy {
     private _dietService: DietService, private meta: Meta) {
     effect(() => {
       const products = this.productsList();
+      console.log('effect products on landin page', products)
       this.apiSellerTabs[0].products = products; // tab1
       this.apiSellerTabs[1].products = products; // tab2
     });
@@ -267,6 +268,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     if (isPlatformBrowser(this.platformId)) {
+
       this.getDietPlans();
     }
 

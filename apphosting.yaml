@@ -16,6 +16,11 @@ headers:
     headers:
       - key: X-Frame-Options
         value: SAMEORIGIN
+env:
+  - variable: DB_URI
+    secret: DB_URI
+  - variable: NODE_ENV
+    secret: NODE_ENV
 
 # Environment variables and secrets.
 # env:

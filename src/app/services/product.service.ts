@@ -1,7 +1,7 @@
 // core/services/product.service.ts
 import { Injectable, inject, signal, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { isPlatformServer } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { TransferState, makeStateKey } from '@angular/core';
 import { Observable, of, tap, catchError, map, shareReplay } from 'rxjs';
 import { Product } from '../models/product.model';
@@ -70,6 +70,7 @@ export class ProductService {
 
     if (this.listCache.has(cacheKey)) {
       const cached = this.listCache.get(cacheKey)!;
+      if (isPlatformBrowser(this.platformId)) 
       console.log('cahching now this.listCache.has(cacheKey)', cached.products)
       this.products.set(cached.products);
       this.totalCount.set(cached.total);
@@ -84,6 +85,7 @@ export class ProductService {
     return this.http.get<ProductListResponse>(this.API_BASE + '', { params }).pipe(
       tap((res) => {
         this.products.set(res.products);
+        if (isPlatformBrowser(this.platformId)) 
         console.log('firing original products ', res.products)
         this.totalCount.set(res.total);
         this.loading.set(false);

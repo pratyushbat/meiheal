@@ -33,14 +33,28 @@ export class LandingPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   heroSlides: HeroSlide[] = [
     {
-      imageDesktop: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140425/products/aralzlrhix86oemz60pj.png',
-      imageMobile: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140553/products/ckcmo1hynbrh6s7sqb4s.png',
+      imageDesktop: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981292/samples/landscapes/landscape-panorama.jpg',
+      imageMobile: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981285/samples/landscapes/girl-urban-view.jpg',
 
       alt: '',
       width: 1890,
       height: 832
     },
     {
+      imageDesktop: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981285/samples/landscapes/girl-urban-view.jpg',
+      imageMobile: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981285/samples/landscapes/girl-urban-view.jpg',
+      alt: '',
+      width: 1890,
+      height: 832
+    },
+    {
+      imageDesktop: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981285/samples/landscapes/girl-urban-view.jpg',
+      imageMobile: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981285/samples/landscapes/girl-urban-view.jpg',
+      alt: '',
+      width: 1890,
+      height: 832
+    },
+    {
       imageDesktop: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140612/products/a4rwmauash9clopaaqlp.png',
       imageMobile: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140716/products/vxmcz1xsasww7kzidhi1.png',
       alt: '',
@@ -48,22 +62,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit, OnDestroy {
       height: 832
     },
     {
-      imageDesktop: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140425/products/aralzlrhix86oemz60pj.png',
-      imageMobile: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140553/products/ckcmo1hynbrh6s7sqb4s.png',
-      alt: '',
-      width: 1890,
-      height: 832
-    },
-    {
-      imageDesktop: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140612/products/a4rwmauash9clopaaqlp.png',
-      imageMobile: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140716/products/vxmcz1xsasww7kzidhi1.png',
-      alt: '',
-      width: 1890,
-      height: 832
-    },
-    {
-      imageDesktop: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140425/products/aralzlrhix86oemz60pj.png',
-      imageMobile: 'https://res.cloudinary.com/jwrnfsov/image/upload/v1785140553/products/ckcmo1hynbrh6s7sqb4s.png',
+      imageDesktop: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981285/samples/landscapes/girl-urban-view.jpg',
+      imageMobile: 'https://res.cloudinary.com/dvooe1wpb/image/upload/v1765981285/samples/landscapes/girl-urban-view.jpg',
       alt: '',
       width: 1890,
       height: 832
